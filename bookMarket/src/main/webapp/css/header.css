@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Festive&family=Noto+Sans+JP:wght@300&display=swap');
+
+body,ul,li{
+	list-style:none;
+	margin:0;
+	padding: 0;
+}
+
+a{
+	color:inherit;
+	text-decoration: none;
+}
+
+/*lib*/
+.row::after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+
+.header_top{
+	border-bottom: 1px solid #ececec;
+}
+
+.header_top_cont{
+	margin:0 auto;
+	width: 1200px;
+}
+
+.top_member_box{
+	float: right;
+}
+
+.top_member_box li{
+	float:left;
+	padding:10px;
+}
+
+.top_member_box a{
+	display: inline-block;
+}
+
+.header_search{
+	border-bottom: 1px solid #ececec;
+}
+
+.header_search_cont{
+	width: 1200px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.logo{
+	font-family: 'Festive', cursive;
+    font-size: 30px;
+    font-weight: 900;
+    display: inline-block;
+    padding: 40px 0 40px 0;
+}
+
+.search{
+	display: inline-block;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+
+.header_gnb{
+	border-bottom: 1px solid #ececec;
+}
+
+.gnb_cont{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
+.gnb_box{
+	display:inline;
+}
+
+.gnb_box li{
+	float:left;
+	padding: 10px 23px 10px 22px;
+}
+

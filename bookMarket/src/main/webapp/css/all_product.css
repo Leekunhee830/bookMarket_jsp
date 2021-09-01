@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.main{
+	width: 1200px;
+	margin:0 auto;
+}
+
+.main>div>h2{
+	padding: 20px 0 20px 0;
+}
+
+.product_ranking li{
+	float: left;
+	font-size:13px;
+	color: #888888;
+	padding: 0px 10px 10px 0px;
+}
+
+.cell{
+	display:inline-block;
+	width:200px;
+	font-size:20px;
+	font-weight:900;
+	background-color: red;
+	position: relative;
+	margin-right: 30px;
+	box-sizing: border-box;
+}
+
+.cell>.cell_img{
+	width: 200px;
+	height: 250px;
+}
+
+.cell>.cell_img>a{
+	display: block;
+	height: 100%;
+}
+
+.cell>.cell_img>a>img{
+	display: block;
+	height:100%;
+}
+
