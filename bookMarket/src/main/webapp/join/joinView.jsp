@@ -30,7 +30,12 @@
 					
 					<div class="join_font">이메일</div>
 					<div>
-						<input type="text" name="user_email" placeholder="이메일을 입력하세요." required>
+						<input type="text" name="user_email" placeholder="이메일을 입력하세요." required size="15">
+						<select name="user_email2">
+							<option value="naver.com">naver.com</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="daum.com">daum.com</option>
+					</select>
 					</div>
 					
 					<div class="join_submit">
