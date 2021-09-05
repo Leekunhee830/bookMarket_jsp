@@ -7,7 +7,7 @@
 		<div class="join_cont">
 			<div class="join_form">
 				<div><h2>회원가입</h2></div>
-				<form action="#" method="post">
+				<form action="MemberJoin.do" method="post">
 					<div class="join_font">아이디</div>
 					<div>
 						<input type="text" name="user_id" placeholder="Id를 입력하세요." required>
