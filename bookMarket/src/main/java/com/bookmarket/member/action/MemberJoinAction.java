@@ -13,6 +13,14 @@ public class MemberJoinAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		
+		String user_email=request.getParameter("user_email1")+"@"+request.getParameter("user_email2");
+		String user_phone=request.getParameter("user_phone1")+"-"
+							+request.getParameter("user_phone2")+"-"
+							+request.getParameter("user_phone3");
+		
+		System.out.println(user_email);
+		System.out.println(user_phone);
+		
 		ActionForward actionForward=new ActionForward();
 		boolean result=false;
 		
@@ -22,8 +30,8 @@ public class MemberJoinAction implements Action{
 		dto.setId(request.getParameter("user_id"));
 		dto.setPassword(request.getParameter("user_password"));
 		dto.setName(request.getParameter("user_name"));
-		dto.setEmail(request.getParameter("user_email"));
-		dto.setPhone(request.getParameter("user_phone"));
+		dto.setEmail(user_email);
+		dto.setPhone(user_phone);
 		
 		result=dao.insert(dto);
 		
