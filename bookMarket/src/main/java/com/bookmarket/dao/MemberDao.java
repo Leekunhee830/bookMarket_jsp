@@ -57,6 +57,7 @@ public class MemberDao {
 		close(con, ps, null);
 	}
 	
+	//회원가입
 	public boolean insert(MemberDto dto) {
 		boolean result=false;
 		sql="INSERT INTO member VALUES(member_seq.NEXTVAL,?,?,?,?,?,SYSDATE)";
@@ -80,5 +81,36 @@ public class MemberDao {
 		}
 	
 		return result;
+	}
+	
+	//로그인
+	public MemberDto login(String user_id,String user_password) {
+		MemberDto dto=null;
+		sql="SELECT * FROM member WHERE id=? AND password=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			ps.setString(2, user_password);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				dto=new MemberDto();
+				dto.setId(rs.getString("id"));
+				dto.setPassword(rs.getString("password"));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setRegdate(rs.getString("regdate"));
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return dto;
 	}
 }

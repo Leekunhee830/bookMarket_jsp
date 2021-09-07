@@ -40,3 +40,8 @@
 .login_find{
 	float:right;
 }
+
+.login_fail{
+	color: red;
+	font-size: 18px;
+}

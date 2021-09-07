@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.member.action.MemberJoinAction;
+import com.bookmarket.member.action.MemberLoginAction;
+import com.bookmarket.member.action.MemberLogoutAction;
 
 
 @WebServlet("*.do")
@@ -29,10 +31,19 @@ public class FrontController extends HttpServlet {
 			if(requestPage.equals("MemberJoin.do")) {
 				action=new MemberJoinAction();
 				actionForward= action.execute(request, response);
-			}else if(requestPage.equals("joinResult.do")) {
+			}
+			else if(requestPage.equals("joinResult.do")) {
 				actionForward=new ActionForward();
 				actionForward.setNextPath("joinResult.jsp");
 				actionForward.setRedirect(false);
+			}
+			else if(requestPage.equals("MemberLogin.do")) {
+				action=new MemberLoginAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("logout.do")) {
+				action=new MemberLogoutAction();
+				actionForward=action.execute(request, response);
 			}
 			
 			

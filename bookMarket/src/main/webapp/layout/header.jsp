@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +16,16 @@
 			<div class="header_top">
 				<div class="header_top_cont row">
 					<ul class="top_member_box row">
-						<li><a href="/bookMarket/login/loginView.jsp">로그인</a></li> 
-						<li><a href="/bookMarket/join/joinView.jsp">회원가입</a></li>
+					<c:choose>
+						<c:when test="${sessionScope.currentName==null}">
+							<li><a href="/bookMarket/login/loginView.jsp">로그인</a></li> 
+							<li><a href="/bookMarket/join/joinView.jsp">회원가입</a></li>
+						</c:when>
+						<c:otherwise>
+							<li>${sessionScope.currentName}님</li>
+							<li><a href="/bookMarket/logout.do">로그아웃</a></li>
+						</c:otherwise>
+					</c:choose>
 						<li><a href="#">장바구니</a></li>
 						<li><a href="#">마이페이지</a></li>
 						<li><a href="#">고객센터</a></li>
