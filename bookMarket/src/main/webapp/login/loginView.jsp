@@ -9,7 +9,7 @@
 				<h2>로그인</h2>
 				<form action="MemberLogin.do" method="post" class="row">
 					<p>
-						<input type="text" name="user_id" placeholder="사용자 아이디" class="width_100">
+						<input type="text" name="user_id" placeholder="사용자 아이디" value="${cookie.user_id_remember.value }" class="width_100">
 					</p>
 					<p>
 						<input type="password" name="user_password" placeholder="비밀번호" class="width_100">

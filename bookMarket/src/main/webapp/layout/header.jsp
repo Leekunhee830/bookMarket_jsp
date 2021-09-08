@@ -39,10 +39,10 @@
 						<a href="#">Book Market</a>
 					</div>
 					<div class="search">
-					<form action="#" metohd="get">
-						<input type="text" name="">
-						<input type="image" src="${pageContext.request.contextPath}/img/search.png">				
-					</form>
+						<form action="#" metohd="get">
+							<input type="text" name="">
+							<input type="image" src="${pageContext.request.contextPath}/img/search.png">				
+						</form>
 					</div>
 				</div>
 			</div>
