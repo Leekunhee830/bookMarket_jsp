@@ -24,10 +24,10 @@
 						<c:otherwise>
 							<li>${sessionScope.currentName}님</li>
 							<li><a href="/bookMarket/logout.do">로그아웃</a></li>
+							<li><a href="#">마이페이지</a></li>
 						</c:otherwise>
 					</c:choose>
 						<li><a href="#">장바구니</a></li>
-						<li><a href="#">마이페이지</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>

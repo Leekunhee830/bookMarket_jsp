@@ -3,6 +3,7 @@ package com.bookmarket.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -112,5 +113,31 @@ public class MemberDao {
 		}
 		
 		return dto;
+	}
+	
+	//아이디찾기
+	public ArrayList<String> findId(String user_email) {
+		ArrayList<String> find_user_id=new ArrayList<String>(); 
+		String id=null;
+		sql="SELECT id FROM member WHERE email=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			rs=ps.executeQuery();
+			
+			
+			while(rs.next()) {
+				id=rs.getString("id");
+				find_user_id.add(id);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return find_user_id.isEmpty() ? null:find_user_id;
 	}
 }

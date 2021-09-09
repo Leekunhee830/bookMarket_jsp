@@ -24,7 +24,7 @@
 						<input type="submit" value="로그인" class="width_100">
 					</div>
 					<div class="login_find">
-						<a href="#"><h5>나의 계정찾기<h5></a>
+						<a href="memberFind.jsp"><h5>나의 계정찾기<h5></a>
 					</div>
 				</form>
 			</div>

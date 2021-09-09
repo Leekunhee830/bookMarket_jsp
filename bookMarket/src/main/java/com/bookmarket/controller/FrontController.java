@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bookmarket.member.action.MemberFindAction;
 import com.bookmarket.member.action.MemberJoinAction;
 import com.bookmarket.member.action.MemberLoginAction;
 import com.bookmarket.member.action.MemberLogoutAction;
@@ -43,6 +44,10 @@ public class FrontController extends HttpServlet {
 			}
 			else if(requestPage.equals("logout.do")) {
 				action=new MemberLogoutAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("MemberFind.do")) {
+				action=new MemberFindAction();
 				actionForward=action.execute(request, response);
 			}
 			
