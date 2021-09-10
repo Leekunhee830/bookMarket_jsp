@@ -9,6 +9,13 @@ public class MemberDto {
 	private String phone;
 	private String regdate;
 	
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}

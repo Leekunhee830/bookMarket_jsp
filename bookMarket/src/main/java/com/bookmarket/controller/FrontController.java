@@ -11,6 +11,8 @@ import com.bookmarket.member.action.MemberFindAction;
 import com.bookmarket.member.action.MemberJoinAction;
 import com.bookmarket.member.action.MemberLoginAction;
 import com.bookmarket.member.action.MemberLogoutAction;
+import com.bookmarket.member.action.MemberModifyAction;
+import com.bookmarket.member.action.MypageAction;
 
 
 @WebServlet("*.do")
@@ -48,6 +50,14 @@ public class FrontController extends HttpServlet {
 			}
 			else if(requestPage.equals("MemberFind.do")) {
 				action=new MemberFindAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("mypage.do")) {
+				action=new MypageAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("memberModify.do")) {
+				action=new MemberModifyAction();
 				actionForward=action.execute(request, response);
 			}
 			

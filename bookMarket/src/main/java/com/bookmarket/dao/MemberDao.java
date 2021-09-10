@@ -140,4 +140,54 @@ public class MemberDao {
 		}
 		return find_user_id.isEmpty() ? null:find_user_id;
 	}
+	
+	//마이페이지
+	public MemberDto myPage(String currentId) {
+		MemberDto dto=null;
+		sql="SELECT * FROM member WHERE id=?";
+	
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, currentId);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				dto=new MemberDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setId(rs.getString("id"));
+				dto.setPassword(rs.getString("password"));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setRegdate(rs.getString("regdate"));
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return dto;
+	}
+	
+	//회원정보 수정
+	public boolean memberModify(int num,String user_password) {
+		boolean result=false;
+		sql="UPDATE member SET password=? WHERE num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_password);
+			ps.setInt(2, num);
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
 }
