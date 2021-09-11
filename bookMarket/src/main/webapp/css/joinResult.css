@@ -1,13 +1,18 @@
 @charset "UTF-8";
 
 .join_result_wrap{
+	margin-bottom: 290px;
+}
+
+.join_result_cont{
 	padding:50px 0 50px 0;
 	width: 600px;
 	margin: 0 auto;
 	margin-top:100px;
+	margin-bottom:290px;
 }
 
-.join_result_wrap h1{
+.join_result_cont h1{
 	text-align: center;
 }
 

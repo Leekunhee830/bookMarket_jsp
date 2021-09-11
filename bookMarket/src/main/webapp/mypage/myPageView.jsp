@@ -38,10 +38,14 @@
 						${dto.email }
 					</div>
 					
-					<div class="mypage_submit">
+					<div class="mypage_btn">
 						<input type="submit" value="회원정보 수정"/>
 					</div>
+					<div class="mypage_btn">
+						<input type="button" value="회원 탈퇴" onclick="location.href='/bookMarket/mypage/signoutView.jsp'"/>
+					</div>
 				</form>
+				
 			</div>
 		</div>
 	</div>

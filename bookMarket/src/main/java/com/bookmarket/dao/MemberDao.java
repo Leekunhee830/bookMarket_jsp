@@ -190,4 +190,23 @@ public class MemberDao {
 		}
 		return result;
 	}
+	
+	//È¸¿øÅ»Åð
+	public boolean memberSignout(String user_id,String user_password) {
+		boolean result=false;
+		sql="DELETE FROM member WHERE id=? AND password=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			ps.setString(2, user_password);
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
 }

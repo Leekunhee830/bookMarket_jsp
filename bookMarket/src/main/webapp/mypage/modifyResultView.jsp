@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layout/header.jsp"/>
 
-<link href="${pageContext.request.contextPath}/css/modifyResult.css"  rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/modifyResultView.css"  rel="stylesheet" type="text/css"/>
 	
-	<div>
-		<div class="modify_result_wrap">
+	<div class="modify_result_wrap">
+		<div class="modify_result_cont">
 			<c:choose>
 				<c:when test="${requestScope.result}">
 					<h1>회원수정을 완료하였습니다.</h1>

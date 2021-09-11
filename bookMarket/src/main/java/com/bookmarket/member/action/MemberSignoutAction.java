@@ -7,24 +7,33 @@ import javax.servlet.http.HttpSession;
 import com.bookmarket.controller.Action;
 import com.bookmarket.controller.ActionForward;
 import com.bookmarket.dao.MemberDao;
-import com.bookmarket.dto.MemberDto;
 
-public class MypageAction implements Action{
+public class MemberSignoutAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		HttpSession session=request.getSession();
-		String currentId=(String)session.getAttribute("currentId");
-		MemberDto dto=new MemberDto();
+		request.setCharacterEncoding("UTF-8");
+		String user_id=request.getParameter("user_id");
+		String user_password=request.getParameter("user_password");
+		boolean result=false;
 		MemberDao dao=MemberDao.getInstance();
 		
-		dto=dao.myPage(currentId);
-		request.setAttribute("memberDto", dto);
+		result=dao.memberSignout(user_id, user_password);
+		
+		if(result) {
+			HttpSession session=request.getSession();
+			session.removeAttribute("currentName");
+			session.removeAttribute("currentId");
+			session.invalidate();
+		}
+		
+		request.setAttribute("result", result);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("myPageView.jsp");
+		actionForward.setNextPath("signoutResultView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;
 	}
+
 }

@@ -18,8 +18,6 @@ public class MemberJoinAction implements Action{
 							+request.getParameter("user_phone2")+"-"
 							+request.getParameter("user_phone3");
 		
-		System.out.println(user_email);
-		System.out.println(user_phone);
 		
 		ActionForward actionForward=new ActionForward();
 		boolean result=false;

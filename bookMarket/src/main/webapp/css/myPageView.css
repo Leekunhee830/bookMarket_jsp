@@ -23,11 +23,13 @@
 	margin:0 auto;
 }
 
-.mypage_submit{
+.mypage_btn{
+	display:inline-block;
 	margin-top:20px;
 }
 
-.mypage_submit>input{
+.mypage_btn>input{
+	display:inline-block;
 	width:130px;
 	height:40px;
 	background-color: black;

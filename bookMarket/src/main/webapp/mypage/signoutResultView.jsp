@@ -3,16 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layout/header.jsp"/>
 
-<link href="${pageContext.request.contextPath}/css/joinResult.css"  rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/signoutResult.css"  rel="stylesheet" type="text/css"/>
 	
-	<div class="join_result_wrap">
-		<div class="join_result_cont">
+	<div class="signout_result_wrap">
+		<div class="signout_result_cont">
 			<c:choose>
 				<c:when test="${requestScope.result}">
-					<h1>회원가입을 완료하였습니다.</h1>
+					<h1>회원탈퇴를 완료하였습니다.</h1>
 				</c:when>
 				<c:otherwise>
-					<h1>회원가입을 실패하였습니다.</h1>
+					<h1>회원탈퇴를 실패하였습니다.</h1>
 				</c:otherwise>
 			
 			</c:choose>
