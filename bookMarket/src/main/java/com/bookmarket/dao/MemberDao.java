@@ -209,4 +209,48 @@ public class MemberDao {
 		}
 		return result;
 	}
+	
+	//모든 회원 정보
+	public ArrayList<MemberDto> allSelect(){
+		ArrayList<MemberDto> list=new ArrayList<MemberDto>();
+		MemberDto dto=null;
+		String tmpPassword;
+		int passwordIndex=0;
+		
+		
+		sql="SELECT * FROM member";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			
+			while (rs.next()) {
+				dto=new MemberDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setId(rs.getString("id"));
+				
+				tmpPassword=rs.getString("password");
+				passwordIndex=tmpPassword.length()-2;
+				tmpPassword=tmpPassword.substring(0,2);
+				while(passwordIndex>0) {
+					tmpPassword+="*";
+					--passwordIndex;
+				}
+				
+				dto.setPassword(tmpPassword);
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setRegdate(rs.getString("regdate"));
+				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return list.isEmpty()? null:list;
+	}
 }

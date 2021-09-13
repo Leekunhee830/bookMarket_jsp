@@ -44,6 +44,11 @@
 					<div class="mypage_btn">
 						<input type="button" value="회원 탈퇴" onclick="location.href='/bookMarket/mypage/signoutView.jsp'"/>
 					</div>
+					<c:if test="${sessionScope.currentId=='admin'}">
+						<div class="mypage_btn">
+							<input type="button" value="모든 회원 정보" onclick="location.href='/bookMarket/mypage/all_members.do'"/>
+						</div>					
+					</c:if>
 				</form>
 				
 			</div>

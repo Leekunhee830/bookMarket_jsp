@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.all_member_wrap{
+	margin-bottom:290px;
+}
+
+.all_member_cont{
+	padding: 50px 50px 50px 50px;
+	width: 600px;
+	margin: 0 auto;
+	margin-top:100px;
+	border: 1px solid #000000; 
+}
+
+.all_member_cont>div{
+	width:550px;
+	margin:0 auto;
+}
