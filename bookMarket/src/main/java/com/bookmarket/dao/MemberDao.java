@@ -253,4 +253,22 @@ public class MemberDao {
 		}
 		return list.isEmpty()? null:list;
 	}
+	
+	//중복아이디검사
+	public int checkId(String user_id) {
+		int result=0;
+		sql="SELECT id FROM member WHERE id=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			result=ps.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
 }

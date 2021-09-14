@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.member.action.MemberAllSelectAction;
 import com.bookmarket.member.action.MemberFindAction;
+import com.bookmarket.member.action.MemberIdCheck;
 import com.bookmarket.member.action.MemberJoinAction;
 import com.bookmarket.member.action.MemberLoginAction;
 import com.bookmarket.member.action.MemberLogoutAction;
@@ -69,6 +70,12 @@ public class FrontController extends HttpServlet {
 			else if(requestPage.equals("all_members.do")) {
 				action=new MemberAllSelectAction();
 				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("idCheck.do")) {
+				System.out.print("µé¾î¿È");
+				MemberIdCheck idcheck=new MemberIdCheck();
+				int result=idcheck.idCheck(request, response);
+				response.getWriter().write(result+"");
 			}
 			
 			

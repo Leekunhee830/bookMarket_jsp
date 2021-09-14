@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
 <link href="${pageContext.request.contextPath}/css/join.css"  rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/check.js"></script>
 
 	<div class="join_wrap">
 		<div class="join_cont">
@@ -10,13 +12,18 @@
 				<form action="MemberJoin.do" method="post">
 					<div class="join_font">아이디</div>
 					<div>
-						<input type="text" name="user_id" placeholder="Id를 입력하세요." required>
+						<input type="text" id="user_id" name="user_id" placeholder="Id를 입력하세요." required>
 					</div>
+					<div id="id_check"></div>
 					
 					<div class="join_font">비밀번호</div>
 					<div>
-						<input type="password" name="user_password" placeholder="PW를 입력하세요." required>
+						<input type="password" id="user_password1" name="user_password" placeholder="PW를 입력하세요." required>
 					</div>
+					<div class="repassword">
+						<input type="password" id="user_password2" name="user_password" placeholder="PW를 다시 입력하세요." required>
+					</div>
+					<div id="password_check"></div>
 					
 					<div class="join_font">이름</div>
 					<div>

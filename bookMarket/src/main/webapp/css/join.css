@@ -34,3 +34,11 @@
 	color: white;
 	font-size: 15px
 }
+
+.repassword{
+	margin-top: 8px;
+}
+
+#password_check{
+	margin-top:5px;
+}
