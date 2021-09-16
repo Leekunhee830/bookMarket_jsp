@@ -14,7 +14,7 @@
 					<div>
 						<input type="text" id="user_id" name="user_id" placeholder="Id를 입력하세요." required>
 					</div>
-					<div id="id_check"></div>
+					<div id="id_check" class="check_font"></div>
 					
 					<div class="join_font">비밀번호</div>
 					<div>
@@ -23,7 +23,7 @@
 					<div class="repassword">
 						<input type="password" id="user_password2" name="user_password" placeholder="PW를 다시 입력하세요." required>
 					</div>
-					<div id="password_check"></div>
+					<div id="password_check" class="check_font"></div>
 					
 					<div class="join_font">이름</div>
 					<div>

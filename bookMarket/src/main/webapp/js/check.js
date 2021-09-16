@@ -12,4 +12,26 @@ $(document).ready(function() {
 			$("#password_check").css("color", "green");
 		}
 	});
+	
+	$('#user_id').blur(function(){
+		user_id=$('#user_id').val();
+		$.ajax({
+			url:'${pageContext.request.contextPath}/join/idCheck.do',
+			type:'post',
+			data:{user_id:user_id},
+			success:function(result){
+				if(result>=1){
+					$('#id_check').text('중복된 아이디입니다.');
+					$("#id_check").css("color", "red");
+				}else{
+					$('#id_check').text('사용가능한 아이디입니다.');
+					$("#id_check").css("color", "green");
+				}
+			},
+			error:function(){
+				alert("에러");
+			}		
+		});
+	});
+	
 });

@@ -72,7 +72,6 @@ public class FrontController extends HttpServlet {
 				actionForward=action.execute(request, response);
 			}
 			else if(requestPage.equals("idCheck.do")) {
-				System.out.print("µé¾î¿È");
 				MemberIdCheck idcheck=new MemberIdCheck();
 				int result=idcheck.idCheck(request, response);
 				response.getWriter().write(result+"");
