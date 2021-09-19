@@ -1,22 +1,32 @@
 $(document).ready(function() {
-
+	
 	var id_check=0;
 	var pw_check=0;
 
 	$('#user_password1 , #user_password2').blur(function(){
 		var password1=$("#user_password1").val();
 		var password2=$("#user_password2").val();
+		var password_rule = /^[A-Za-z0-9]{6,12}$/;
+
 		
 		if(password1!="" && password2!=""){
+			
 			if(password1!=password2){
 				$('#password_check').text('두 비밀번호가 일치하지 않습니다.');
 				$("#password_check").css("color", "red");
 				pw_check=0;
-			}else{
+			}
+			else if(!password_rule.test(password1)){
+				$('#password_check').text('숫자와 문자포함 6~12자리 이내로 입력해주세요.');
+				$("#password_check").css("color", "red");
+				pw_check=0;
+			}
+		    else if(password1==password2){
 				$('#password_check').text('사용 가능합니다.');
 				$("#password_check").css("color", "green");
 				pw_check=1;
 			}
+
 		}else{
 			$('#password_check').text('비밀번호를 입력해주세요.');
 			$("#password_check").css("color", "red");
@@ -24,8 +34,26 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#user_id').blur(function(){
+	$('#id_check_btn').click(function(){
 		user_id=$('#user_id').val();
+		
+		for(var i=0;i<user_id.length;i++){
+			ch=user_id.charAt(i);
+			if(!(ch>='0' && ch<='9') && !(ch>='a' && ch<='z') && !(ch>='A' && ch<='Z')){
+				$('#id_check').text('아이디는 영문 대소문자, 숫자만 입력가능합니다.');
+				$("#id_check").css("color", "red");
+				id_check=0;
+				return false;
+			}
+		}
+		
+		if (user_id.length<4 || user_id.length>12) {
+			$('#id_check').text('아이디를 4~12자까지 입력해주세요.');
+			$("#id_check").css("color", "red");
+			id_check=0;
+			return false;
+        }
+		
 		$.ajax({
 			url:'${pageContext.request.contextPath}/join/idCheck.do',
 			type:'post',
@@ -56,22 +84,51 @@ $(document).ready(function() {
 	});
 	
 	$('#join_button').click(function(){
+		var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var phone_rule = /^\d{3}-\d{3,4}-\d{4}$/;
+
+		var email1 = $('#user_email1').val();
+		var email2 =$('#user_email2').val();
+		var email=email1+"@"+email2;
+		
+		
+		
+		var phone=$('#user_phone1').val()+"-"+$('#user_phone2').val()+"-"+$('#user_phone3').val();
 		if($('#user_name').val()==""){
 			alert('이름을 입력해주세요');
-			return;
+			return false;
 		}
-		else if($('#user_phone2,#user_phone3').val()==""){
+		
+		if($('#user_phone2,#user_phone3').val()==""){
 			alert('전화번호를 입력해주세요.');
-			return;
+			return false;
 		}
-		else if($('#user_email1').val()==""){
+		
+		if(!phone_rule.test(phone)){
+			alert('전화번호를 잘못 입력하셨습니다.');
+			return false;
+		}
+		
+		if($('#user_email1').val()==""){
 			alert('이메일을 입력해주세요.');
-			return;
+			return false;
 		}
-		console.log(id_check);
-		console.log(pw_check);
+		
+		if(!email_rule.test(email)){
+			alert('이메일을 형식에 맞게 입력해주세요.');
+			return false;
+		}
+		
+		if(id_check==0){
+			alert('아이디 중복체크를 해주세요.');
+			return false;
+		}
+		if(pw_check==0){
+			alert('비밀번호를 확인해주세요.');
+			return false;
+		}
+		
 		if(id_check==1 && pw_check==1){
-			console.log('들어옴');
 			$('#join_submit').submit();
 		}
 	});

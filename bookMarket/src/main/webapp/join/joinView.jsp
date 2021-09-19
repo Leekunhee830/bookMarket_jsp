@@ -13,6 +13,7 @@
 					<div class="join_font">아이디</div>
 					<div>
 						<input type="text" id="user_id" name="user_id" placeholder="Id를 입력하세요." required>
+						<input type="button" value="아이디 중복체크" id="id_check_btn">
 					</div>
 					<div id="id_check" class="check_font"></div>
 					
@@ -38,15 +39,15 @@
 							<option value="011">011</option>
 						</select>
 						-
-						<input type="text" id="user_phone2" name="user_phone2" required size="5">
+						<input type="text" id="user_phone2" name="user_phone2" required size="5" maxlength='4'>
 						-
-						<input type="text" id="user_phone3" name="user_phone3" required size="5">
+						<input type="text" id="user_phone3" name="user_phone3" required size="5" maxlength='4'>
 					</div>
 					
 					<div class="join_font">이메일</div>
 					<div>
 						<input type="text" id="user_email1" name="user_email1" placeholder="이메일을 입력하세요." required size="15">
-						<select name="user_email2">
+						<select name="user_email2" id="user_email2">
 							<option value="naver.com">naver.com</option>
 							<option value="gmail.com">gmail.com</option>
 							<option value="daum.com">daum.com</option>
