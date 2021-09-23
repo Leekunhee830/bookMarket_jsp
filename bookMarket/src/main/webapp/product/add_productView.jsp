@@ -7,8 +7,12 @@
 	<div class="add_wrap">
 		<div class="add_cont">
 			<div class="add_form">
-			<form action="#" method="post" enctype="multipart/form-data">
+			<form action="AddProduct.pd" method="post" enctype="multipart/form-data">
 				<h2>상품등록</h2>
+				<div class="add_font">상품 코드</div>	
+				<div>
+					<input type="text" name="pd_code">
+				</div>
 				<div class="add_font">상품 이름</div>	
 				<div>
 					<input type="text" name="pd_name">
