@@ -31,11 +31,14 @@
 				</div>
 				<div class="add_font">상품 분류</div>	
 				<div>
-					<input type="text" name="pd_category">
+					<select name="pd_category">
+							<option value="language">외국어</option>
+							<option value="IT">컴퓨터,모바일</option>
+					</select>
 				</div>
 				<div class="add_font">상품 제조사</div>		
 				<div>
-					<input type="text" name="manufacturer">
+					<input type="text" name="pd_manufacturer">
 				</div>
 				<div class="add_font">상품 이미지</div>
 				<div>

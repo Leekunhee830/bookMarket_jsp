@@ -11,7 +11,15 @@ public class ProductDto {
 	private String pd_manufacturer;
 	private int pd_views;
 	private String pd_regdate;
+	private String pd_imgName;
 	
+	
+	public String getPd_imgName() {
+		return pd_imgName;
+	}
+	public void setPd_imgName(String pd_imgName) {
+		this.pd_imgName = pd_imgName;
+	}
 	public int getPd_num() {
 		return pd_num;
 	}

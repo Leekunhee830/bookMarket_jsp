@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.add_result_wrap{
+	margin-bottom: 290px;
+}
+
+.add_result_cont{
+	padding:50px 0 50px 0;
+	width: 600px;
+	margin: 0 auto;
+	margin-top:100px;
+	margin-bottom:290px;
+}
+
+.add_result_cont h1{
+	text-align: center;
+}
+
+.main_move{
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	color:white;
+	font-size: 18px;
+}
