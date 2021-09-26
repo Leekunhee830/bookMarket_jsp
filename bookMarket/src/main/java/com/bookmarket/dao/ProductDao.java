@@ -3,6 +3,7 @@ package com.bookmarket.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -83,6 +84,42 @@ public class ProductDao {
 		}
 		
 		return result;
+	}
+	
+	//전체상품 조회
+	public ArrayList<ProductDto> allProduct() {
+		ArrayList<ProductDto> list=new ArrayList<ProductDto>();
+		ProductDto dto=null;
+		sql="SELECT * FROM products";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				dto=new ProductDto();
+				dto.setPd_num(rs.getInt("pd_num"));
+				dto.setPd_code(rs.getString("pd_code"));
+				dto.setPd_name(rs.getString("pd_name"));
+				dto.setPd_contents(rs.getString("pd_contents"));
+				dto.setPd_price(rs.getInt("pd_price"));
+				dto.setPd_amount(rs.getInt("pd_amount"));
+				dto.setPd_category(rs.getString("pd_category"));
+				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+				dto.setPd_views(rs.getInt("pd_views"));
+				dto.setPd_imgName(rs.getString("pd_img"));
+				dto.setPd_regdate(rs.getString("pd_regdate"));
+				
+				list.add(dto);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()? null:list;
 	}
 	
 }
