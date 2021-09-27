@@ -28,7 +28,7 @@
 						
 						<div class="cell">
 							<div class="cell_img">
-								<a href="#"><img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}" alt="c언어"/></a>
+								<a href="SelectProductView.pd?productNum=${dto.pd_num}"><img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}" alt="c언어"/></a>
 							</div>
 							<div class="cell_product_name">
 								<a href="#">${dto.pd_name}</a>
