@@ -40,7 +40,7 @@
 			<div class="header_search">
 				<div class="header_search_cont">
 					<div class="logo">
-						<a href="#">Book Market</a>
+						<a href="/bookMarket/index.jsp">Book Market</a>
 					</div>
 					<div class="search">
 						<form action="#" metohd="get">

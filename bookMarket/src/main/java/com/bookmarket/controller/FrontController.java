@@ -18,7 +18,7 @@ import com.bookmarket.member.action.MemberSignoutAction;
 import com.bookmarket.member.action.MypageAction;
 
 
-@WebServlet("*.do")
+
 public class FrontController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -13,8 +13,6 @@ import com.bookmarket.product.action.AllProductAction;
 import com.bookmarket.product.action.SelectProductAction;
 
 
-
-@WebServlet("*.pd")
 public class FrontControllerPd extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

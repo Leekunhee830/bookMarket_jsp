@@ -9,4 +9,25 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>member</servlet-name>
+  	<servlet-class>com.bookmarket.controller.FrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>member</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>product</servlet-name>
+  	<servlet-class>com.bookmarket.controller.FrontControllerPd</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>product</servlet-name>
+  	<url-pattern>*.pd</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
