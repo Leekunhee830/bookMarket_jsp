@@ -1,4 +1,4 @@
-package com.bookmarket.controller;
+package com.bookmarket.util;
 
 public class ActionForward {
 	private boolean isRedirect;
