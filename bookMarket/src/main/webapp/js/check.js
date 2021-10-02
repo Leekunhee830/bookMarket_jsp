@@ -5,22 +5,7 @@ $(document).ready(function() {
 	var email1 = $('#user_email1').val();
 	var email2 =$('#user_email2').val();
 	var email=email1+"@"+email2;
-
-	$("#send_email_btn").on("click",function(){
-   		$.ajax({
-			url:'${pageContext.request.contextPath}/join/emailCheck.do',
-			type:'post',
-			data:{user_email:email},
-			success:function(result){
-				if(result==1){
-					alert("인증번호가 발송되었습니다.")
-				}else{
-					alert("오류");
-				}
-			},error:function(){
-				alert("에러");
-			}	
-	});
+	
 	
 	
 	$('#user_password1 , #user_password2').blur(function(){
@@ -104,7 +89,7 @@ $(document).ready(function() {
 	});
 	
 	
-	$("#join_button").on("click",function(){
+	$("#join_button").click(function(){
 		var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		var phone_rule = /^\d{3}-\d{3,4}-\d{4}$/;
 
@@ -146,5 +131,24 @@ $(document).ready(function() {
 		if(id_check==1 && pw_check==1){
 			$('#join_submit').submit();
 		}
+		
 	});	
+});
+
+$(document).on('click','#send_email_btn',function(){
+		alert('dd');
+   		$.ajax({
+			url:'${pageContext.request.contextPath}/join/emailCheck.do',
+			type:'post',
+			data:{user_email:email},
+			success:function(result){
+				if(result==1){
+					alert("인증번호가 발송되었습니다.")
+				}else{
+					alert("오류");
+				}
+			},error:function(){
+				alert("에러");
+			}
+		});	
 });

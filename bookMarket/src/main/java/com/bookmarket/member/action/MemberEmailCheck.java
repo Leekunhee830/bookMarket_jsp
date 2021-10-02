@@ -27,7 +27,7 @@ public class MemberEmailCheck {
 		
 		p.put("mail.smtp.host", "smtp.gmail.com"); //구글 smtp
 		
-		p.put("mail.smtp.user", "leekunhee8307@gmail.com");
+		p.put("mail.smtp.user", "사용자아이디");
 		p.put("mail.smtp.port", "465");
 		p.put("mail.smtp.starttls.enable", "true");
 		p.put("mail.smtp.auth","true");
