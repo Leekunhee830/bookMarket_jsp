@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.member.action.MemberAllSelectAction;
+import com.bookmarket.member.action.MemberEmailCheck;
 import com.bookmarket.member.action.MemberFindAction;
 import com.bookmarket.member.action.MemberIdCheck;
 import com.bookmarket.member.action.MemberJoinAction;
@@ -76,6 +77,11 @@ public class FrontController extends HttpServlet {
 			else if(requestPage.equals("idCheck.do")) {
 				MemberIdCheck idcheck=new MemberIdCheck();
 				int result=idcheck.idCheck(request, response);
+				response.getWriter().write(result+"");
+			}
+			else if(requestPage.equals("emailCheck.do")) {
+				MemberEmailCheck mailcheck=new MemberEmailCheck();
+				int result=mailcheck.sendEmail(request, response);
 				response.getWriter().write(result+"");
 			}
 			

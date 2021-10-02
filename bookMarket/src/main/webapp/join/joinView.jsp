@@ -5,6 +5,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/check.js"></script>
 
+
 	<div class="join_wrap">
 		<div class="join_cont">
 			<div class="join_form">
@@ -47,11 +48,18 @@
 					<div class="join_font">이메일</div>
 					<div>
 						<input type="text" id="user_email1" name="user_email1" placeholder="이메일을 입력하세요." required size="15">
+						@
 						<select name="user_email2" id="user_email2">
 							<option value="naver.com">naver.com</option>
 							<option value="gmail.com">gmail.com</option>
 							<option value="daum.com">daum.com</option>
 						</select>
+						<input type="button" value="인증번호 받기" id="send_email_btn"/>
+					</div>
+					<div class="join_font">인증번호</div>
+					<div>
+						<input type="text" id="user_email_checkNum">
+						<input type="button" value="인증하기" id="send_email_check"/>
 					</div>
 					
 					<div class="join_submit">
