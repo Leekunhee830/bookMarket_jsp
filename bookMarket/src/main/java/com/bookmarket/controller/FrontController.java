@@ -80,6 +80,7 @@ public class FrontController extends HttpServlet {
 				response.getWriter().write(result+"");
 			}
 			else if(requestPage.equals("emailCheck.do")) {
+				System.out.println("컨트롤러");
 				MemberEmailCheck mailcheck=new MemberEmailCheck();
 				int result=mailcheck.sendEmail(request, response);
 				response.getWriter().write(result+"");

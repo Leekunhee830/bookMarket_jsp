@@ -60,6 +60,7 @@
 					<div>
 						<input type="text" id="user_email_checkNum">
 						<input type="button" value="인증하기" id="send_email_check"/>
+						<div id="email_check" class="check_font"></div>
 					</div>
 					
 					<div class="join_submit">
