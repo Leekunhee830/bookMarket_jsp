@@ -9,7 +9,7 @@ import com.bookmarket.dao.MemberDao;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
-public class MemberFindAction implements Action{
+public class MemberFindIdAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
@@ -20,7 +20,7 @@ public class MemberFindAction implements Action{
 		request.setAttribute("find_id", user_ids);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("memberFindResult.jsp");
+		actionForward.setNextPath("memberFindIdResult.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

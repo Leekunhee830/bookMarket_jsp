@@ -21,7 +21,6 @@ public class MemberEmailCheck {
 		int random=0;
 		int result=0;
 		String user_email=request.getParameter("user_email");
-		System.out.println(user_email);
 		random=(int)Math.floor((Math.random()*(99999-10000+1)))+10000;//인증번호 5자리 랜덤생성
 		Properties p=new Properties();//정보를 담을 객체
 		

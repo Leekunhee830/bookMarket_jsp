@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.find_cont{
+	padding:50px 0 50px 0;
+	width: 600px;
+	margin: 0 auto;
+	margin-top:100px;
+	border: 1px solid #000000;
+	margin-bottom: 220px;
+}
+
+.find_form{
+	width:500px;
+	margin:0 auto;
+}
+
+.find_form>p{
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.find_form input[type="text"]{
+	height: 20px;
+	width: 250px;
+}
+
+.find_form input[type="submit"]{
+	display:block;
+	margin-top:15px;
+	background-color: black;
+	color: white;
+	height: 55px;
+	font-size:18px;
+	width:100%;
+}
+
+.find_password{
+	float:right;	
+}

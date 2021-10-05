@@ -27,11 +27,14 @@
 
 .find_form input[type="submit"]{
 	display:block;
-	margin-top:10px;
+	margin-top:15px;
 	background-color: black;
 	color: white;
-	height: 40px;
-	width: 200px;
+	height: 55px;
+	font-size:18px;
+	width:100%;
 }
 
-
+.find_password{
+	float:right;	
+}

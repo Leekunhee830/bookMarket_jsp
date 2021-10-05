@@ -141,6 +141,26 @@ public class MemberDao {
 		return find_user_id.isEmpty() ? null:find_user_id;
 	}
 	
+	//비밀번호찾기
+	public boolean findPw(String user_id,String user_email) {
+		boolean result=false;
+		sql="SELECT * FROM member WHERE id=? AND email=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			ps.setString(2, user_email);
+			result=ps.executeUpdate()==1;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
+	
 	//마이페이지
 	public MemberDto myPage(String currentId) {
 		MemberDto dto=null;
