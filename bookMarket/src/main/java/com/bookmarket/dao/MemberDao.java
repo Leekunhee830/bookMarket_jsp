@@ -161,6 +161,26 @@ public class MemberDao {
 		return result;
 	}
 	
+	//비밀번호 변경
+	public boolean modifyPw(String user_id,String user_email,String ranPw) {
+		boolean result=false;
+		sql="UPDATE member SET password=? WHERE id=? AND email=?";
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, ranPw);
+			ps.setString(2, user_id);
+			ps.setString(3, user_email);
+			
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
+	
 	//마이페이지
 	public MemberDto myPage(String currentId) {
 		MemberDto dto=null;

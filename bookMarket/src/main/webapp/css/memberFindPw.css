@@ -25,7 +25,7 @@
 	width: 250px;
 }
 
-.find_form input[type="submit"]{
+.find_pw_btn{
 	display:block;
 	margin-top:15px;
 	background-color: black;

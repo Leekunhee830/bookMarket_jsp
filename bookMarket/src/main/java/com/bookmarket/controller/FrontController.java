@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bookmarket.member.action.MemberAllSelectAction;
 import com.bookmarket.member.action.MemberEmailCheck;
 import com.bookmarket.member.action.MemberFindIdAction;
-import com.bookmarket.member.action.MemberFindPwAction;
+import com.bookmarket.member.action.MemberFindPw;
 import com.bookmarket.member.action.MemberIdCheck;
 import com.bookmarket.member.action.MemberJoinAction;
 import com.bookmarket.member.action.MemberLoginAction;
@@ -60,8 +60,9 @@ public class FrontController extends HttpServlet {
 				actionForward=action.execute(request, response);
 			}
 			else if(requestPage.equals("MemberFindPw.do")) {
-				action=new MemberFindPwAction();
-				actionForward=action.execute(request, response);
+				MemberFindPw memberFindPw=new MemberFindPw();
+				int result=memberFindPw.findPw(request, response);
+				response.getWriter().write(result+"");
 			}
 			else if(requestPage.equals("mypage.do")) {
 				action=new MypageAction();
@@ -85,7 +86,6 @@ public class FrontController extends HttpServlet {
 				response.getWriter().write(result+"");
 			}
 			else if(requestPage.equals("emailCheck.do")) {
-				System.out.println("컨트롤러");
 				MemberEmailCheck mailcheck=new MemberEmailCheck();
 				int result=mailcheck.sendEmail(request, response);
 				response.getWriter().write(result+"");

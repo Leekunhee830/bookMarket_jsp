@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.dao.MemberDao;
-import com.bookmarket.util.Action;
-import com.bookmarket.util.ActionForward;
 import com.bookmarket.util.Gmail;
 
-public class MemberFindPwAction implements Action{
-	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+public class MemberFindPw {
+	
+	public int findPw(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		MemberDao dao=MemberDao.getInstance();
 		
@@ -29,7 +27,6 @@ public class MemberFindPwAction implements Action{
 		String user_id=request.getParameter("user_id");
 		
 		result=dao.findPw(user_id, user_email);
-		System.out.print(result);
 		
 		if(result) {
 			String ranPw=""; //임시 비번
@@ -46,7 +43,7 @@ public class MemberFindPwAction implements Action{
 			
 			p.put("mail.smtp.host", "smtp.gmail.com"); //구글 smtp
 			
-			p.put("mail.smtp.user", "보내는사람");
+			p.put("mail.smtp.user", "관리자아이디");
 			p.put("mail.smtp.port", "465");
 			p.put("mail.smtp.starttls.enable", "true");
 			p.put("mail.smtp.auth","true");
@@ -63,7 +60,7 @@ public class MemberFindPwAction implements Action{
 				   MimeMessage msg = new MimeMessage(session); // 메일의 내용을 담을 객체
 				   msg.setSubject("jsp bookmarket 임시 비밀번호"); // 제목
 				     
-				   Address fromAddr = new InternetAddress("보내는사람");
+				   Address fromAddr = new InternetAddress("관리자아이디");
 				   msg.setFrom(fromAddr); // 보내는 사람
 				     
 				   Address toAddr = new InternetAddress(user_email);
@@ -72,8 +69,9 @@ public class MemberFindPwAction implements Action{
 				   msg.setContent("임시 비밀번호:"+ranPw, "text/html;charset=UTF-8"); // 내용과 인코딩
 				     
 				   Transport.send(msg); // 전송
-				   System.out.print("전송");
-
+				   
+				   dao.modifyPw(user_id, user_email, ranPw);//임시 비번으로 변경
+				   
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -81,12 +79,13 @@ public class MemberFindPwAction implements Action{
 			
 		}
 		
-		request.setAttribute("result", result);
+//		request.setAttribute("result", result);
 		
-		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("memberFindPwResult.jsp");
-		actionForward.setRedirect(false);
-		
-		return actionForward;
+//		ActionForward actionForward=new ActionForward();
+//		actionForward.setNextPath("memberFindPwResult.jsp");
+//		actionForward.setRedirect(false);
+//		
+//		return actionForward;
+		return result?1:0;
 	}
 }
