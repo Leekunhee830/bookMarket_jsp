@@ -7,6 +7,7 @@ import com.bookmarket.dao.MemberDao;
 import com.bookmarket.dto.MemberDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
+import com.bookmarket.util.SHA256;
 
 public class MemberJoinAction implements Action{
 	@Override
@@ -17,16 +18,17 @@ public class MemberJoinAction implements Action{
 		String user_phone=request.getParameter("user_phone1")+"-"
 							+request.getParameter("user_phone2")+"-"
 							+request.getParameter("user_phone3");
-		
-		
-		ActionForward actionForward=new ActionForward();
+		String rawPassword=request.getParameter("user_password");
+		String password=SHA256.encodeSHA256(rawPassword);
 		boolean result=false;
+		
+		System.out.println(password);
 		
 		MemberDao dao=MemberDao.getInstance();
 		MemberDto dto=new MemberDto();
 		
 		dto.setId(request.getParameter("user_id"));
-		dto.setPassword(request.getParameter("user_password"));
+		dto.setPassword(password);
 		dto.setName(request.getParameter("user_name"));
 		dto.setEmail(user_email);
 		dto.setPhone(user_phone);
@@ -34,6 +36,7 @@ public class MemberJoinAction implements Action{
 		result=dao.insert(dto);
 		
 		request.setAttribute("result", result);
+		ActionForward actionForward=new ActionForward();
 		actionForward.setNextPath("joinResult.do");
 		actionForward.setRedirect(false);
 		

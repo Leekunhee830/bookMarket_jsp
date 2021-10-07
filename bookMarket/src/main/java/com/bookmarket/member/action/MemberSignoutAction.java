@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.bookmarket.dao.MemberDao;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
+import com.bookmarket.util.SHA256;
 
 public class MemberSignoutAction implements Action{
 	@Override
@@ -14,11 +15,12 @@ public class MemberSignoutAction implements Action{
 		
 		request.setCharacterEncoding("UTF-8");
 		String user_id=request.getParameter("user_id");
-		String user_password=request.getParameter("user_password");
+		String rawPassword=request.getParameter("user_password");
+		String password=SHA256.encodeSHA256(rawPassword);
 		boolean result=false;
 		MemberDao dao=MemberDao.getInstance();
 		
-		result=dao.memberSignout(user_id, user_password);
+		result=dao.memberSignout(user_id, password);
 		
 		if(result) {
 			HttpSession session=request.getSession();

@@ -9,6 +9,7 @@ import com.bookmarket.dao.MemberDao;
 import com.bookmarket.dto.MemberDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
+import com.bookmarket.util.SHA256;
 
 public class MemberLoginAction implements Action{
 	@Override
@@ -16,8 +17,10 @@ public class MemberLoginAction implements Action{
 		
 		request.setCharacterEncoding("UTF-8");
 		
+		String rawPassword=request.getParameter("user_password");
+		String password=SHA256.encodeSHA256(rawPassword);
+		
 		String user_id=request.getParameter("user_id");
-		String user_password=request.getParameter("user_password");
 		boolean user_id_remember=Boolean.parseBoolean(request.getParameter("user_id_remember"));
 		
 		ActionForward actionForward=new ActionForward();
@@ -36,7 +39,7 @@ public class MemberLoginAction implements Action{
 			response.addCookie(cookie);
 		}
 		
-		dto=dao.login(user_id, user_password);
+		dto=dao.login(user_id, password);
 		
 		if(dto!=null) {
 			HttpSession session=request.getSession();
