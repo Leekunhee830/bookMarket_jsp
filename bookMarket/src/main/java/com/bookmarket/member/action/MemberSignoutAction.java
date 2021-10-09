@@ -20,7 +20,7 @@ public class MemberSignoutAction implements Action{
 		boolean result=false;
 		MemberDao dao=MemberDao.getInstance();
 		
-		result=dao.memberSignout(user_id, password);
+		result=dao.memberCheck(user_id, password);
 		
 		if(result) {
 			HttpSession session=request.getSession();

@@ -231,8 +231,8 @@ public class MemberDao {
 		return result;
 	}
 	
-	//회원탈퇴
-	public boolean memberSignout(String user_id,String user_password) {
+	//아이디,비밀번호체크
+	public boolean memberCheck(String user_id,String user_password) {
 		boolean result=false;
 		sql="DELETE FROM member WHERE id=? AND password=?";
 		

@@ -21,9 +21,7 @@ public class MemberJoinAction implements Action{
 		String rawPassword=request.getParameter("user_password");
 		String password=SHA256.encodeSHA256(rawPassword);
 		boolean result=false;
-		
-		System.out.println(password);
-		
+
 		MemberDao dao=MemberDao.getInstance();
 		MemberDto dto=new MemberDto();
 		

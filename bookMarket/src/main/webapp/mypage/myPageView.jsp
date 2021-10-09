@@ -13,16 +13,10 @@
 		<div class="mypage_cont">
 			<div class="mypage_form">
 				<div><h2>내정보</h2></div>
-				<form action="memberModify.do" method="post" id="modify_submit">
 					<input type="hidden" name="user_num" value="${dto.num}">
 					<div class="mypage_font">아이디</div>
 					<div>
 						${dto.id}
-					</div>
-					
-					<div class="mypage_font">비밀번호</div>
-					<div>
-						<input type="password" name="user_password" id="user_password" value="${dto.password}" required>
 					</div>
 					
 					<div class="mypage_font">이름</div>
@@ -41,7 +35,7 @@
 					</div>
 					
 					<div class="mypage_btn">
-						<input type="button" value="회원정보 수정" id="modify_button"/>
+						<input type="button" value="비밀번호 수정" id="modify_button"/>
 					</div>
 					<div class="mypage_btn">
 						<input type="button" value="회원 탈퇴" onclick="location.href='/bookMarket/mypage/signoutView.jsp'"/>
@@ -51,8 +45,7 @@
 							<input type="button" value="모든 회원 정보" onclick="location.href='/bookMarket/mypage/all_members.do'"/>
 						</div>					
 					</c:if>
-				</form>
-				
+		
 			</div>
 		</div>
 	</div>
