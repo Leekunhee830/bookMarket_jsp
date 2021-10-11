@@ -26,7 +26,7 @@ public class MemberEmailCheck {
 		
 		p.put("mail.smtp.host", "smtp.gmail.com"); //구글 smtp
 		
-		p.put("mail.smtp.user", "관리자 아이디");
+		p.put("mail.smtp.user", "보내는사람 아이디");
 		p.put("mail.smtp.port", "465");
 		p.put("mail.smtp.starttls.enable", "true");
 		p.put("mail.smtp.auth","true");
@@ -44,7 +44,7 @@ public class MemberEmailCheck {
 			   MimeMessage msg = new MimeMessage(session); // 메일의 내용을 담을 객체
 			   msg.setSubject("jsp bookmarket 이메일 인증"); // 제목
 			     
-			   Address fromAddr = new InternetAddress("관리자 아이디");
+			   Address fromAddr = new InternetAddress("보내는사람 아이디");
 			   msg.setFrom(fromAddr); // 보내는 사람
 			     
 			   Address toAddr = new InternetAddress(user_email);

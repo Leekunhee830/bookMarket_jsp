@@ -161,7 +161,7 @@ public class MemberDao {
 		return result;
 	}
 	
-	//비밀번호 변경
+	//임시 비밀번호로 변경
 	public boolean modifyPw(String user_id,String user_email,String ranPw) {
 		boolean result=false;
 		sql="UPDATE member SET password=? WHERE id=? AND email=?";
@@ -212,16 +212,16 @@ public class MemberDao {
 		return dto;
 	}
 	
-	//회원정보 수정
-	public boolean memberModify(int num,String user_password) {
+	//비밀번호 수정
+	public boolean memberModifyPw(String user_id,String user_password) {
 		boolean result=false;
-		sql="UPDATE member SET password=? WHERE num=?";
+		sql="UPDATE member SET password=? WHERE id=?";
 		
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
 			ps.setString(1, user_password);
-			ps.setInt(2, num);
+			ps.setString(2, user_id);
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -231,8 +231,8 @@ public class MemberDao {
 		return result;
 	}
 	
-	//아이디,비밀번호체크
-	public boolean memberCheck(String user_id,String user_password) {
+	//회원탈퇴
+	public boolean signout(String user_id,String user_password) {
 		boolean result=false;
 		sql="DELETE FROM member WHERE id=? AND password=?";
 		
@@ -304,6 +304,25 @@ public class MemberDao {
 			ps=con.prepareStatement(sql);
 			ps.setString(1, user_id);
 			result=ps.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
+	
+	//회원 아이디,비번 확인
+	public boolean memberCheck(String user_id,String user_password) {
+		boolean result=false;
+		sql="SELECT * FROM member WHERE id=? AND password=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			ps.setString(2, user_password);
+			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {

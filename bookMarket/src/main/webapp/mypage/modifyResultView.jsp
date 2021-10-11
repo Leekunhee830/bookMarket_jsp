@@ -9,10 +9,10 @@
 		<div class="modify_result_cont">
 			<c:choose>
 				<c:when test="${requestScope.result}">
-					<h1>회원수정을 완료하였습니다.</h1>
+					<h1>비밀번호 변경을 완료하였습니다.</h1>
 				</c:when>
 				<c:otherwise>
-					<h1>회원수정을 실패하였습니다.</h1>					
+					<h1>비밀번호 변경을 실패하였습니다.</h1>					
 				</c:otherwise>
 			
 			</c:choose>

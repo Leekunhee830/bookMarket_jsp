@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 		var email=$('#user_email').val();
 		var id=$('#user_id').val();
-		console.log(email);
 		
 		if(!email_rule.test(email)){
 			alert('이메일 형식에 맞게 입력해주세요.');

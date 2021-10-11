@@ -15,7 +15,7 @@ import com.bookmarket.member.action.MemberIdCheck;
 import com.bookmarket.member.action.MemberJoinAction;
 import com.bookmarket.member.action.MemberLoginAction;
 import com.bookmarket.member.action.MemberLogoutAction;
-import com.bookmarket.member.action.MemberModifyAction;
+import com.bookmarket.member.action.MemberModifyPwAction;
 import com.bookmarket.member.action.MemberPwCheck;
 import com.bookmarket.member.action.MemberSignoutAction;
 import com.bookmarket.member.action.MypageAction;
@@ -69,8 +69,8 @@ public class FrontController extends HttpServlet {
 				action=new MypageAction();
 				actionForward=action.execute(request, response);
 			}
-			else if(requestPage.equals("memberModify.do")) {
-				action=new MemberModifyAction();
+			else if(requestPage.equals("ModifyPw.do")) {
+				action=new MemberModifyPwAction();
 				actionForward=action.execute(request, response);
 			}
 			else if(requestPage.equals("signout.do")) {

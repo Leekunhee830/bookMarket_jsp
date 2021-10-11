@@ -4,11 +4,10 @@ $(document).ready(function(){
 	});
 	
 	$('#checkPw_btn').click(function(){
-		console.log("들어옴");
 		var user_password= $('#user_password').val();
 		var user_id=$('#user_id').val();
-		console.log(user_password);
 		
+		console.log(user_password+""+user_id);
 		$.ajax({
 			url:'${pageContext.request.contextPath}/login/PwCheck.do',
 			type:'post',
@@ -27,15 +26,25 @@ $(document).ready(function(){
 	});
 	
 	
-	$('#modify_button2').click(function(){
+	$('#modifyPw_button').click(function(){
 		var user_password=$('#user_password').val();
+		var user_repassword=$('#user_repassword').val();
 		var password_rule = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 		
+		if(user_password==""||user_repassword==""){
+			alert('비밀번호를 입력해주세요.');
+			return false;
+		}
+		
+		if(user_password!=user_repassword){
+			alert('두 비밀번호가 일치하지 않습니다.');
+			return false;
+		}
 		if(!password_rule.test(user_password)){
 			alert('숫자와 문자,특수 문자포함 8자리 이상으로 입력해주세요.');
 			return false;
 		}else{
-			$('#modify_submit').submit();
+			$('#modifyPw_submit').submit();
 		}
 		
 	});

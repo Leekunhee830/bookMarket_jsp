@@ -6,19 +6,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.bookmarket.dao.MemberDao;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
+import com.bookmarket.util.SHA256;
 
-public class MemberModifyAction implements Action{
+public class MemberModifyPwAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		boolean result=false;
-		String user_password=request.getParameter("user_password");
-		int user_num=Integer.parseInt(request.getParameter("user_num"));
+		String rawPassword=request.getParameter("user_password");
+		String user_id=request.getParameter("user_id");
 		MemberDao dao=MemberDao.getInstance();
+		String password=SHA256.encodeSHA256(rawPassword);
 		
-		result=dao.memberModify(user_num, user_password);
+		result=dao.memberModifyPw(user_id, password);
 		
 		request.setAttribute("result", result);
 		
