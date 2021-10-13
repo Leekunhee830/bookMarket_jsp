@@ -45,6 +45,7 @@ public class MemberLoginAction implements Action{
 			HttpSession session=request.getSession();
 			session.setAttribute("currentName", dto.getName());
 			session.setAttribute("currentId", dto.getId());
+			session.setAttribute("currentNum", dto.getNum());
 			actionForward.setNextPath("/index.jsp");
 		}
 		

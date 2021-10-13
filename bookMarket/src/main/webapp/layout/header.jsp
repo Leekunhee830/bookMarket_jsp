@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 
 <link href="${pageContext.request.contextPath}/css/header.css"  rel="stylesheet" type="text/css"/>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
 <title>Insert title here</title>
 </head>
 <body>

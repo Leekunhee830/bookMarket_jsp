@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.order_wrap{
+	height: 100%;
+}
+
+.order_cont{
+	padding:50px 0 50px 0;
+	width: 600px;
+	margin: 0 auto;
+	margin-top:100px;
+	border: 1px solid #000000;
+}
+
+.order_font{
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-top:20px;
+}
+
+.order_form{
+	width:500px;
+	margin:0 auto;
+}
+
+.order_submit{
+	margin-top:20px;
+}
+
+.order_submit>input{
+	width:100px;
+	height:55px;
+	background-color: black;
+	color: white;
+	font-size: 15px
+}
+

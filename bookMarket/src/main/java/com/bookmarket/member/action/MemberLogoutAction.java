@@ -13,6 +13,7 @@ public class MemberLogoutAction implements Action{
 		HttpSession session=request.getSession();
 		session.removeAttribute("currentName");
 		session.removeAttribute("currentId");
+		session.removeAttribute("currentNum");
 		session.invalidate();
 		
 		ActionForward actionForward=new ActionForward();
