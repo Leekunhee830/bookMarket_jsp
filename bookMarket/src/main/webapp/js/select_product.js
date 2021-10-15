@@ -8,7 +8,7 @@ $(document).ready(function(){
 			alert('로그인을 해주세요.');
 			return false;
 		}else{		
-			window.location.href = 'order_product.jsp?product_num='+product_num;
+			window.location.href = 'order_productView.jsp?product_num='+product_num;
 		}
 	});
 });

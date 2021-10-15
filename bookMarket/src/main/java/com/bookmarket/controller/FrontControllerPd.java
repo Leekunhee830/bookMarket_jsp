@@ -23,7 +23,7 @@ public class FrontControllerPd extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("½ÇÇà");
+		
 		String requestURI=request.getRequestURI();
 		int lastIndex=requestURI.lastIndexOf("/")+1;
 		String requestPage=requestURI.substring(lastIndex);

@@ -20,8 +20,6 @@ public class SelectProductAction implements Action{
 		
 		int pd_num=Integer.parseInt(request.getParameter("productNum"));
 		
-		System.out.println(pd_num);
-
 		
 		dto=dao.selectProduct(pd_num);
 		request.setAttribute("dto", dto);
@@ -30,7 +28,6 @@ public class SelectProductAction implements Action{
 		actionForward.setNextPath("select_productView.jsp");
 		actionForward.setRedirect(false);
 		
-		System.out.println(dto);
 
 		return actionForward;
 	}

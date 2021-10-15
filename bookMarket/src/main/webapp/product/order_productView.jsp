@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
 <link href="${pageContext.request.contextPath}/css/pd_css/order_prodcutView.css"  rel="stylesheet" type="text/css"/>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
 
 	<div class="order_wrap">
 		<div class="order_cont">
@@ -39,14 +41,14 @@
 					</div>
 					<div class="order_font">주소</div>
 					<div>
-						<input type="text" name="order_zipCode" required>
-						<input type="button" value="우편번호검색">
+						<input type="text" id="order_zipcode" name="order_zipcode" placeholder="우편번호" required size="6">
+						<input type="button" value="우편번호검색" onclick="search_zipcode()">
 					</div>
 					<div>
-						<input type="text" name="order_address" required size="50">
+						<input type="text" id="order_address" name="order_address" placeholder="주소" required size="50">
 					</div>
 					<div>
-						<input type="text" name="order_detail_address" required size="50">
+						<input type="text" id="order_detail_address" name="order_detail_address" placeholder="상세주소" required size="25">
 					</div>
 					<div class="order_font">배송 메시지</div>
 					<div>
