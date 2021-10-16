@@ -35,3 +35,11 @@
 	font-size: 15px
 }
 
+.order_count , .count_button{
+	display: inline-block;
+}
+
+.order_price{
+	display: inline-block;
+}
+

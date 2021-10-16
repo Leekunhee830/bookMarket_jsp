@@ -4,11 +4,17 @@
 <link href="${pageContext.request.contextPath}/css/pd_css/order_prodcutView.css"  rel="stylesheet" type="text/css"/>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/order_product.js"></script>
+
 
 	<div class="order_wrap">
 		<div class="order_cont">
 			<div class="order_form">
 				<div><h2>주문 페이지</h2></div>
+				<div>
+					<img src="${pageContext.request.contextPath}/upLoadImg/${param.pd_imgName}" alt="c언어"/>
+					<h2>제목 : ${param.pd_name }</h2>
+				</div>
 				<form action="" method="post">
 					<div class="order_font">받으실분</div>
 					<div>
@@ -54,10 +60,19 @@
 					<div>
 						<input type="text" name="order_message" placeholder="택배 기사님께 전달할 메시지를 남겨주세요." size="50">
 					</div>
+					<div class="order_font">
+						수량
+					</div>
+					<div>
+						<input type="button" id="count_minus" class="count_button" value="-">
+						<div id="order_count" class="order_count">1</div>
+						<input type="button" id="count_plus" class="count_button" value="+">
+					</div>
 					
+					<h2>가격 :<div id="order_price" class="order_price">${param.pd_price}</div></h2>
 					
 					<div class="order_submit">
-						<input type="button" value="주문하기""/>
+						<input type="button" value="주문하기"/>
 					</div>
 				</form>
 			</div>

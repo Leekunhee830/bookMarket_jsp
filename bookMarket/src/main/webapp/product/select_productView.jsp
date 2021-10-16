@@ -13,6 +13,9 @@
 		<div class="select_cont row">
 			<input type="hidden" id="user_id" value="${sessionScope.currentId}">
 			<input type="hidden" id="product_num" value="${dto.pd_num}">
+			<input type="hidden" id="product_imgName" value="${dto.pd_imgName}">
+			<input type="hidden" id="product_name" value="${dto.pd_name}">
+			<input type="hidden" id="product_price" value="${dto.pd_price}">
 			<div class="cont_left">
 				<div class="product_img">
 					<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}" alt="c언어"/>
