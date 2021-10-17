@@ -18,40 +18,40 @@
 				<form action="" method="post">
 					<div class="order_font">받으실분</div>
 					<div>
-						<input type="text" name="order_name" required>
+						<input type="text" id="order_name" name="order_name" required>
 					</div>
 					<div class="order_font">휴대폰번호</div>
 					<div>
-						<select name="order_phone1" id="user_phone1">
+						<select name="order_phone1" id="order_phone1">
 							<option value="010">010</option>
 							<option value="070">070</option>
 							<option value="011">011</option>
 						</select>
 						-
-						<input type="text" name="order_phone2" required size="5" maxlength='4'>
+						<input type="text" name="order_phone2" id="order_phone2" required size="5" maxlength='4'>
 						-
-						<input type="text" name="order_phone3" required size="5" maxlength='4'>
+						<input type="text" name="order_phone3" id="order_phone3" required size="5" maxlength='4'>
 					</div>
 					<div class="order_font">유선전화(선택)</div>
 					<div>
-						<select name="order_home_phone1" id="user_phone1">
+						<select name="order_home_phone1" id="order_home_phone1">
 							<option value="02">02</option>
 							<option value="042">042</option>
 							<option value="044">044</option>
 							<option value="051">044</option>
 						</select>
 						-
-						<input type="text" name="order_home_phone2" required size="5" maxlength='4'>
+						<input type="text" name="order_home_phone2" id="order_home_phone2" required size="5" maxlength='4'>
 						-
-						<input type="text" name="order_home_phone3" required size="5" maxlength='4'>
+						<input type="text" name="order_home_phone3" id="order_home_phone3" required size="5" maxlength='4'>
 					</div>
 					<div class="order_font">주소</div>
 					<div>
-						<input type="text" id="order_zipcode" name="order_zipcode" placeholder="우편번호" required size="6">
+						<input type="text" id="order_zipcode" onclick="search_zipcode()" name="order_zipcode" placeholder="우편번호" required size="6">
 						<input type="button" value="우편번호검색" onclick="search_zipcode()">
 					</div>
 					<div>
-						<input type="text" id="order_address" name="order_address" placeholder="주소" required size="50">
+						<input type="text" id="order_address" name="order_address" placeholder="주소" required size="50" readonly>
 					</div>
 					<div>
 						<input type="text" id="order_detail_address" name="order_detail_address" placeholder="상세주소" required size="25">
@@ -72,7 +72,7 @@
 					<h2>가격 :<div id="order_price" class="order_price">${param.pd_price}</div></h2>
 					
 					<div class="order_submit">
-						<input type="button" value="주문하기"/>
+						<input type="button" id="order_btn" value="주문하기"/>
 					</div>
 				</form>
 			</div>

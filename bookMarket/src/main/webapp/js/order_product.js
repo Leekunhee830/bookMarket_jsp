@@ -2,6 +2,7 @@ $(document).ready(function(){
 	
 	var order_count=$('#order_count').text();
 	var order_price=$('#order_price').text();
+	$('#order_price').text(comma(order_price));
 	
 	$('#count_plus').click(function(){
 		var total_price=0;
@@ -23,6 +24,42 @@ $(document).ready(function(){
 		
 		$('#order_count').text(order_count);
 	});
+	
+	$('#order_btn').click(function(){
+		var phone_rule = /^\d{3}-\d{3,4}-\d{4}$/;
+		var home_phone_rule=/^\d{2,3}-\d{3,4}-\d{4}$/;
+		var order_name=$('#order_name').val();
+		var order_zipcode=$('#order_zipcode').val();
+		var order_detail_address=$('#order_detail_address').val();
+		var order_phone=$('#order_phone1').val()+"-"+$('#order_phone2').val()+"-"+$('#order_phone3').val();
+		var order_home_phone=$('#order_home_phone1').val()+"-"+$('#order_home_phone2').val()+"-"+$('#order_home_phone3').val();
+		
+		console.log(order_phone);
+		console.log(order_home_phone);
+		
+		if(order_name==""){
+			alert('받으시는 분의 성함을 입력해주세요.');
+			return false;
+		}
+		if(order_zipcode==""){
+			alert('주소를 입력해주세요.');
+			return false;
+		}
+		if(order_detail_address==""){
+			alert('상세주소를 입력해주세요.');
+			return false;
+		}
+		if(!phone_rule.test(order_phone)){
+			alert('전화번호를 다시 확인해주세요');
+			return false;
+		}
+		if(!home_phone_rule.test(order_home_phone)){
+			alert('유선전화번호를 다시 확인해주세요.');
+			return false;
+		}
+		
+	});
+	
 	
 	
 });
