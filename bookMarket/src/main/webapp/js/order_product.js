@@ -34,8 +34,6 @@ $(document).ready(function(){
 		var order_phone=$('#order_phone1').val()+"-"+$('#order_phone2').val()+"-"+$('#order_phone3').val();
 		var order_home_phone=$('#order_home_phone1').val()+"-"+$('#order_home_phone2').val()+"-"+$('#order_home_phone3').val();
 		
-		console.log(order_phone);
-		console.log(order_home_phone);
 		
 		if(order_name==""){
 			alert('받으시는 분의 성함을 입력해주세요.');
@@ -57,6 +55,11 @@ $(document).ready(function(){
 			alert('유선전화번호를 다시 확인해주세요.');
 			return false;
 		}
+		
+		$('input[name=order_amount]').attr('value',order_count);
+		$('input[name=order_price]').attr('value',order_price*order_count);
+		
+		order_submit.submit();
 		
 	});
 	

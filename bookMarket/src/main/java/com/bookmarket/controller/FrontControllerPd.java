@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.product.action.AddProductAction;
 import com.bookmarket.product.action.AllProductAction;
+import com.bookmarket.product.action.OrderProductAction;
 import com.bookmarket.product.action.SelectProductAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -42,6 +43,10 @@ public class FrontControllerPd extends HttpServlet {
 			}
 			else if(requestPage.equals("SelectProductView.pd")) {
 				action=new SelectProductAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("OrderProduct.pd")) {
+				action=new OrderProductAction();
 				actionForward=action.execute(request, response);
 			}
 			

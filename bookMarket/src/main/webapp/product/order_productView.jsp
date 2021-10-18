@@ -15,7 +15,12 @@
 					<img src="${pageContext.request.contextPath}/upLoadImg/${param.pd_imgName}" alt="c언어"/>
 					<h2>제목 : ${param.pd_name }</h2>
 				</div>
-				<form action="" method="post">
+				<form action="OrderProduct.pd" method="post" id="order_submit">
+					<input type="hidden" name="user_name" value="${sessionScope.currentNum}">
+					<input type="hidden" name="product_num" value="${param.pd_num}">
+					<input type="hidden" name="order_amount">
+					<input type="hidden" name="order_price">
+					
 					<div class="order_font">받으실분</div>
 					<div>
 						<input type="text" id="order_name" name="order_name" required>
@@ -32,7 +37,7 @@
 						-
 						<input type="text" name="order_phone3" id="order_phone3" required size="5" maxlength='4'>
 					</div>
-					<div class="order_font">유선전화(선택)</div>
+					<div class="order_font">유선전화</div>
 					<div>
 						<select name="order_home_phone1" id="order_home_phone1">
 							<option value="02">02</option>
