@@ -16,10 +16,10 @@
 					<h2>제목 : ${param.pd_name }</h2>
 				</div>
 				<form action="OrderProduct.pd" method="post" id="order_submit">
-					<input type="hidden" name="user_name" value="${sessionScope.currentNum}">
+					<input type="hidden" name="user_num" value="${sessionScope.currentNum}">
 					<input type="hidden" name="product_num" value="${param.pd_num}">
-					<input type="hidden" name="order_amount">
-					<input type="hidden" name="order_price">
+					<input type="hidden" name="order_amount" value="">
+					<input type="hidden" name="order_price" value="">
 					
 					<div class="order_font">받으실분</div>
 					<div>

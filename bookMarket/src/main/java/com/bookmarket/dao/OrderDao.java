@@ -58,21 +58,22 @@ public class OrderDao {
 	}
 	
 	//상세 주문서 추가
-	public boolean add_order_detail(OrderDtailDto dto){
+	public boolean add_detail_order(OrderDtailDto dto){
 		boolean result=false;
-		sql="INSERT INTO order_detail VALUES(order_detail_seq.NEXTVAL,?,?,?,?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
-			ps.setInt(1, dto.getProduct_num());
-			ps.setInt(2, dto.getUser_num());
-			ps.setString(3, dto.getOrder_phone());
-			ps.setString(4, dto.getOrder_home_phone());
-			ps.setString(5, dto.getOrder_address());
-			ps.setString(6, dto.getOrder_message());
-			ps.setInt(7, dto.getOrder_amount());
-			ps.setInt(8, dto.getOrder_price());
+			ps.setString(1, dto.getOrder_num());
+			ps.setInt(2, dto.getProduct_num());
+			ps.setInt(3, dto.getUser_num());
+			ps.setString(4, dto.getOrder_phone());
+			ps.setString(5, dto.getOrder_home_phone());
+			ps.setString(6, dto.getOrder_address());
+			ps.setString(7, dto.getOrder_message());
+			ps.setInt(8, dto.getOrder_amount());
+			ps.setInt(9, dto.getOrder_price());
 			
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
@@ -85,4 +86,24 @@ public class OrderDao {
 		
 	}
 	
+	//상세주문 시퀀스 가져오기
+	public int order_seq(){
+		sql="SELECT order_detail_seq.NEXTVAL seq_num FROM DUAL";
+		int seq=0;
+		try {
+			
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				seq=rs.getInt("seq_num");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return seq;
+	}
 }
