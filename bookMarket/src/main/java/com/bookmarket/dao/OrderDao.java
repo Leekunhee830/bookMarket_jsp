@@ -3,6 +3,7 @@ package com.bookmarket.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -105,5 +106,40 @@ public class OrderDao {
 			close(con, ps, rs);
 		}
 		return seq;
+	}
+	
+	//전체구매내역 가져오기
+	public ArrayList<OrderDtailDto> getOrder_all(int user_num){
+		sql="SELECT * FROM order_detail WHERE user_num=?";
+		ArrayList<OrderDtailDto> list=new ArrayList<OrderDtailDto>();
+		OrderDtailDto dto=null;
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, user_num);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				dto=new OrderDtailDto();
+				dto.setOrder_num(rs.getString("order_num"));
+				dto.setProduct_num(rs.getInt("product_num"));
+				dto.setUser_num(rs.getInt("user_num"));
+				dto.setOrder_phone(rs.getString("order_phone"));
+				dto.setOrder_home_phone(rs.getString("order_home_phone"));
+				dto.setOrder_address(rs.getString("order_address"));
+				dto.setOrder_message(rs.getString("order_message"));
+				dto.setOrder_amount(rs.getInt("order_amount"));
+				dto.setOrder_price(rs.getInt("order_price"));
+				dto.setRegdate(rs.getString("regdate"));
+				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return list.isEmpty()?null:list;
 	}
 }
