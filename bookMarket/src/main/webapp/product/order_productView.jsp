@@ -12,12 +12,14 @@
 			<div class="order_form">
 				<div><h2>주문 페이지</h2></div>
 				<div>
-					<img src="${pageContext.request.contextPath}/upLoadImg/${param.pd_imgName}" alt="c언어"/>
+					<img src="${pageContext.request.contextPath}/upLoadImg/${param.pd_imgName}"/>
 					<h2>제목 : ${param.pd_name }</h2>
 				</div>
 				<form action="OrderProduct.pd" method="post" id="order_submit">
 					<input type="hidden" name="user_num" value="${sessionScope.currentNum}">
 					<input type="hidden" name="product_num" value="${param.pd_num}">
+					<input type="hidden" name="product_name" value="${param.pd_name}">
+					<input type="hidden" name="product_img" value="${param.pd_imgName}">
 					<input type="hidden" name="order_amount" value="">
 					<input type="hidden" name="order_price" value="">
 					

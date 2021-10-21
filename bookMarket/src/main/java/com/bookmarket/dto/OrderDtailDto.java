@@ -4,6 +4,8 @@ public class OrderDtailDto {
 	private String order_num;
 	private int product_num;
 	private int user_num;
+	private String product_name;
+	private String product_img;
 	private String order_phone;
 	private String order_home_phone;
 	private String order_address;
@@ -13,6 +15,18 @@ public class OrderDtailDto {
 	private String regdate;
 	
 
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public String getProduct_img() {
+		return product_img;
+	}
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
 	public String getOrder_num() {
 		return order_num;
 	}

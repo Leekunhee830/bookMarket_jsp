@@ -61,7 +61,7 @@ public class OrderDao {
 	//상세 주문서 추가
 	public boolean add_detail_order(OrderDtailDto dto){
 		boolean result=false;
-		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
@@ -69,12 +69,14 @@ public class OrderDao {
 			ps.setString(1, dto.getOrder_num());
 			ps.setInt(2, dto.getProduct_num());
 			ps.setInt(3, dto.getUser_num());
-			ps.setString(4, dto.getOrder_phone());
-			ps.setString(5, dto.getOrder_home_phone());
-			ps.setString(6, dto.getOrder_address());
-			ps.setString(7, dto.getOrder_message());
-			ps.setInt(8, dto.getOrder_amount());
-			ps.setInt(9, dto.getOrder_price());
+			ps.setString(4, dto.getProduct_name());
+			ps.setString(5, dto.getProduct_img());
+			ps.setString(6, dto.getOrder_phone());
+			ps.setString(7, dto.getOrder_home_phone());
+			ps.setString(8, dto.getOrder_address());
+			ps.setString(9, dto.getOrder_message());
+			ps.setInt(10, dto.getOrder_amount());
+			ps.setInt(11, dto.getOrder_price());
 			
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
@@ -125,6 +127,8 @@ public class OrderDao {
 				dto.setOrder_num(rs.getString("order_num"));
 				dto.setProduct_num(rs.getInt("product_num"));
 				dto.setUser_num(rs.getInt("user_num"));
+				dto.setProduct_name(rs.getString("product_name"));
+				dto.setProduct_img(rs.getString("product_img"));
 				dto.setOrder_phone(rs.getString("order_phone"));
 				dto.setOrder_home_phone(rs.getString("order_home_phone"));
 				dto.setOrder_address(rs.getString("order_address"));

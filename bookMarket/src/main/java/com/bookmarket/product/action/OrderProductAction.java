@@ -40,11 +40,14 @@ public class OrderProductAction implements Action{
 		String order_message=request.getParameter("order_message");
 		int order_amount=Integer.parseInt(request.getParameter("order_amount"));
 		int order_price=Integer.parseInt(request.getParameter("order_price"));
-		
+		String product_name=request.getParameter("product_name");
+		String product_img=request.getParameter("product_img");
 		
 		dto.setOrder_num(order_num);
 		dto.setUser_num(user_num);
 		dto.setProduct_num(product_num);
+		dto.setProduct_name(product_name);
+		dto.setProduct_img(product_img);
 		dto.setOrder_phone(order_phone);
 		dto.setOrder_home_phone(order_home_phone);
 		dto.setOrder_address(order_address);
