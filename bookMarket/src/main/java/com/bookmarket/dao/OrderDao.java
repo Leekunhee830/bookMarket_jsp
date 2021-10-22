@@ -61,7 +61,7 @@ public class OrderDao {
 	//상세 주문서 추가
 	public boolean add_detail_order(OrderDtailDto dto){
 		boolean result=false;
-		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
@@ -77,6 +77,7 @@ public class OrderDao {
 			ps.setString(9, dto.getOrder_message());
 			ps.setInt(10, dto.getOrder_amount());
 			ps.setInt(11, dto.getOrder_price());
+			ps.setInt(12,dto.getOrder_result());
 			
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
@@ -135,6 +136,7 @@ public class OrderDao {
 				dto.setOrder_message(rs.getString("order_message"));
 				dto.setOrder_amount(rs.getInt("order_amount"));
 				dto.setOrder_price(rs.getInt("order_price"));
+				dto.setOrder_result(rs.getInt("order_result"));
 				dto.setRegdate(rs.getString("regdate"));
 				list.add(dto);
 			}

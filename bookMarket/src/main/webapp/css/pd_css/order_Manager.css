@@ -3,8 +3,26 @@
 .order_wrap{
 	width: 1200px;
 	margin:0 auto;
+	margin-bottom: 500px;
+}
+
+.order_title{
+	margin-top: 30px;
 }
 
 .order_img{
 	width: 130px;
+}
+
+table{
+	margin-top:20px;
+	width: 100%;
+}
+
+.order_wrap h1{
+	text-align: center;
+}
+
+.order_num{
+	color:#4b70fd;;
 }

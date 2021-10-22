@@ -13,8 +13,16 @@ public class OrderDtailDto {
 	private int order_amount;
 	private int order_price;
 	private String regdate;
+	private int order_result;
+	
 	
 
+	public int getOrder_result() {
+		return order_result;
+	}
+	public void setOrder_result(int order_result) {
+		this.order_result = order_result;
+	}
 	public String getProduct_name() {
 		return product_name;
 	}

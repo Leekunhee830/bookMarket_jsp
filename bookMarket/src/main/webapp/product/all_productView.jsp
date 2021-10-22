@@ -28,13 +28,13 @@
 						
 						<div class="cell">
 							<div class="cell_img">
-								<a href="SelectProductView.pd?productNum=${dto.pd_num}"><img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}" alt="c언어"/></a>
+								<a href="SelectProductView.pd?productNum=${dto.pd_num}"><img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}" alt="${dto.pd_name}"/></a>
 							</div>
 							<div class="cell_product_name">
 								<a href="#">${dto.pd_name}</a>
 							</div>
 							<div class="cell_product_price">
-								<a href="#">가격:${dto.pd_price}원</a>
+								가격:<a href="#">${dto.pd_price}</a>원
 							</div>
 						</div>
 					
@@ -54,22 +54,7 @@
 					<a href="#">13000원</a>
 				</div>
 			</div>
-			
-			<div class="cell">
-				<div class="cell_img">
-					<a href="#"><img src="${pageContext.request.contextPath}/img/all_product_img/k1.jpg" alt="한국사문제집 사진"/></a>
-				</div>
-				<div class="cell_product_name">
-					<a href="#">큰별쌤 최태성의 별별 한국사</a>
-				</div>
-				<div class="cell_product_price">
-					<a href="#">13000원</a>
-				</div>
-			</div>
-			
-			
-		
-			
+
 			
 		</div>
 	

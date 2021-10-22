@@ -7,7 +7,7 @@
 
 	<div class="find_cont">
 		<div class="find_form row">
-			<h1>아이디 찾기</h1>
+			<h1>비밀번호 찾기</h1>
 			<p>사용자 아이디</p>
 			<input type="text" id="user_id"  placeholder="사용자 아이디를 입력해주세요." required>
 			<p>사용자 이메일</p>

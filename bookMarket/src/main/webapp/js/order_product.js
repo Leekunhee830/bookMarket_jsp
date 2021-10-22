@@ -1,8 +1,9 @@
 $(document).ready(function(){
-	
+
 	var order_count=$('#order_count').text();
 	var order_price=$('#order_price').text();
 	$('#order_price').text(comma(order_price));
+	
 	
 	$('#count_plus').click(function(){
 		var total_price=0;
@@ -62,7 +63,6 @@ $(document).ready(function(){
 		order_submit.submit();
 		
 	});
-	
 	
 	
 });
