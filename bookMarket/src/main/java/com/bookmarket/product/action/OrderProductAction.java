@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.dao.OrderDao;
-import com.bookmarket.dto.OrderDtailDto;
+import com.bookmarket.dto.OrderDetailDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -18,7 +18,7 @@ public class OrderProductAction implements Action{
 		
 		request.setCharacterEncoding("UTF-8");
 		OrderDao dao=OrderDao.getInstance();
-		OrderDtailDto dto=new OrderDtailDto();
+		OrderDetailDto dto=new OrderDetailDto();
 		boolean result=false;
 		
 		//주문 번호 만들기
@@ -31,6 +31,7 @@ public class OrderProductAction implements Action{
 		//dto
 		int user_num=Integer.parseInt(request.getParameter("user_num"));
 		int product_num=Integer.parseInt(request.getParameter("product_num"));
+		String order_name=request.getParameter("order_name");
 		String order_phone=request.getParameter("order_phone1")+"-"+request.getParameter("order_phone2")+"-"
 				+request.getParameter("order_phone3");
 		String order_home_phone=request.getParameter("order_home_phone1")+"-"+request.getParameter("order_home_phone2")+"-"
@@ -48,6 +49,7 @@ public class OrderProductAction implements Action{
 		dto.setProduct_num(product_num);
 		dto.setProduct_name(product_name);
 		dto.setProduct_img(product_img);
+		dto.setOrder_name(order_name);
 		dto.setOrder_phone(order_phone);
 		dto.setOrder_home_phone(order_home_phone);
 		dto.setOrder_address(order_address);

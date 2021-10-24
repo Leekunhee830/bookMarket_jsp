@@ -9,7 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.bookmarket.dto.OrderDtailDto;
+import com.bookmarket.dto.OrderDetailDto;
 
 public class OrderDao {
 	private static OrderDao dao;
@@ -59,9 +59,9 @@ public class OrderDao {
 	}
 	
 	//상세 주문서 추가
-	public boolean add_detail_order(OrderDtailDto dto){
+	public boolean add_detail_order(OrderDetailDto dto){
 		boolean result=false;
-		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO order_detail VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
@@ -71,13 +71,14 @@ public class OrderDao {
 			ps.setInt(3, dto.getUser_num());
 			ps.setString(4, dto.getProduct_name());
 			ps.setString(5, dto.getProduct_img());
-			ps.setString(6, dto.getOrder_phone());
-			ps.setString(7, dto.getOrder_home_phone());
-			ps.setString(8, dto.getOrder_address());
-			ps.setString(9, dto.getOrder_message());
-			ps.setInt(10, dto.getOrder_amount());
-			ps.setInt(11, dto.getOrder_price());
-			ps.setInt(12,dto.getOrder_result());
+			ps.setString(6, dto.getOrder_name());
+			ps.setString(7, dto.getOrder_phone());
+			ps.setString(8, dto.getOrder_home_phone());
+			ps.setString(9, dto.getOrder_address());
+			ps.setString(10, dto.getOrder_message());
+			ps.setInt(11, dto.getOrder_amount());
+			ps.setInt(12, dto.getOrder_price());
+			ps.setInt(13,dto.getOrder_result());
 			
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
@@ -112,10 +113,10 @@ public class OrderDao {
 	}
 	
 	//전체구매내역 가져오기
-	public ArrayList<OrderDtailDto> getOrder_all(int user_num){
+	public ArrayList<OrderDetailDto> getOrder_all(int user_num){
 		sql="SELECT * FROM order_detail WHERE user_num=?";
-		ArrayList<OrderDtailDto> list=new ArrayList<OrderDtailDto>();
-		OrderDtailDto dto=null;
+		ArrayList<OrderDetailDto> list=new ArrayList<OrderDetailDto>();
+		OrderDetailDto dto=null;
 		
 		try {
 			con=ds.getConnection();
@@ -124,7 +125,7 @@ public class OrderDao {
 			rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				dto=new OrderDtailDto();
+				dto=new OrderDetailDto();
 				dto.setOrder_num(rs.getString("order_num"));
 				dto.setProduct_num(rs.getInt("product_num"));
 				dto.setUser_num(rs.getInt("user_num"));
@@ -148,4 +149,41 @@ public class OrderDao {
 		}
 		return list.isEmpty()?null:list;
 	}
+	
+	//주문 상세 내역 가져오기
+		public OrderDetailDto  getOrder_detail(String order_num){
+			sql="SELECT * FROM order_detail WHERE order_num=?";
+			OrderDetailDto dto=null;
+			
+			try {
+				con=ds.getConnection();
+				ps=con.prepareStatement(sql);
+				ps.setString(1, order_num);
+				rs=ps.executeQuery();
+				
+				if(rs.next()) {
+					dto=new OrderDetailDto();
+					dto.setOrder_num(rs.getString("order_num"));
+					dto.setProduct_num(rs.getInt("product_num"));
+					dto.setUser_num(rs.getInt("user_num"));
+					dto.setProduct_name(rs.getString("product_name"));
+					dto.setProduct_img(rs.getString("product_img"));
+					dto.setOrder_name(rs.getString("order_name"));
+					dto.setOrder_phone(rs.getString("order_phone"));
+					dto.setOrder_home_phone(rs.getString("order_home_phone"));
+					dto.setOrder_address(rs.getString("order_address"));
+					dto.setOrder_message(rs.getString("order_message"));
+					dto.setOrder_amount(rs.getInt("order_amount"));
+					dto.setOrder_price(rs.getInt("order_price"));
+					dto.setOrder_result(rs.getInt("order_result"));
+					dto.setRegdate(rs.getString("regdate"));
+				}
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				close(con, ps, rs);
+			}
+			return dto;
+		}
 }

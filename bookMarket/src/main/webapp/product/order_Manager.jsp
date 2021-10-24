@@ -4,7 +4,7 @@
 <jsp:include page="/layout/header.jsp"/>
 
 <link href="${pageContext.request.contextPath}/css/pd_css/order_Manager.css"  rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/order_product.js"></script>
+
 
 
 	<div class="order_wrap">
@@ -30,7 +30,7 @@
 					<c:forEach var="dto" items="${requestScope.list}">
 						<tr>
 							<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.product_num}"><img class="order_img" src="${pageContext.request.contextPath}/upLoadImg/${dto.product_img}"/></a></th>
-								<th><a href="#" class="order_num">${dto.order_num}</a></th>
+								<th><a href="/bookMarket/product/OrderDetail.pd?orderNum=${dto.order_num}" class="order_num">${dto.order_num}</a></th>
 								<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.product_num}">${dto.product_name }</a></th>
 								<th>${dto.regdate }</th>
 								<th>${dto.order_amount }</th>

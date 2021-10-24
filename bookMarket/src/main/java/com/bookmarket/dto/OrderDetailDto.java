@@ -1,11 +1,12 @@
 package com.bookmarket.dto;
 
-public class OrderDtailDto {
+public class OrderDetailDto {
 	private String order_num;
 	private int product_num;
 	private int user_num;
 	private String product_name;
 	private String product_img;
+	private String order_name;
 	private String order_phone;
 	private String order_home_phone;
 	private String order_address;
@@ -16,7 +17,13 @@ public class OrderDtailDto {
 	private int order_result;
 	
 	
-
+	
+	public String getOrder_name() {
+		return order_name;
+	}
+	public void setOrder_name(String order_name) {
+		this.order_name = order_name;
+	}
 	public int getOrder_result() {
 		return order_result;
 	}
