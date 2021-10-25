@@ -8,6 +8,11 @@
 
 <link href="${pageContext.request.contextPath}/css/header.css"  rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
+
+<!-- 카카오 로그인 API -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/kakao_login.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,7 +28,7 @@
 						</c:when>
 						<c:otherwise>
 							<li>${sessionScope.currentName}님</li>
-							<li><a href="/bookMarket/logout.do">로그아웃</a></li>
+							<li><a href="/bookMarket/logout.do" id="kakaoLogout()">로그아웃</a></li>
 							<li><a href="/bookMarket/mypage/mypage.do">마이페이지</a></li>
 							<c:if test="${sessionScope.currentId=='admin' }">
 								<li><a href="/bookMarket/product/add_productView.jsp">상품 등록</a></li>

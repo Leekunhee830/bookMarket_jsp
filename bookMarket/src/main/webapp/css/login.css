@@ -41,6 +41,10 @@
 	float:right;
 }
 
+.kakao_img{
+	height: 55px;
+}
+
 .login_fail{
 	color: red;
 	font-size: 18px;
