@@ -32,8 +32,7 @@ $(document).ready(function() {
 	//인증번호 체크
 	$('#send_email_check').click(function(){
 		var num=$('#user_email_checkNum').val();
-		console.log(num);
-		console.log(email_check_num);
+		
 		if(num==email_check_num){
 			$('#email_check').text('인증이 완료되었습니다.');
 			$('#email_check').css("color","green");

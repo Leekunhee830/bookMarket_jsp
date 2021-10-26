@@ -331,4 +331,24 @@ public class MemberDao {
 		}
 		return result;
 	}
+	
+	//카카오 로그인
+	public boolean kakaoLogin(String user_id,String user_name) {
+		boolean result=false;
+		sql="INSERT INTO kakao_member VALUES(kakaoMember_seq.NEXTVAL,?,?,SYSDATE)";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			ps.setString(2, user_name);
+			result=ps.executeUpdate()==1;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
 }
