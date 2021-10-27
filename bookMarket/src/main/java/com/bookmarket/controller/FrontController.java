@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bookmarket.kakao.KakaoIdCheck;
 import com.bookmarket.kakao.KakaoLogin;
 import com.bookmarket.member.action.MemberAllSelectAction;
 import com.bookmarket.member.action.MemberEmailCheck;
@@ -101,6 +102,12 @@ public class FrontController extends HttpServlet {
 			else if(requestPage.equals("KakaoLogin.do")) {
 				KakaoLogin kakaoLogin=new KakaoLogin();
 				int result=kakaoLogin.kLogin(request, response);
+				response.getWriter().write(result+"");
+			}
+			//카카오 아이디 가입여부체크
+			else if(requestPage.equals("KakaoIdCheck.do")) {
+				KakaoIdCheck kakaoIdcheck=new KakaoIdCheck();
+				int result=kakaoIdcheck.kakaoIdck(request, response);
 				response.getWriter().write(result+"");
 			}
 			

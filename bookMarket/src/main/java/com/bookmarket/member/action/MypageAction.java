@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bookmarket.dao.MemberDao;
+import com.bookmarket.dto.KakaoMemberDto;
 import com.bookmarket.dto.MemberDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -15,11 +16,20 @@ public class MypageAction implements Action{
 		
 		HttpSession session=request.getSession();
 		String currentId=(String)session.getAttribute("currentId");
-		MemberDto dto=new MemberDto();
-		MemberDao dao=MemberDao.getInstance();
+		String subId=currentId.substring(currentId.length()-2,currentId.length());
+		MemberDao dao=MemberDao.getInstance();			
 		
-		dto=dao.myPage(currentId);
-		request.setAttribute("memberDto", dto);
+		if(subId.equals("@k")) {
+			KakaoMemberDto dto=new KakaoMemberDto();
+			dto=dao.kakaoInfo(currentId);
+			request.setAttribute("memberDto", dto);
+		}else {
+			MemberDto dto=new MemberDto();
+			dto=dao.myPage(currentId);
+			request.setAttribute("memberDto", dto);
+		}
+		
+		
 		
 		ActionForward actionForward=new ActionForward();
 		actionForward.setNextPath("myPageView.jsp");

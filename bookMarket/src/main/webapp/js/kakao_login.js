@@ -10,20 +10,35 @@ function kakaoLogin(){
 					var user_id=res.id;
 					var user_name=res.properties.nickname;
 					
+					//db에 카카오 아이디 확인
 					$.ajax({
-						url:'${pageContext.request.contextPath}/login/KakaoLogin.do',
+						url:'${pageContext.request.contextPath}/login/KakaoIdCheck.do',
 						type:'post',
 						data:{user_id:user_id,user_name:user_name},
 						success:function(result){
-							if(result==0){
-								alert('에러');
-							}else{
+							if(result==1){
+								alert(user_name+'님 환영합니다.');
 								window.location.replace("/bookMarket/index.jsp");
-							}	
-						},error:function(){
-							alert("에러");
+							}else{
+								//db에 카카오아이디 추가
+								$.ajax({
+									url:'${pageContext.request.contextPath}/login/KakaoLogin.do',
+									type:'post',
+									data:{user_id:user_id,user_name:user_name},
+									success:function(result){
+										if(result==0){
+											alert('에러1');
+										}else{
+											window.location.replace("/bookMarket/index.jsp");
+										}	
+									},error:function(){
+										alert("에러");
+									}
+								});	
+							}
 						}
-					});	
+					});
+							
 				},
 				fail: function(error){
 					console.log(erroe)

@@ -9,6 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.bookmarket.dto.KakaoMemberDto;
 import com.bookmarket.dto.MemberDto;
 
 public class MemberDao {
@@ -350,5 +351,50 @@ public class MemberDao {
 			close(con, ps);
 		}
 		return result;
+	}
+	
+	//카카오 아이디 가입확인
+	public boolean kakaoIdck(String user_id) {
+		boolean result=false;
+		sql="SELECT * FROM kakao_member WHERE id=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			
+			result=ps.executeUpdate()==1;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		
+		return result;
+	}
+	
+	//카카오 정보 가져오기
+	public KakaoMemberDto kakaoInfo(String user_id) {
+		sql="SELECT * FROM kakao_member WHERE id=?";
+		KakaoMemberDto dto=null;
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user_id);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				dto=new KakaoMemberDto();
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return dto;
 	}
 }
