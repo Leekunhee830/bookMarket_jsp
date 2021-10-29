@@ -22,14 +22,14 @@ function kakaoLogin(){
 							}else{
 								//db에 카카오아이디 추가
 								$.ajax({
-									url:'${pageContext.request.contextPath}/login/KakaoLogin.do',
+									url:'${pageContext.request.contextPath}/login/KakaoLoginView.do',
 									type:'post',
 									data:{user_id:user_id,user_name:user_name},
 									success:function(result){
 										if(result==0){
 											alert('에러1');
 										}else{
-											window.location.replace("/bookMarket/index.jsp");
+											window.location.replace("/bookMarket/login/kakaoLoginView.jsp");
 										}	
 									},error:function(){
 										alert("에러");
@@ -37,8 +37,7 @@ function kakaoLogin(){
 								});	
 							}
 						}
-					});
-							
+					});	
 				},
 				fail: function(error){
 					console.log(erroe)

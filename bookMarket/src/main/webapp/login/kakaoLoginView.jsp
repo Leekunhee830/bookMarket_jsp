@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
 <link href="${pageContext.request.contextPath}/css/join.css"  rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/check.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/kakao_join.js"></script>
 
 
 	<div class="join_wrap">
@@ -11,11 +11,8 @@
 			<div class="join_form">
 				<div><h2>카카오 계정연동/회원가입</h2></div>
 				<form action="KakaoJoin.do" method="post" id="join_submit">
-					
-					<div class="join_font">이름</div>
-					<div>
-						<input type="text" id="user_name" name="user_name" placeholder="이름을 입력하세요." required>
-					</div>
+					<input type="hidden" name="user_id" value="${sessionScope.kakao_id}">
+					<input type="hidden" name="user_name" value="${sessionScope.kakao_name}">
 					
 					<div class="join_font">전화번호</div>
 					<div>
@@ -39,17 +36,17 @@
 							<option value="gmail.com">gmail.com</option>
 							<option value="daum.com">daum.com</option>
 						</select>
-						<input type="button" value="인증번호 받기" id="send_email_btn"/>
+						<input type="button" value="인증번호 받기" id="send_email_btn_k"/>
 					</div>
 					<div class="join_font">인증번호</div>
 					<div>
 						<input type="text" id="user_email_checkNum">
-						<input type="button" value="인증하기" id="send_email_check"/>
+						<input type="button" value="인증하기" id="send_email_check_k"/>
 						<div id="email_check" class="check_font"></div>
 					</div>
 					
 					<div class="join_submit">
-						<input type="button" value="회원가입" id="join_button"/>
+						<input type="button" value="회원가입" id="join_button_k"/>
 					</div>
 				</form>
 			</div>

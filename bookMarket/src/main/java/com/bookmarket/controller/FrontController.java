@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.kakao.KakaoIdCheck;
 import com.bookmarket.kakao.KakaoLogin;
+import com.bookmarket.kakao.KakaoLoginView;
 import com.bookmarket.member.action.MemberAllSelectAction;
 import com.bookmarket.member.action.MemberEmailCheck;
 import com.bookmarket.member.action.MemberFindIdAction;
@@ -104,13 +105,19 @@ public class FrontController extends HttpServlet {
 				int result=kakaoLogin.kLogin(request, response);
 				response.getWriter().write(result+"");
 			}
+			//카카오 추가정보 입력창 이동
+			else if(requestPage.equals("KakaoLoginView.do")) {
+				KakaoLoginView kakaoLoginView=new KakaoLoginView();
+				int result=kakaoLoginView.info(request, response);
+				response.getWriter().write(result+"");
+			}
+			
 			//카카오 아이디 가입여부체크
 			else if(requestPage.equals("KakaoIdCheck.do")) {
 				KakaoIdCheck kakaoIdcheck=new KakaoIdCheck();
 				int result=kakaoIdcheck.kakaoIdck(request, response);
 				response.getWriter().write(result+"");
 			}
-			
 			
 			if(actionForward!=null) {
 				if(actionForward.isRedirect()) {
