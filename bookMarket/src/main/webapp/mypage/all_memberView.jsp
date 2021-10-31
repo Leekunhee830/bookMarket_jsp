@@ -22,7 +22,6 @@
 								<th >NAME</th>
 								<th >EMAIL</th>
 								<th >PHONE</th>
-								<th >PASSWORD</th>
 								<th>REGDATE</th>
 							</tr>
 							<c:forEach var="dto" items="${requestScope.list}">
@@ -32,7 +31,6 @@
 									<td>${dto.name }</td>
 									<td>${dto.email }</td>
 									<td>${dto.phone }</td>
-									<td>${dto.password }</td>
 									<td>${dto.regdate }</td>
 								</tr>
 							</c:forEach>

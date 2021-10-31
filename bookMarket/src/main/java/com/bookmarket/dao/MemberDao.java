@@ -334,15 +334,17 @@ public class MemberDao {
 	}
 	
 	//카카오 로그인
-	public boolean kakaoLogin(String user_id,String user_name) {
+	public boolean kakaoJoin(KakaoMemberDto dto) {
 		boolean result=false;
-		sql="INSERT INTO kakao_member VALUES(kakaoMember_seq.NEXTVAL,?,?,SYSDATE)";
+		sql="INSERT INTO kakao_member VALUES(kakaoMember_seq.NEXTVAL,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
-			ps.setString(1, user_id);
-			ps.setString(2, user_name);
+			ps.setString(1, dto.getId());
+			ps.setString(2, dto.getName());
+			ps.setString(3, dto.getEmail());
+			ps.setString(4, dto.getPhone());
 			result=ps.executeUpdate()==1;
 			
 		}catch (Exception e) {

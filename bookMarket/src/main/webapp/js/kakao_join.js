@@ -79,7 +79,7 @@ $(document).ready(function() {
 		}
 		
 		if(email_check==1){
-			$('#join_submit').submit();
+			$('#join_submit_k').submit();
 		}
 		
 	});	

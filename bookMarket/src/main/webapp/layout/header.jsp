@@ -32,6 +32,7 @@
 							<li><a href="/bookMarket/mypage/mypage.do">마이페이지</a></li>
 							<c:if test="${sessionScope.currentId=='admin' }">
 								<li><a href="/bookMarket/product/add_productView.jsp">상품 등록</a></li>
+								<li><a href="/bookMarket/product/ProductManager.pd">상품관리</a>
 							</c:if>
 						</c:otherwise>
 						

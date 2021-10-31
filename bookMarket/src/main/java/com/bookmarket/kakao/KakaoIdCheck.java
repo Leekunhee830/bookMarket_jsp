@@ -17,11 +17,6 @@ public class KakaoIdCheck {
 		
 		result=dao.kakaoIdck(user_id);
 		
-		if(result) {
-			HttpSession session=request.getSession();
-			session.setAttribute("currentName", user_name);
-			session.setAttribute("currentId", user_id);
-		}
 		
 		return result?1:0;
 	}
