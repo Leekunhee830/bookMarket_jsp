@@ -11,13 +11,13 @@ public class ProductDelete {
 	public int product_delete(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		request.setCharacterEncoding("UTF-8");
-		String pd_code=request.getParameter("pd_code");
+		int pd_num=Integer.parseInt(request.getParameter("pd_num"));
 		String pd_img=request.getParameter("pd_img");
 		String realPath=request.getServletContext().getRealPath("/upLoadImg/");
 		ProductDao dao=ProductDao.getInstance();
 		int result=0;
 		
-		result=dao.deleteProduct(pd_code);
+		result=dao.deleteProduct(pd_num);
 		if(result==1) {
 			File file=new File(realPath+pd_img);
 			file.delete();

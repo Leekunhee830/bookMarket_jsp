@@ -155,14 +155,14 @@ public class ProductDao {
 	}
 	
 	//상품삭제
-	public int deleteProduct(String pd_code) {
-		sql="DELETE FROM products WHERE pd_code=?";
+	public int deleteProduct(int pd_num) {
+		sql="DELETE FROM products WHERE pd_num=?";
 		boolean result=false;
 		
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
-			ps.setString(1, pd_code);
+			ps.setInt(1, pd_num);
 			result=ps.executeUpdate()==1;
 			
 		}catch (Exception e) {

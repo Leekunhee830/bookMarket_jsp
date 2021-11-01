@@ -1,9 +1,9 @@
-function product_delete(pd_code,pd_img){
+function product_delete(pd_num,pd_img){
 	
 	$.ajax({
-		url:'${pageContext.request.contextPath}/prodcut/ProductDelete.pd',
+		url:'${pageContext.request.contextPath}/product/ProductDelete.pd',
 		type:'post',
-		data:{pd_code:pd_code,pd_img:pd_img},
+		data:{pd_num:pd_num,pd_img:pd_img},
 		success:function(result){
 			if(result==1){
 				alert('상품삭제가 완료되었습니다.');
@@ -15,4 +15,8 @@ function product_delete(pd_code,pd_img){
 			alert("에러");
 		}					
 	});	
+}
+
+function product_modifyView(pd_num){
+	location.href = 'ModifyProductView.pd?pd_num='+pd_num;
 }

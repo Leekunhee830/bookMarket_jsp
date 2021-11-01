@@ -38,8 +38,8 @@
 							<th>${dto.pd_amount}</th>
 							<th>${dto.pd_price}</th>
 							<th>
-								<input type="button" value="수정">
-								<input type="button" value="삭제" onclick="product_delete('${dto.pd_code}','${dto.pd_imgName }')">
+								<input type="button" value="수정" onclick="product_modifyView('${dto.pd_num}')">
+								<input type="button" value="삭제" onclick="product_delete('${dto.pd_num}','${dto.pd_imgName }')">
 							</th>
 						</tr>
 					</c:forEach>

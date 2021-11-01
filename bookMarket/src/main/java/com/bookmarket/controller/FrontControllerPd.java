@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bookmarket.kakao.KakaoIdCheck;
 import com.bookmarket.product.action.AddProductAction;
 import com.bookmarket.product.action.AllProductAction;
+import com.bookmarket.product.action.ModifiyProductViewAction;
 import com.bookmarket.product.action.OrderDetailAction;
 import com.bookmarket.product.action.OrderManagerAction;
 import com.bookmarket.product.action.OrderProductAction;
@@ -70,6 +71,10 @@ public class FrontControllerPd extends HttpServlet {
 				ProductDelete pdDelete=new ProductDelete();
 				int result=pdDelete.product_delete(request, response);
 				response.getWriter().write(result+"");
+			}
+			else if(requestPage.equals("ModifyProductView.pd")) {
+				action=new ModifiyProductViewAction();
+				actionForward=action.execute(request, response);
 			}
 			
 			

@@ -34,3 +34,9 @@
 	color: white;
 	font-size: 15px
 }
+
+textarea{
+	resize:none;
+	width:500px;
+	height: 100px;
+}
