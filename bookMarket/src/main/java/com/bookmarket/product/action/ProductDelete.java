@@ -21,7 +21,6 @@ public class ProductDelete {
 		if(result==1) {
 			File file=new File(realPath+pd_img);
 			file.delete();
-			
 		}
 		
 		

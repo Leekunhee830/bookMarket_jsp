@@ -172,4 +172,32 @@ public class ProductDao {
 		}
 		return result?1:0;
 	}
+	
+	//상품수정
+	public boolean ModifyProduct(ProductDto dto,int pd_num) {
+		sql="UPDATE products SET pd_code=?,pd_name=?,pd_contents=?,pd_price=?,pd_amount=?,"
+				+ "pd_category=?,pd_manufacturer=?,pd_img=? WHERE pd_num=?";
+		boolean result=false;
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, dto.getPd_code());
+			ps.setString(2, dto.getPd_name());
+			ps.setString(3, dto.getPd_contents());
+			ps.setInt(4, dto.getPd_price());
+			ps.setInt(5, dto.getPd_amount());
+			ps.setString(6, dto.getPd_category());
+			ps.setString(7, dto.getPd_manufacturer());
+			ps.setString(8, dto.getPd_imgName());
+			ps.setInt(9, pd_num);
+			
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
 }

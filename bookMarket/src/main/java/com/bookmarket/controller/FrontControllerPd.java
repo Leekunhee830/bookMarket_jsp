@@ -12,6 +12,7 @@ import com.bookmarket.kakao.KakaoIdCheck;
 import com.bookmarket.product.action.AddProductAction;
 import com.bookmarket.product.action.AllProductAction;
 import com.bookmarket.product.action.ModifiyProductViewAction;
+import com.bookmarket.product.action.ModifyProduct;
 import com.bookmarket.product.action.OrderDetailAction;
 import com.bookmarket.product.action.OrderManagerAction;
 import com.bookmarket.product.action.OrderProductAction;
@@ -75,6 +76,10 @@ public class FrontControllerPd extends HttpServlet {
 			else if(requestPage.equals("ModifyProductView.pd")) {
 				action=new ModifiyProductViewAction();
 				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("ModifyProduct.pd")) {
+				ModifyProduct ModifyPd=new ModifyProduct();
+				ModifyPd.modify(request,response);
 			}
 			
 			
