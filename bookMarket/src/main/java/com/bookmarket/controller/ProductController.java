@@ -23,7 +23,7 @@ import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
 
-public class FrontControllerPd extends HttpServlet {
+public class ProductController extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

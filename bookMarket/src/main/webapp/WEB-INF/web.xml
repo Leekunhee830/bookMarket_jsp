@@ -12,7 +12,7 @@
   
   <servlet>
   	<servlet-name>member</servlet-name>
-  	<servlet-class>com.bookmarket.controller.FrontController</servlet-class>
+  	<servlet-class>com.bookmarket.controller.MemberController</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -22,12 +22,22 @@
   
   <servlet>
   	<servlet-name>product</servlet-name>
-  	<servlet-class>com.bookmarket.controller.FrontControllerPd</servlet-class>
+  	<servlet-class>com.bookmarket.controller.ProductController</servlet-class>
   </servlet>
   
   <servlet-mapping>
   	<servlet-name>product</servlet-name>
   	<url-pattern>*.pd</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>cart</servlet-name>
+  	<servlet-class>com.bookmarket.controller.CartController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>cart</servlet-name>
+  	<url-pattern>*.ct</url-pattern>
   </servlet-mapping>
   
 </web-app>

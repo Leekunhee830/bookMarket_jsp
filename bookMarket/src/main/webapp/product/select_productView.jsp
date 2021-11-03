@@ -37,7 +37,7 @@
 			</div>
 			<div class="btn_wrap">
 				<input type="button" id="order_btn" value="주문하기"/>
-				<input type="button" value="장바구니"/>
+				<input type="button" value="장바구니" onclick="addCart('${dto.pd_num}')"/>
 			</div>
 		</div>
 	</div>

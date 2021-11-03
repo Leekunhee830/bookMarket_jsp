@@ -27,7 +27,7 @@ import com.bookmarket.util.ActionForward;
 
 
 
-public class FrontController extends HttpServlet {
+public class MemberController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
