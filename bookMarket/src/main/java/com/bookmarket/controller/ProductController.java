@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.kakao.KakaoIdCheck;
-import com.bookmarket.product.action.AddProductAction;
-import com.bookmarket.product.action.AllProductAction;
-import com.bookmarket.product.action.ModifiyProductViewAction;
-import com.bookmarket.product.action.ModifyProduct;
-import com.bookmarket.product.action.OrderDetailAction;
-import com.bookmarket.product.action.OrderManagerAction;
-import com.bookmarket.product.action.OrderProductAction;
-import com.bookmarket.product.action.ProductDelete;
-import com.bookmarket.product.action.ProductManagerAction;
-import com.bookmarket.product.action.SelectProductAction;
+import com.bookmarket.product.AddProductAction;
+import com.bookmarket.product.AllProductAction;
+import com.bookmarket.product.ModifiyProductViewAction;
+import com.bookmarket.product.ModifyProduct;
+import com.bookmarket.product.OrderDetailAction;
+import com.bookmarket.product.OrderManagerAction;
+import com.bookmarket.product.OrderProductAction;
+import com.bookmarket.product.ProductDelete;
+import com.bookmarket.product.ProductManagerAction;
+import com.bookmarket.product.SelectProductAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 

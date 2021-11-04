@@ -1,4 +1,4 @@
-package com.bookmarket.product.action;
+package com.bookmarket.product;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

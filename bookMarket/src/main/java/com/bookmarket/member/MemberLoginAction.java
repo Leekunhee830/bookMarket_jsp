@@ -1,4 +1,4 @@
-package com.bookmarket.member.action;
+package com.bookmarket.member;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

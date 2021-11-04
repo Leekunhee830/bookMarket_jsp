@@ -1,4 +1,4 @@
-package com.bookmarket.product.action;
+package com.bookmarket.product;
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;

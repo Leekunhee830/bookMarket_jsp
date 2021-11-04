@@ -1,29 +1,34 @@
-package com.bookmarket.member.action;
-
-import java.util.ArrayList;
+package com.bookmarket.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookmarket.dao.MemberDao;
+import com.bookmarket.dao.ProductDao;
+import com.bookmarket.dto.ProductDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
-public class MemberFindIdAction implements Action{
+
+public class SelectProductAction implements Action{
+
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
-		MemberDao dao=MemberDao.getInstance();
 		
-		String user_email=request.getParameter("user_email");
-		ArrayList<String> user_ids= dao.findId(user_email);
-		request.setAttribute("find_id", user_ids);
+		ProductDao dao=ProductDao.getInstance();
+		ProductDto dto=new ProductDto();
+		
+		int pd_num=Integer.parseInt(request.getParameter("productNum"));
+		
+		
+		dto=dao.selectProduct(pd_num);
+		request.setAttribute("dto", dto);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("memberFindIdResult.jsp");
+		actionForward.setNextPath("select_productView.jsp");
 		actionForward.setRedirect(false);
 		
+
 		return actionForward;
 	}
-
 }

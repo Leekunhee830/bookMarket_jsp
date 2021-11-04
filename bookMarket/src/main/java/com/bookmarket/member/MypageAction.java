@@ -1,4 +1,4 @@
-package com.bookmarket.member.action;
+package com.bookmarket.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

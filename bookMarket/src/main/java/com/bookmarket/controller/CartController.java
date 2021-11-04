@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookmarket.cart.action.AddCart;
+import com.bookmarket.cart.AddCart;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -30,7 +30,8 @@ public class CartController extends HttpServlet {
 		try {
 			if(requestPage.equals("addCart.ct")) {
 				AddCart addcart=new AddCart();
-				addcart.addCart(request, response);
+				int result=addcart.addCart(request, response);
+				response.getWriter().write(result+"");
 			}
 			
 			
