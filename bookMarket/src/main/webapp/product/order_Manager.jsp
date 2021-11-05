@@ -9,14 +9,14 @@
 
 	<div class="order_wrap">
 		
-		<div class="order_title"><h2>결제 내역</h2></div>
 		
 		<c:choose>
 			<c:when test="${requestScope.list==null}">
-				<h1>결제 내역이 없습니다.</h1>		
+				<h1 class="empty_font">결제 내역이 없습니다.</h1>		
 			</c:when>
 			
 			<c:otherwise>
+				<div class="order_title"><h2>결제 내역</h2></div>
 				<table border="1">
 					<tr>
 						<th>상품 정보</th>

@@ -10,7 +10,7 @@
 	<div class="order_wrap">
 		<c:choose>
 			<c:when test="${requestScope.list==null}">
-				<h1>장바구니에 담긴 상품이 없습니다.</h1>		
+				<h1 class="empty_font">장바구니에 담긴 상품이 없습니다.</h1>		
 			</c:when>
 			
 			<c:otherwise>

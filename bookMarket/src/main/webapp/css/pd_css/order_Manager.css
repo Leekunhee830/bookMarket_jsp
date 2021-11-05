@@ -3,7 +3,7 @@
 .order_wrap{
 	width: 1200px;
 	margin:0 auto;
-	margin-bottom: 500px;
+	margin-bottom: 400px;
 }
 
 .order_title{
@@ -25,4 +25,8 @@ table{
 
 .order_num{
 	color:#4b70fd;;
+}
+
+.empty_font{
+	margin-top: 200px;
 }
