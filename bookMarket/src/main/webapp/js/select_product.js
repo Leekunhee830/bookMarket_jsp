@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 function addCart(pd_num){
 	$.ajax({
-		url:'${pageContext.request.contextPath}/product/addCart.ct',
+		url:'${pageContext.request.contextPath}/product/AddCart.ct',
 		type:'post',
 		data:{pd_num:pd_num},
 		success:function(result){

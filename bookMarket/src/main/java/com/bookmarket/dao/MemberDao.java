@@ -88,7 +88,7 @@ public class MemberDao {
 	//로그인
 	public MemberDto login(String user_id,String user_password) {
 		MemberDto dto=null;
-		sql="SELECT * FROM member WHERE id=? AND password=?";
+		sql="SELECT * FROM member WHERE user_id=? AND user_password=?";
 		
 		try {
 			con=ds.getConnection();
@@ -99,12 +99,12 @@ public class MemberDao {
 			
 			if(rs.next()) {
 				dto=new MemberDto();
-				dto.setNum(rs.getInt("num"));
-				dto.setId(rs.getString("id"));
-				dto.setPassword(rs.getString("password"));
-				dto.setName(rs.getString("name"));
-				dto.setEmail(rs.getString("email"));
-				dto.setPhone(rs.getString("phone"));
+				dto.setNum(rs.getInt("user_num"));
+				dto.setId(rs.getString("user_id"));
+				dto.setPassword(rs.getString("user_password"));
+				dto.setName(rs.getString("user_name"));
+				dto.setEmail(rs.getString("user_email"));
+				dto.setPhone(rs.getString("user_phone"));
 				dto.setRegdate(rs.getString("regdate"));
 			}
 			
@@ -121,7 +121,7 @@ public class MemberDao {
 	public ArrayList<String> findId(String user_email) {
 		ArrayList<String> find_user_id=new ArrayList<String>(); 
 		String id=null;
-		sql="SELECT id FROM member WHERE email=?";
+		sql="SELECT user_id FROM member WHERE user_email=?";
 		
 		try {
 			con=ds.getConnection();
@@ -131,7 +131,7 @@ public class MemberDao {
 			
 			
 			while(rs.next()) {
-				id=rs.getString("id");
+				id=rs.getString("user_id");
 				find_user_id.add(id);
 			}
 			
@@ -146,7 +146,7 @@ public class MemberDao {
 	//비밀번호찾기
 	public boolean findPw(String user_id,String user_email) {
 		boolean result=false;
-		sql="SELECT * FROM member WHERE id=? AND email=?";
+		sql="SELECT * FROM member WHERE user_id=? AND user_email=?";
 		
 		try {
 			con=ds.getConnection();
@@ -166,7 +166,7 @@ public class MemberDao {
 	//임시 비밀번호로 변경
 	public boolean modifyPw(String user_id,String user_email,String ranPw) {
 		boolean result=false;
-		sql="UPDATE member SET password=? WHERE id=? AND email=?";
+		sql="UPDATE member SET user_password=? WHERE user_id=? AND user_email=?";
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
@@ -186,7 +186,7 @@ public class MemberDao {
 	//마이페이지
 	public MemberDto myPage(String currentId) {
 		MemberDto dto=null;
-		sql="SELECT * FROM member WHERE id=?";
+		sql="SELECT * FROM member WHERE user_id=?";
 	
 		try {
 			con=ds.getConnection();
@@ -196,12 +196,12 @@ public class MemberDao {
 			
 			if(rs.next()) {
 				dto=new MemberDto();
-				dto.setNum(rs.getInt("num"));
-				dto.setId(rs.getString("id"));
-				dto.setPassword(rs.getString("password"));
-				dto.setName(rs.getString("name"));
-				dto.setEmail(rs.getString("email"));
-				dto.setPhone(rs.getString("phone"));
+				dto.setNum(rs.getInt("user_num"));
+				dto.setId(rs.getString("user_id"));
+				dto.setPassword(rs.getString("user_password"));
+				dto.setName(rs.getString("user_name"));
+				dto.setEmail(rs.getString("user_email"));
+				dto.setPhone(rs.getString("user_phone"));
 				dto.setRegdate(rs.getString("regdate"));
 			}
 			
@@ -217,7 +217,7 @@ public class MemberDao {
 	//비밀번호 수정
 	public boolean memberModifyPw(String user_id,String user_password) {
 		boolean result=false;
-		sql="UPDATE member SET password=? WHERE id=?";
+		sql="UPDATE member SET user_password=? WHERE user_id=?";
 		
 		try {
 			con=ds.getConnection();
@@ -236,7 +236,7 @@ public class MemberDao {
 	//회원탈퇴
 	public boolean signout(String user_id,String user_password) {
 		boolean result=false;
-		sql="DELETE FROM member WHERE id=? AND password=?";
+		sql="DELETE FROM member WHERE user_id=? AND user_password=?";
 		
 		try {
 			con=ds.getConnection();
@@ -269,21 +269,11 @@ public class MemberDao {
 			
 			while (rs.next()) {
 				dto=new MemberDto();
-				dto.setNum(rs.getInt("num"));
-				dto.setId(rs.getString("id"));
-				
-				tmpPassword=rs.getString("password");
-				passwordIndex=tmpPassword.length()-2;
-				tmpPassword=tmpPassword.substring(0,2);
-				while(passwordIndex>0) {
-					tmpPassword+="*";
-					--passwordIndex;
-				}
-				
-				dto.setPassword(tmpPassword);
-				dto.setName(rs.getString("name"));
-				dto.setEmail(rs.getString("email"));
-				dto.setPhone(rs.getString("phone"));
+				dto.setNum(rs.getInt("user_num"));
+				dto.setId(rs.getString("user_id"));
+				dto.setName(rs.getString("user_name"));
+				dto.setEmail(rs.getString("user_email"));
+				dto.setPhone(rs.getString("user_phone"));
 				dto.setRegdate(rs.getString("regdate"));
 				list.add(dto);
 			}
@@ -299,7 +289,7 @@ public class MemberDao {
 	//중복아이디검사
 	public int checkId(String user_id) {
 		int result=0;
-		sql="SELECT id FROM member WHERE id=?";
+		sql="SELECT user_id FROM member WHERE user_id=?";
 		
 		try {
 			con=ds.getConnection();
@@ -317,7 +307,7 @@ public class MemberDao {
 	//회원 아이디,비번 확인
 	public boolean memberCheck(String user_id,String user_password) {
 		boolean result=false;
-		sql="SELECT * FROM member WHERE id=? AND password=?";
+		sql="SELECT * FROM member WHERE user_id=? AND user_password=?";
 		
 		try {
 			con=ds.getConnection();

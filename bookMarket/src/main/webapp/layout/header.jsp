@@ -30,6 +30,7 @@
 							<li>${sessionScope.currentName}님</li>
 							<li><a href="/bookMarket/logout.do" id="kakaoLogout()">로그아웃</a></li>
 							<li><a href="/bookMarket/mypage/mypage.do">마이페이지</a></li>
+							<li><a href="/bookMarket/cart/AllCart.ct">장바구니</a></li>
 							<c:if test="${sessionScope.currentId=='admin' }">
 								<li><a href="/bookMarket/product/add_productView.jsp">상품 등록</a></li>
 								<li><a href="/bookMarket/product/ProductManager.pd">상품관리</a>
@@ -37,7 +38,6 @@
 						</c:otherwise>
 						
 					</c:choose>
-						<li><a href="#">장바구니</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>

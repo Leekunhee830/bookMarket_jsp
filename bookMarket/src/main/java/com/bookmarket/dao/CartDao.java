@@ -3,10 +3,13 @@ package com.bookmarket.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.bookmarket.dto.CartAllDto;
 
 public class CartDao {
 	private static CartDao dao;
@@ -75,4 +78,39 @@ public class CartDao {
 		
 		return result;
 	}
+	
+	//모든장바구니 목록 가져오기
+	public ArrayList<CartAllDto> all_Cart(int user_num){
+		ArrayList<CartAllDto> list=new ArrayList<CartAllDto>();
+		CartAllDto dto=null;
+		sql="SELECT cart.user_num,cart.product_num,products.pd_name,products.pd_manufacturer,products.pd_price,products.pd_img,cart.regdate "
+				+ "FROM cart INNER JOIN products "
+				+ "ON products.pd_num=cart.product_num where user_num=?";
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, user_num);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				dto=new CartAllDto();
+				dto.setUser_num(rs.getInt("user_num"));
+				dto.setPd_num(rs.getInt("product_num"));
+				dto.setPd_name(rs.getString("pd_name"));
+				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+				dto.setPd_price(rs.getInt("pd_price"));
+				dto.setPd_img(rs.getString("pd_img"));
+				dto.setRegdate(rs.getString("regdate"));
+				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()?null:list;
+	}
+	
 }

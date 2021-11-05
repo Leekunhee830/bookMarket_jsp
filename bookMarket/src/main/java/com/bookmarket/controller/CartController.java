@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.cart.AddCart;
+import com.bookmarket.cart.AllCartAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -28,10 +29,14 @@ public class CartController extends HttpServlet {
 		ActionForward actionForward=null;
 		
 		try {
-			if(requestPage.equals("addCart.ct")) {
+			if(requestPage.equals("AddCart.ct")) {
 				AddCart addcart=new AddCart();
 				int result=addcart.addCart(request, response);
 				response.getWriter().write(result+"");
+			}
+			else if(requestPage.equals("AllCart.ct")) {
+				action=new AllCartAction();
+				actionForward=action.execute(request, response);
 			}
 			
 			
