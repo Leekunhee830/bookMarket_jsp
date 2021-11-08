@@ -122,6 +122,42 @@ public class ProductDao {
 		return list.isEmpty()? null:list;
 	}
 	
+	//전체상품 중 20개 조회
+	public ArrayList<ProductDto> allProduct_20() {
+		ArrayList<ProductDto> list=new ArrayList<ProductDto>();
+		ProductDto dto=null;
+		sql="SELECT * FROM products WHERE ROWNUM<=20 ORDER BY pd_num DESC";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				dto=new ProductDto();
+				dto.setPd_num(rs.getInt("pd_num"));
+				dto.setPd_code(rs.getString("pd_code"));
+				dto.setPd_name(rs.getString("pd_name"));
+				dto.setPd_contents(rs.getString("pd_contents"));
+				dto.setPd_price(rs.getInt("pd_price"));
+				dto.setPd_amount(rs.getInt("pd_amount"));
+				dto.setPd_category(rs.getString("pd_category"));
+				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+				dto.setPd_views(rs.getInt("pd_views"));
+				dto.setPd_imgName(rs.getString("pd_img"));
+				dto.setPd_regdate(rs.getString("pd_regdate"));
+				
+				list.add(dto);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()? null:list;
+	}
+	
 	//상품조회
 	public ProductDto selectProduct(int pd_num) {
 		ProductDto dto=null;

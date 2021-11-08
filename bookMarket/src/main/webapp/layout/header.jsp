@@ -7,7 +7,15 @@
 <meta charset="UTF-8">
 
 <link href="${pageContext.request.contextPath}/css/header.css"  rel="stylesheet" type="text/css"/>
+
+<!-- jquery -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
+
+<!-- slick-slider -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/slick/slick-theme.css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/slick/slick.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/slick/main_slick.js"></script>
 
 <!-- 카카오 로그인 API -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>

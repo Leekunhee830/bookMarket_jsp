@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bookmarket.kakao.KakaoIdCheck;
 import com.bookmarket.product.AddProductAction;
 import com.bookmarket.product.AllProductAction;
+import com.bookmarket.product.MainProductAction;
 import com.bookmarket.product.ModifiyProductViewAction;
 import com.bookmarket.product.ModifyProduct;
 import com.bookmarket.product.OrderDetailAction;
@@ -40,7 +41,11 @@ public class ProductController extends HttpServlet {
 		ActionForward actionForward=null;
 		
 		try {
-			if(requestPage.equals("AddProduct.pd")) {
+			if(requestPage.equals("Main.pd")){
+				action=new MainProductAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("AddProduct.pd")) {
 				action=new AddProductAction();
 				actionForward=action.execute(request, response);
 			}
