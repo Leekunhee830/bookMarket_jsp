@@ -61,7 +61,7 @@ public class ProductDao {
 	//상품추가
 	public boolean addProduct(ProductDto dto) {
 		boolean result=false;
-		sql="INSERT INTO products VALUES(products_seq.NEXTVAL,?,?,?,?,?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO products VALUES(products_seq.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
@@ -75,6 +75,9 @@ public class ProductDao {
 			ps.setString(7, dto.getPd_manufacturer());
 			ps.setInt(8, 0);
 			ps.setString(9, dto.getPd_imgName());
+			ps.setString(10, dto.getPd_imgName2());
+			ps.setString(11, dto.getPd_imgName3());
+			ps.setString(12, dto.getPd_imgName4());
 			
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {
@@ -180,6 +183,9 @@ public class ProductDao {
 				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
 				dto.setPd_views(rs.getInt("pd_views"));
 				dto.setPd_imgName(rs.getString("pd_img"));
+				dto.setPd_imgName2(rs.getString("pd_img2"));
+				dto.setPd_imgName3(rs.getString("pd_img3"));
+				dto.setPd_imgName4(rs.getString("pd_img4"));
 				dto.setPd_regdate(rs.getString("pd_regdate"));
 			}
 		}catch (Exception e) {

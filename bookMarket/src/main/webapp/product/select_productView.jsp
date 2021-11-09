@@ -18,7 +18,7 @@
 			<input type="hidden" id="product_price" value="${dto.pd_price}">
 			<div class="cont_left">
 				<div class="product_img">
-					<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}" alt="c언어"/>
+					<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}"/>
 				</div>			
 			</div>
 			<div class="cont_right">
@@ -27,9 +27,6 @@
 				</div>
 				<div class="product_font">
 					출판사: ${dto.pd_manufacturer}
-				</div>
-				<div class="product_font">
-					책 소개: ${dto.pd_contents}				
 				</div>
 				<div class="product_font">
 					가격: ${dto.pd_price}원
@@ -41,6 +38,40 @@
 			</div>
 		</div>
 	</div>
-
-
+	
+	<!-- 하단 박스 시작 -->
+	<div class="wrap_detail_info">
+		<!-- 상품정보/리뷰/Q&A/주문정보 시작 -->
+		<div class="tab_detail_info row">
+			<ul class="tab">
+				<li><a href="#">상품상세정보</a></li>
+				<li><a href="#">리 뷰</a></li>
+				<li><a href="#">Q & A</a></li>
+				<li><a href="#">반품/교환</a></li>
+			</ul>
+		</div>
+		<!-- 상품정보/리뷰/Q&A 끝 -->
+	
+		<!-- 상품 상세정보 시작 -->
+		<div>
+			<h2>상품상세정보</h2>
+		</div>
+		<div>
+			${dto.pd_contents}
+		</div>
+		<div>
+			<c:if test="${not empty dto.pd_imgName2}">
+				<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName2}"/>
+			</c:if>
+			<c:if test="${not empty dto.pd_imgName3}">
+				<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName3}"/>
+			</c:if>
+			<c:if test="${not empty dto.pd_imgName4}">
+				<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName4}"/>
+			</c:if>
+		</div>
+		<!-- 상품 상세정보 끝 -->
+		
+	</div>
+	<!-- 하단 박스 끝 -->
 <jsp:include page="/layout/footer.jsp"/>

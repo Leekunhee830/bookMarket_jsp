@@ -30,15 +30,22 @@ public class AddProductAction implements Action{
 				encoding,
 				new DefaultFileRenamePolicy());
 		String pd_imgName=multipartRequest.getFilesystemName("pd_img");
+		String pd_imgName2=multipartRequest.getFilesystemName("pd_img2");
+		String pd_imgName3=multipartRequest.getFilesystemName("pd_img3");
+		String pd_imgName4=multipartRequest.getFilesystemName("pd_img4");
 		String pd_code=multipartRequest.getParameter("pd_code");
 		String pd_name=multipartRequest.getParameter("pd_name");
 		String pd_contents=multipartRequest.getParameter("pd_contents");
+		pd_contents=pd_contents.replace("\r\n", "<br>");
 		int pd_price=Integer.parseInt(multipartRequest.getParameter("pd_price"));
 		int pd_amount=Integer.parseInt(multipartRequest.getParameter("pd_amount"));
 		String pd_category=multipartRequest.getParameter("pd_category");
 		String pd_manufacturer=multipartRequest.getParameter("pd_manufacturer");
 		
 		dto.setPd_imgName(pd_imgName);
+		dto.setPd_imgName2(pd_imgName2);
+		dto.setPd_imgName3(pd_imgName3);
+		dto.setPd_imgName4(pd_imgName4);
 		dto.setPd_code(pd_code);
 		dto.setPd_name(pd_name);
 		dto.setPd_contents(pd_contents);

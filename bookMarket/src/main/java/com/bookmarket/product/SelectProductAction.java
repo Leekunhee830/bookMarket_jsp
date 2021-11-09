@@ -2,6 +2,7 @@ package com.bookmarket.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
 
 import com.bookmarket.dao.ProductDao;
 import com.bookmarket.dto.ProductDto;
@@ -25,7 +26,7 @@ public class SelectProductAction implements Action{
 		request.setAttribute("dto", dto);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("select_productView.jsp");
+		actionForward.setNextPath("/product/select_productView.jsp");
 		actionForward.setRedirect(false);
 		
 

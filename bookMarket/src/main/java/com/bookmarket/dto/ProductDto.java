@@ -12,8 +12,29 @@ public class ProductDto {
 	private int pd_views;
 	private String pd_regdate;
 	private String pd_imgName;
+	private String pd_imgName2;
+	private String pd_imgName3;
+	private String pd_imgName4;
 	
 	
+	public String getPd_imgName2() {
+		return pd_imgName2;
+	}
+	public void setPd_imgName2(String pd_imgName2) {
+		this.pd_imgName2 = pd_imgName2;
+	}
+	public String getPd_imgName3() {
+		return pd_imgName3;
+	}
+	public void setPd_imgName3(String pd_imgName3) {
+		this.pd_imgName3 = pd_imgName3;
+	}
+	public String getPd_imgName4() {
+		return pd_imgName4;
+	}
+	public void setPd_imgName4(String pd_imgName4) {
+		this.pd_imgName4 = pd_imgName4;
+	}
 	public String getPd_imgName() {
 		return pd_imgName;
 	}

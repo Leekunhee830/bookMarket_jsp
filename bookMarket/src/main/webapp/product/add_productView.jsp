@@ -44,6 +44,19 @@
 				<div>
 					<input type="file" name="pd_img">
 				</div>
+				<div class="add_font">추가 상품 이미지2</div>
+				<div>
+					<input type="file" name="pd_img2">
+				</div>
+				<div class="add_font">추가 상품 이미지3</div>
+				<div>
+					<input type="file" name="pd_img3">
+				</div>
+				<div class="add_font">추가 상품 이미지4</div>
+				<div>
+					<input type="file" name="pd_img4">
+				</div>
+				
 				<div class="add_submit">
 					<input type="submit" value="상품 등록">
 				</div>
