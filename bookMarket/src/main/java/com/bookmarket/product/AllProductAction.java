@@ -22,7 +22,7 @@ public class AllProductAction implements Action{
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("all_productView.jsp");
+		actionForward.setNextPath("/product/all_productView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

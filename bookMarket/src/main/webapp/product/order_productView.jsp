@@ -1,22 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <jsp:include page="/layout/header.jsp"/>
+
 <link href="${pageContext.request.contextPath}/css/pd_css/order_prodcutView.css"  rel="stylesheet" type="text/css"/>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/order_product.js"></script>
 
+<c:set var="pdto" value="${requestScope.pdto}" scope="page"/>
+<c:set var="mdto" value="${requestScope.mdto}" scope="page"/>
 
 	<div class="order_wrap">
 		<div class="order_cont">
 			<div class="order_form">
 				<div><h2>주문 페이지</h2></div>
-				<div>
-					<img src="${pageContext.request.contextPath}/upLoadImg/${param.pd_imgName}"/>
-					<h2>제목 : ${param.pd_name }</h2>
+				<div class="order_product_img">
+					<img src="${pageContext.request.contextPath}/upLoadImg/${pdto.pd_imgName}"/>
+					<h2>제목 : ${pdto.pd_name }</h2>
 				</div>
 				<form action="OrderProduct.pd" method="post" id="order_submit">
-					<input type="hidden" name="user_num" value="${sessionScope.currentNum}">
+					<input type="hidden" name="user_num" value="${mdto.num}">
+					<input type="hidden" name="user_id" value="${mdto.id}">
+					<input type="hidden" name="user_email" value="${mdto.email}">					
 					<input type="hidden" name="product_num" value="${param.pd_num}">
 					<input type="hidden" name="product_name" value="${param.pd_name}">
 					<input type="hidden" name="product_img" value="${param.pd_imgName}">
@@ -76,7 +82,7 @@
 						<input type="button" id="count_plus" class="count_button" value="+">
 					</div>
 					
-					<h2>가격 :<div id="order_price" class="order_price">${param.pd_price}</div></h2>
+					<h2>가격 :<div id="order_price" class="order_price">${pdto.pd_price}</div></h2>
 					
 					<div class="order_submit">
 						<input type="button" id="order_btn" value="주문하기"/>

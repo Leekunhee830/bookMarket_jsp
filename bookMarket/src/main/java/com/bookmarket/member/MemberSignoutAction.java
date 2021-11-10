@@ -32,7 +32,7 @@ public class MemberSignoutAction implements Action{
 		request.setAttribute("result", result);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("signoutResultView.jsp");
+		actionForward.setNextPath("/mypage/signoutResultView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

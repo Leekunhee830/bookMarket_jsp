@@ -24,7 +24,7 @@ public class OrderManagerAction implements Action{
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("order_Manager.jsp");
+		actionForward.setNextPath("/product/order_Manager.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

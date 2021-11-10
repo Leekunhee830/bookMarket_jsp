@@ -4,6 +4,14 @@
 	height: 100%;
 }
 
+.order_product_img{
+	width:500px;
+}
+
+.order_product_img>img{
+	width:100%;
+}
+
 .order_cont{
 	padding:50px 0 50px 0;
 	width: 600px;

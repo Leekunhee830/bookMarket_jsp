@@ -58,7 +58,7 @@ public class AddProductAction implements Action{
 		request.setAttribute("result", result);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("add_productResultView.jsp");
+		actionForward.setNextPath("/product/add_productResultView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

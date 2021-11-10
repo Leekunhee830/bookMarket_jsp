@@ -66,7 +66,7 @@ public class OrderProductAction implements Action{
 
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("order_productResultView.jsp");
+		actionForward.setNextPath("/product/order_productResultView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

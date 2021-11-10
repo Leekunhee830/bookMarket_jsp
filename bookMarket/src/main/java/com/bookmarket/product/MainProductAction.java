@@ -21,7 +21,7 @@ public class MainProductAction implements Action{
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("main.jsp");
+		actionForward.setNextPath("/main.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

@@ -51,7 +51,7 @@ public class MemberLoginAction implements Action{
 		
 		if(dto==null) {
 			request.setAttribute("login_msg", "아이디 또는 비밀번호를 확인해주세요.");
-			actionForward.setNextPath("loginView.jsp");
+			actionForward.setNextPath("/login/loginView.jsp");
 		}
 		
 		actionForward.setRedirect(false);

@@ -17,6 +17,7 @@ import com.bookmarket.product.ModifyProduct;
 import com.bookmarket.product.OrderDetailAction;
 import com.bookmarket.product.OrderManagerAction;
 import com.bookmarket.product.OrderProductAction;
+import com.bookmarket.product.OrderProductViewAction;
 import com.bookmarket.product.ProductDelete;
 import com.bookmarket.product.ProductManagerAction;
 import com.bookmarket.product.SelectProductAction;
@@ -55,6 +56,10 @@ public class ProductController extends HttpServlet {
 			}
 			else if(requestPage.equals("SelectProductView.pd")) {
 				action=new SelectProductAction();
+				actionForward=action.execute(request, response);
+			}
+			else if(requestPage.equals("OrderProductView.pd")) {
+				action=new OrderProductViewAction();
 				actionForward=action.execute(request, response);
 			}
 			else if(requestPage.equals("OrderProduct.pd")) {

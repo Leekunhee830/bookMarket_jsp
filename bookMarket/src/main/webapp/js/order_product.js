@@ -34,7 +34,8 @@ $(document).ready(function(){
 		var order_detail_address=$('#order_detail_address').val();
 		var order_phone=$('#order_phone1').val()+"-"+$('#order_phone2').val()+"-"+$('#order_phone3').val();
 		var order_home_phone=$('#order_home_phone1').val()+"-"+$('#order_home_phone2').val()+"-"+$('#order_home_phone3').val();
-		
+		var user_id=$('#user_id').val();
+		var user_email=$('#user_email').val();
 		
 		if(order_name==""){
 			alert('받으시는 분의 성함을 입력해주세요.');
@@ -60,12 +61,13 @@ $(document).ready(function(){
 		$('input[name=order_amount]').attr('value',order_count);
 		$('input[name=order_price]').attr('value',order_price*order_count);
 		
-		order_submit.submit();
+		request_to_check(user_id,order_price*order_count,user_email,order_name,order_phone,order_zipcode+""+order_detail_address);
 		
 	});
 	
 	
 });
+
 
 function comma(num){
 	var len,point,str;
@@ -82,3 +84,24 @@ function comma(num){
 	}
 	return str;
 }
+
+function request_to_check(user_id,allPrice,email,name,phone,address){
+	var IMP=window.IMP;
+	IMP.init('imp21199080');
+	
+	IMP.request_pay({
+		pg:'inicis',
+		pay_method:'card',
+		merchant_uid:user_id+'_'+new Date().getTime(),
+		name:'주문명:결제테스트',
+		amount:allPrice,
+		buyer_email:email,
+		buyer_name:name,
+		buyer_tel:phone,
+		buyer_addr:address
+	},function(rsp){
+		if(rsp.success){
+			window.location.href = '/bookMarket/product/order_productView.jsp'
+		}
+	})
+};

@@ -21,7 +21,7 @@ public class OrderDetailAction implements Action{
 		 request.setAttribute("dto", dto);
 		 
 		 ActionForward actionForward=new ActionForward();
-		 actionForward.setNextPath("order_detailView.jsp");
+		 actionForward.setNextPath("/product/order_detailView.jsp");
 		 actionForward.setRedirect(false);
 		
 		 

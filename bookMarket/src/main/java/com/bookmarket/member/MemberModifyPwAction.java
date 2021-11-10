@@ -25,7 +25,7 @@ public class MemberModifyPwAction implements Action{
 		request.setAttribute("result", result);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("modifyResultView.jsp");
+		actionForward.setNextPath("/mypage/modifyResultView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

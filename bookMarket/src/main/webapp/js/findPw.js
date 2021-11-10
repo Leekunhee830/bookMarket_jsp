@@ -29,7 +29,7 @@ $(document).ready(function(){
 				console.log(result);
 				if(result==1){
 					alert('이메일로 임시비밀번호가 전송되었습니다.');
-					window.location.replace("loginView.jsp");
+					window.location.replace("/bookMarket/login/loginView.jsp");
 				}else{
 					alert('아이디 혹은 이메일을 다시 확인해주세요.');
 				}

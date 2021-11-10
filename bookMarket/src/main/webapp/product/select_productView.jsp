@@ -7,15 +7,10 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/select_product.js"></script>
 	
 	<c:set var="dto" value="${requestScope.dto}" scope="page"/>
-	<c:remove var="dto" scope="request"/>
 
 	<div class="select_wrap">
 		<div class="select_cont row">
-			<input type="hidden" id="user_id" value="${sessionScope.currentId}">
-			<input type="hidden" id="product_num" value="${dto.pd_num}">
-			<input type="hidden" id="product_imgName" value="${dto.pd_imgName}">
-			<input type="hidden" id="product_name" value="${dto.pd_name}">
-			<input type="hidden" id="product_price" value="${dto.pd_price}">
+
 			<div class="cont_left">
 				<div class="product_img">
 					<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}"/>
@@ -33,7 +28,7 @@
 				</div>
 			</div>
 			<div class="btn_wrap">
-				<input type="button" id="order_btn" value="주문하기"/>
+				<input type="button" value="주문하기" onclick="order_view('${sessionScope.currentNum}','${dto.pd_num}')"/>
 				<input type="button" value="장바구니" onclick="addCart('${dto.pd_num}')"/>
 			</div>
 		</div>

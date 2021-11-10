@@ -35,7 +35,7 @@ public class MemberJoinAction implements Action{
 		
 		request.setAttribute("result", result);
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("joinResult.do");
+		actionForward.setNextPath("/join/joinResult.do");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

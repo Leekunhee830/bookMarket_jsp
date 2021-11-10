@@ -21,7 +21,7 @@ public class ProductManagerAction implements Action {
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("manager_productView.jsp");
+		actionForward.setNextPath("/product/manager_productView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

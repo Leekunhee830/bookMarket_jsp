@@ -20,7 +20,7 @@ public class MemberFindIdAction implements Action{
 		request.setAttribute("find_id", user_ids);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("memberFindIdResult.jsp");
+		actionForward.setNextPath("/login/memberFindIdResult.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

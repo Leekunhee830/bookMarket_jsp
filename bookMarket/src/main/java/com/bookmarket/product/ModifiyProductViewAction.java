@@ -20,7 +20,7 @@ public class ModifiyProductViewAction implements Action{
 		request.setAttribute("dto", dto);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("modify_productView.jsp");
+		actionForward.setNextPath("/product/modify_productView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

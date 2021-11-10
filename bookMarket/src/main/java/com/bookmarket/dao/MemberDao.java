@@ -184,14 +184,14 @@ public class MemberDao {
 	}
 	
 	//마이페이지
-	public MemberDto myPage(String currentId) {
+	public MemberDto myPage(int currentNum) {
 		MemberDto dto=null;
-		sql="SELECT * FROM member WHERE user_id=?";
+		sql="SELECT * FROM member WHERE user_num=?";
 	
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
-			ps.setString(1, currentId);
+			ps.setInt(1, currentNum);
 			rs=ps.executeQuery();
 			
 			if(rs.next()) {

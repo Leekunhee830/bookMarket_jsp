@@ -21,6 +21,9 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/kakao_login.js"></script>
 
+<!-- Iamport -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>

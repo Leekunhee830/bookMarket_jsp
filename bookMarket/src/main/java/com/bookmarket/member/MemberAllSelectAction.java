@@ -20,7 +20,7 @@ public class MemberAllSelectAction implements Action{
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("all_memberView.jsp");
+		actionForward.setNextPath("/mypage/all_memberView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

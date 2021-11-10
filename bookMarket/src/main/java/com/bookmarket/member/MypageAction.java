@@ -15,6 +15,7 @@ public class MypageAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session=request.getSession();
+		int currentNum=(Integer)session.getAttribute("currentNum");
 		String currentId=(String)session.getAttribute("currentId");
 		String subId=currentId.substring(currentId.length()-2,currentId.length());
 		MemberDao dao=MemberDao.getInstance();			
@@ -25,14 +26,14 @@ public class MypageAction implements Action{
 			request.setAttribute("memberDto", dto);
 		}else {
 			MemberDto dto=new MemberDto();
-			dto=dao.myPage(currentId);
+			dto=dao.myPage(currentNum);
 			request.setAttribute("memberDto", dto);
 		}
 		
 		
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("myPageView.jsp");
+		actionForward.setNextPath("/mypage/myPageView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;
