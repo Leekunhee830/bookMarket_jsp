@@ -6,7 +6,7 @@
 <link href="${pageContext.request.contextPath}/css/pd_css/order_prodcutView.css"  rel="stylesheet" type="text/css"/>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/order_product.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/order_product.js"></script>
 
 <c:set var="pdto" value="${requestScope.pdto}" scope="page"/>
 <c:set var="mdto" value="${requestScope.mdto}" scope="page"/>
