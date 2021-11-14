@@ -1,4 +1,4 @@
-package com.bookmarket.dto;
+package com.bookmarket.dto.member;
 
 public class MemberDto {
 	private int num;

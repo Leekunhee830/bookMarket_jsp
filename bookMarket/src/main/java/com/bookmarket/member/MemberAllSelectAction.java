@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.dao.MemberDao;
-import com.bookmarket.dto.MemberDto;
+import com.bookmarket.dto.member.MemberDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 

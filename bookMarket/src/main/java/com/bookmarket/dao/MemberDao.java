@@ -10,7 +10,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.bookmarket.dto.KakaoMemberDto;
-import com.bookmarket.dto.MemberDto;
+import com.bookmarket.dto.member.MemberDto;
+import com.bookmarket.dto.member.MemberJoinDto;
 
 public class MemberDao {
 	private static MemberDao dao;
@@ -60,7 +61,7 @@ public class MemberDao {
 	}
 	
 	//회원가입
-	public boolean insert(MemberDto dto) {
+	public boolean insert(MemberJoinDto dto) {
 		boolean result=false;
 		sql="INSERT INTO member VALUES(member_seq.NEXTVAL,?,?,?,?,?,SYSDATE)";
 		

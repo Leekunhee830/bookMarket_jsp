@@ -1,6 +1,8 @@
 package com.bookmarket.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +17,7 @@ import com.bookmarket.member.MemberEmailCheck;
 import com.bookmarket.member.MemberFindIdAction;
 import com.bookmarket.member.MemberFindPw;
 import com.bookmarket.member.MemberIdCheck;
-import com.bookmarket.member.MemberJoinAction;
+import com.bookmarket.member.MemberJoin;
 import com.bookmarket.member.MemberLoginAction;
 import com.bookmarket.member.MemberLogoutAction;
 import com.bookmarket.member.MemberModifyPwAction;
@@ -43,8 +45,11 @@ public class MemberController extends HttpServlet {
 		
 		try {
 			if(requestPage.equals("MemberJoin.do")) {
-				action=new MemberJoinAction();
-				actionForward= action.execute(request, response);
+				MemberJoin member=new MemberJoin();
+				int result=member.member_Join(request, response);
+				PrintWriter out=response.getWriter();
+				out.print(result);
+				out.flush();
 			}
 			else if(requestPage.equals("joinResult.do")) {
 				actionForward=new ActionForward();

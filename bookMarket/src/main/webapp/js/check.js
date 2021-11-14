@@ -135,6 +135,14 @@ $(document).ready(function() {
 		var email=email1+"@"+email2;
 		var phone=$('#user_phone1').val()+"-"+$('#user_phone2').val()+"-"+$('#user_phone3').val();
 		
+		var user_info={
+			id:$('#user_id').val(),
+			password:$('#user_password1').val(),
+			email:email,
+			name:$('#user_name').val(),
+			phone:phone,
+		}
+		
 		if($('#user_name').val()==""){
 			alert('이름을 입력해주세요');
 			return false;
@@ -173,7 +181,22 @@ $(document).ready(function() {
 		}
 		
 		if(id_check==1 && pw_check==1 && email_check==1){
-			$('#join_submit').submit();
+			$.ajax({
+				type:"POST",
+				url:"/bookMarket/join/MemberJoin.do",
+				data:JSON.stringify(user_info),
+				contentType:"application/json; charset=utf-8",
+				dataType:"text"
+			})
+			.done(function(result){
+				if(result==1){
+					alert('회원가입에 성공하였습니다.');
+					window.location.href ='/bookMarket/index.jsp';
+				}else{
+					alert('회원가입에 실패하였습니다.');
+					history.back();
+				}
+			})
 		}
 		
 	});	
