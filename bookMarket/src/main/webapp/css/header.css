@@ -22,7 +22,6 @@ a{
 	text-decoration: none;
 }
 
-/*lib*/
 .row::after {
   content:"";
   display:block;
@@ -83,11 +82,6 @@ a{
 	height: 20px;
 }
 
-.search input[type="text"]{
-	height: 100%;
-	
-}
-
 .header_gnb{
 	border-bottom: 1px solid #ececec;
 }
@@ -107,3 +101,14 @@ a{
 	padding: 10px 23px 10px 22px;
 }
 
+.search_tag{
+	border: none;
+}
+
+.search_tag:focus{
+	outline:none;
+}
+
+.search_img{
+	height: 100%;
+}

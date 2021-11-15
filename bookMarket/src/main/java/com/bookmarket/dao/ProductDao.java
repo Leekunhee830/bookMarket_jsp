@@ -9,7 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.bookmarket.dto.ProductDto;
+import com.bookmarket.dto.product.ProductDto;
 
 public class ProductDao {
 	private static ProductDao dao;

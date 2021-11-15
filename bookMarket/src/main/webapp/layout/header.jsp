@@ -59,12 +59,10 @@
 					<div class="logo">
 						<a href="/bookMarket/index.jsp">Book Market</a>
 					</div>
-					<div class="search">
-						<form action="#" metohd="get">
-							<input type="text" name="">
-							<input type="image" src="${pageContext.request.contextPath}/img/search.png">				
-						</form>
-					</div>
+					<p class="search">
+						<input type="text" name="" class="search_tag">
+						<input type="image" src="${pageContext.request.contextPath}/img/search.png" class="search_img">
+					</p>
 				</div>
 			</div>
 			

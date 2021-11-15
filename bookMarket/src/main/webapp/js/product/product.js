@@ -1,3 +1,4 @@
+//상품삭제
 function product_delete(pd_num,pd_img){
 	
 	$.ajax({
@@ -17,11 +18,13 @@ function product_delete(pd_num,pd_img){
 	});	
 }
 
+//상품수정
 function product_modifyView(pd_num){
 	location.href = 'ModifyProductView.pd?pd_num='+pd_num;
 }
 
-function product_Check(){
+//상품 유효성검사
+function product_Check(check){
 	var pd_code=$('#pd_code').val();
 	var pd_name=$('#pd_name').val();
 	var pd_contents=$('#pd_contents').val();
@@ -29,7 +32,7 @@ function product_Check(){
 	var pd_amount=$('#pd_amount').val();
 	var pd_category=$('#pd_category').val();
 	var pd_manufacturer=$('#pd_manufacturer').val();
-	
+
 	
 	if(pd_code==""){
 		alert('상품 코드를 입력해주세요.');
@@ -60,10 +63,50 @@ function product_Check(){
 		return false;
 	}
 	else{
-		$('#modifyPd_submit').submit();
+		if(check==1){
+			//상품수정
+			$('#modifyPd_submit').submit();
+		}else{
+			//상품추가
+			if($('#pd_img').val()==""){
+				alert('첫번째 상품이미지를 추가해주세요.');
+				return false;
+			}
+			$('#addPd_submit').submit();
+		}
+		
 	}
-	
-	
-	
-	
+
 }
+
+//상품 주문페이지이동
+function order_view(user_num,product_num){
+	if(user_num==""){
+			alert('로그인을 해주세요.');
+			return false;
+	}else{		
+			window.location.href ='/bookMarket/product/OrderProductView.pd?pd_num='+product_num+'&user_num='+user_num;
+	}
+}
+
+//장바구니
+function addCart(pd_num){
+	$.ajax({
+		url:'${pageContext.request.contextPath}/product/AddCart.ct',
+		type:'post',
+		data:{pd_num:pd_num},
+		success:function(result){
+			if(result==1){
+				alert('장바구니에 등록 되었습니다.');
+				location.reload();
+			}else{
+				alert('장바구니에 등록이 되지 않았습니다.')
+			}
+		},error:function(){
+			alert("에러");
+		}					
+	});
+}
+
+
+

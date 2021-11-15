@@ -4,7 +4,7 @@
 <jsp:include page="/layout/header.jsp"/>
 
 	<link href="${pageContext.request.contextPath}/css/pd_css/select_productView.css"  rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/select_product.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/product.js"></script>
 	
 	<c:set var="dto" value="${requestScope.dto}" scope="page"/>
 

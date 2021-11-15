@@ -19,7 +19,6 @@
 					<img src="${pageContext.request.contextPath}/upLoadImg/${pdto.pd_imgName}"/>
 					<h2>제목 : ${pdto.pd_name }</h2>
 				</div>
-				<form action="OrderProduct.pd" method="post" id="order_submit">
 					<input type="hidden" name="user_num" value="${mdto.num}">
 					<input type="hidden" name="user_id" value="${mdto.id}">
 					<input type="hidden" name="user_email" value="${mdto.email}">					
@@ -87,7 +86,6 @@
 					<div class="order_submit">
 						<input type="button" id="order_btn" value="주문하기"/>
 					</div>
-				</form>
 			</div>
 		</div>
 	</div>

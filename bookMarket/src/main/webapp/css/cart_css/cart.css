@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.cart_wrap{
+	width: 1200px;
+	margin:0 auto;
+	margin-bottom: 400px;
+}
+
+.cart_title{
+	margin-top: 30px;
+}
+
+.cart_img{
+	width: 130px;
+}
+
+table{
+	margin-top:20px;
+	width: 100%;
+}
+
+.empty_font{
+	text-align: center;
+	margin-top: 200px;
+}
+
+.cart_price_manager{
+	margin-top:50px;
+	border-top: 1px solid #808080;
+	border-bottom: 1px solid #808080;
+}
+
+.cart_price_hap{
+	text-align: right;
+	margin-top:50px;
+	margin-bottom: 50px;
+}
+
+.cart_price_hap h2{
+	display: inline;
+}
+

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
 
 import com.bookmarket.dao.ProductDao;
-import com.bookmarket.dto.ProductDto;
+import com.bookmarket.dto.product.ProductDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 

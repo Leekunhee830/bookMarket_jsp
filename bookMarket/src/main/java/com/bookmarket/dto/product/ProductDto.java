@@ -1,4 +1,4 @@
-package com.bookmarket.dto;
+package com.bookmarket.dto.product;
 
 public class ProductDto {
 	private int pd_num;

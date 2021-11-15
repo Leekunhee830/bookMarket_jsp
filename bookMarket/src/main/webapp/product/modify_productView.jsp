@@ -4,7 +4,7 @@
 <jsp:include page="/layout/header.jsp"/>
 	
 	<link href="${pageContext.request.contextPath}/css/pd_css/add_productView.css"  rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/manager_product.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/product.js"></script>
 	
 	<c:set var="dto" value="${requestScope.dto}"/>
 	<c:remove var="dto" scope="request"/>
@@ -53,7 +53,7 @@
 					<input type="file" name="pd_img">
 				</div>
 				<div class="add_submit">
-					<input type="button" value="상품 수정" id="modify_product" onclick="product_Check()">
+					<input type="button" value="상품 수정" id="modify_product" onclick="product_Check(1)">
 				</div>
 			</form>
 			</div>

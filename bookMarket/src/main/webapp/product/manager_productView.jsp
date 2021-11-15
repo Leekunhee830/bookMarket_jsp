@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:include page="/layout/header.jsp"/>
 
 <link href="${pageContext.request.contextPath}/css/pd_css/order_Manager.css"  rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/manager_product.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/product.js"></script>
 
 
 	<div class="order_wrap">
