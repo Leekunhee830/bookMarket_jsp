@@ -5,6 +5,7 @@
 
 <link href="${pageContext.request.contextPath}/css/cart_css/cart.css"  rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/product/product.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart/cart.js"></script>
 
 
 	<div class="cart_wrap">
@@ -18,7 +19,6 @@
 				<div class="cart_title"><h2>장바구니</h2></div>
 				<table border="1">
 					<tr>
-						<th><input type="checkbox"></th>
 						<th>상품 이미지</th>
 						<th width="20%">상품 이름</th>
 						<th width="30%">출판사</th>
@@ -26,7 +26,6 @@
 					</tr>
 					<c:forEach var="dto" items="${requestScope.list}">
 						<tr>
-							<th><input type="checkbox"></th>
 							<th>
 								<a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.pd_num}">
 									<img class="cart_img" src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_img}"/>
@@ -38,6 +37,7 @@
 								<span>${dto.pd_price}</span>원
 								<div><input type="button" value="주문하기" onclick="order_view('${sessionScope.currentNum}','${dto.pd_num}')"></div>
 							</th>
+							<th><button type="button" class="cart_table_delete" onclick="delete_cart('${sessionScope.currentNum}','${dto.pd_num}')"></button></th>
 						</tr>
 					</c:forEach>
 			  	</table>

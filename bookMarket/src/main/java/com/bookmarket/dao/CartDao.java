@@ -113,4 +113,24 @@ public class CartDao {
 		return list.isEmpty()?null:list;
 	}
 	
+	//장바구니 삭제
+	public boolean deleteCart(int user_num,int pd_num) {
+		boolean result=false;
+		sql="DELETE FROM cart WHERE user_num=? AND product_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, user_num);
+			ps.setInt(2, pd_num);
+			result=ps.executeUpdate()==1;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
+	}
+	
 }

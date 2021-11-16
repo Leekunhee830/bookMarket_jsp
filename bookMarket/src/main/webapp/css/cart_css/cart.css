@@ -40,3 +40,11 @@ table{
 	display: inline;
 }
 
+.cart_table_delete{
+	background: url("/bookMarket/img/cart_delete.jpg") no-repeat;
+	background-size:100% 100%;
+	border: none;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}

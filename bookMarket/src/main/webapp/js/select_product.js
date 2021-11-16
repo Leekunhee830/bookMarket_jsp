@@ -17,7 +17,7 @@ function addCart(pd_num){
 				alert('장바구니에 등록 되었습니다.');
 				location.reload();
 			}else{
-				alert('장바구니에 등록이 되지 않았습니다.')
+				alert('장바구니에 등록이 되지 않았습니다.');
 			}
 		},error:function(){
 			alert("에러");
