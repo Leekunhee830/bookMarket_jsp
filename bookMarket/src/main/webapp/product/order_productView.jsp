@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <jsp:include page="/layout/header.jsp"/>
 
 <link href="${pageContext.request.contextPath}/css/pd_css/order_prodcutView.css"  rel="stylesheet" type="text/css"/>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/product/order_product.js"></script>
 
 <c:set var="pdto" value="${requestScope.pdto}" scope="page"/>
@@ -81,7 +81,7 @@
 						<input type="button" id="count_plus" class="count_button" value="+">
 					</div>
 					
-					<h2>가격 :<div id="order_price" class="order_price">${pdto.pd_price}</div></h2>
+					<h2>가격 :<div id="order_price" class="order_price"><fmt:formatNumber value="${pdto.pd_price}" type="number"/>원</div></h2>
 					
 					<div class="order_submit">
 						<input type="button" id="order_btn" value="주문하기"/>

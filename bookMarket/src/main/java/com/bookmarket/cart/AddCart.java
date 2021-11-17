@@ -21,8 +21,14 @@ public class AddCart {
 		int pd_num=Integer.parseInt(request.getParameter("pd_num"));
 		boolean result=false;
 		
+		boolean chk=dao.checkCart(user_num,pd_num);
 		
-		result=dao.addCart(user_num, pd_num);
+		//중복체크
+		if(chk) {
+			result=false;
+		}else {
+			result=dao.addCart(user_num, pd_num);			
+		}
 		
 		return result?1:0;
 	}

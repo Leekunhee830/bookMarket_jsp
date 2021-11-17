@@ -3,7 +3,7 @@
 .cart_wrap{
 	width: 1200px;
 	margin:0 auto;
-	margin-bottom: 400px;
+	margin-bottom: 300px;
 }
 
 .cart_title{
@@ -30,15 +30,47 @@ table{
 	border-bottom: 1px solid #808080;
 }
 
-.cart_price_hap{
-	text-align: right;
-	margin-top:50px;
-	margin-bottom: 50px;
+.cart_left_box{
+	float: left;
+	text-align:center;
+	width: 50%;
+	height: 200px;
+	background-color: #E0E0E0;
 }
 
-.cart_price_hap h2{
+.cart_right_box{
+	float:right;
+	text-align:right;
+	width:50%;
+	height: 200px;
+}
+
+.cart_right_box h2{
 	display: inline;
 }
+
+.cart_left_box_ul{
+	height:200px;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cart_left_box_li{
+	margin:5px 0 5px 0;
+	width:300px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.cart_right_box_div{
+	height: 200px;
+	display: flex;
+	justify-content:flex-end;
+	align-items: center;
+}
+
 
 .cart_table_delete{
 	background: url("/bookMarket/img/cart_delete.jpg") no-repeat;
@@ -47,4 +79,19 @@ table{
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
+}
+
+.cart_buy_btn_box{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 300px
+}
+
+.cart_buy_btn{
+	width: 300px;
+	height: 70px;
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+	font-size: 15px;
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/layout/header.jsp"/>
 
 	<link href="${pageContext.request.contextPath}/css/pd_css/select_productView.css"  rel="stylesheet" type="text/css"/>
@@ -24,7 +25,7 @@
 					출판사: ${dto.pd_manufacturer}
 				</div>
 				<div class="product_font">
-					가격: ${dto.pd_price}원
+					가격: <fmt:formatNumber value="${dto.pd_price}" type="number"/>원
 				</div>
 			</div>
 			<div class="btn_wrap">

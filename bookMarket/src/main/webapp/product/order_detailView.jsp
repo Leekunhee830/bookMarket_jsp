@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="/layout/header.jsp"/>
 
@@ -45,7 +46,7 @@
 						${dto.order_amount}
 					</div>
 					
-					<h2>가격 :<div id="order_price" class="order_price">${dto.order_price}</div>원</h2>
+					<h2>가격 :<div class="order_price"><fmt:formatNumber value="${dto.order_price}" type="number"/></div>원</h2>
 					
 			</div>
 		</div>

@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <jsp:include page="/layout/header.jsp"/>
 
 <link href="${pageContext.request.contextPath}/css/pd_css/order_Manager.css"  rel="stylesheet" type="text/css"/>
 
-
-
-	<div class="order_wrap">
-		
-		
+	<div class="order_wrap">	
 		<c:choose>
 			<c:when test="${requestScope.list==null}">
 				<h1 class="empty_font">결제 내역이 없습니다.</h1>		
@@ -34,7 +32,7 @@
 								<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.product_num}">${dto.product_name }</a></th>
 								<th>${dto.regdate }</th>
 								<th>${dto.order_amount }</th>
-								<th>${dto.order_price}</th>
+								<th><fmt:formatNumber value="${dto.order_price}" type="number"/>원</th>
 								<c:choose>
 									<c:when test="${dto.order_result}==0">
 										<th>배송완료</th>

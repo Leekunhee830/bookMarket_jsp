@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="/layout/header.jsp"/>
 <link href="${pageContext.request.contextPath}/css/main.css"  rel="stylesheet" type="text/css"/>
@@ -27,7 +27,7 @@
 								<a href="#">${dto.pd_name}</a>
 							</div>
 							<div class="cell_product_price">
-								가격:<a href="#">${dto.pd_price}</a>원
+								가격:<a href="#"><fmt:formatNumber value="${dto.pd_price}" type="number" /></a>원
 							</div>
 						</div>
 					

@@ -58,6 +58,26 @@ public class CartDao {
 		close(con, ps, null);
 	}
 	
+	//장바구니 중복 확인
+	public boolean checkCart(int user_num,int product_num) {
+		sql="SELECT * FROM cart WHERE user_num=? AND product_num=?";
+		boolean result=false;
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, user_num);
+			ps.setInt(2, product_num);
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		
+		return result;
+	}
+	
 	//카트추가
 	public boolean addCart(int user_num,int product_num) {
 		sql="INSERT INTO cart VALUES(cart_seq.NEXTVAL,?,?,SYSDATE)";
