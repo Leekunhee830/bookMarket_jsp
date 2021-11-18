@@ -19,14 +19,8 @@
 					<img src="${pageContext.request.contextPath}/upLoadImg/${pdto.pd_imgName}"/>
 					<h2>제목 : ${pdto.pd_name }</h2>
 				</div>
-					<input type="hidden" name="user_num" value="${mdto.num}">
 					<input type="hidden" name="user_id" value="${mdto.id}">
 					<input type="hidden" name="user_email" value="${mdto.email}">					
-					<input type="hidden" name="product_num" value="${param.pd_num}">
-					<input type="hidden" name="product_name" value="${param.pd_name}">
-					<input type="hidden" name="product_img" value="${param.pd_imgName}">
-					<input type="hidden" name="order_amount" value="">
-					<input type="hidden" name="order_price" value="">
 					
 					<div class="order_font">받으실분</div>
 					<div>
@@ -76,15 +70,16 @@
 						수량
 					</div>
 					<div>
-						<input type="button" id="count_minus" class="count_button" value="-">
-						<div id="order_count" class="order_count">1</div>
-						<input type="button" id="count_plus" class="count_button" value="+">
+						<input type="button"  class="count_button" value="-" onclick="countMinus(${pdto.pd_price})"/>
+						<input type="number" value="1" class="order_count" id="order_count" size="3" onblur="countblur(${pdto.pd_price})">
+						<input type="button"  class="count_button" value="+" onclick="countPlus(${pdto.pd_price})"/>
+						<div id="count_error"></div>
 					</div>
 					
-					<h2>가격 :<div id="order_price" class="order_price"><fmt:formatNumber value="${pdto.pd_price}" type="number"/>원</div></h2>
+					<h2>가격:<span id="order_price"><fmt:formatNumber value="${pdto.pd_price}" type="number"/></span>원</h2>
 					
 					<div class="order_submit">
-						<input type="button" id="order_btn" value="주문하기"/>
+						<input type="button" value="주문하기" onclick="order_check('${pdto.pd_price}')"/>
 					</div>
 			</div>
 		</div>
