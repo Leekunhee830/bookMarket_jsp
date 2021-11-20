@@ -15,29 +15,38 @@
   	<servlet-class>com.bookmarket.controller.MemberController</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-  	<servlet-name>member</servlet-name>
-  	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-  
   <servlet>
   	<servlet-name>product</servlet-name>
   	<servlet-class>com.bookmarket.controller.ProductController</servlet-class>
   </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>product</servlet-name>
-  	<url-pattern>*.pd</url-pattern>
-  </servlet-mapping>
   
   <servlet>
   	<servlet-name>cart</servlet-name>
   	<servlet-class>com.bookmarket.controller.CartController</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>review</servlet-name>
+  	<servlet-class>com.bookmarket.controller.ReviewController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>member</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>product</servlet-name>
+  	<url-pattern>*.pd</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>cart</servlet-name>
   	<url-pattern>*.ct</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+  	<servlet-name>review</servlet-name>
+  	<url-pattern>*.rv</url-pattern>
+  </servlet-mapping>
 </web-app>

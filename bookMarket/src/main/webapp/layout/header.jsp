@@ -21,12 +21,17 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/kakao_login.js"></script>
 
-<!-- Iamport -->
+<!-- Iamport js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 <!-- 카카오(다음) 주소 API -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
+
+<!-- summernote css/js -->
+<script src="${pageContext.request.contextPath}/js/summernote/summernote-lite.js"></script>
+<script src="${pageContext.request.contextPath}/js/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/summernote/summernote-lite.css">
 
 <title>Insert title here</title>
 </head>

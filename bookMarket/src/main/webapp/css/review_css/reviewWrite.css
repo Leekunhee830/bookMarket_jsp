@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.review_wrap{
+	margin:0 auto;
+	margin-top:50px;
+	margin-bottom:200px;
+	width: 1200px;
+}
+
+.review_title{
+	margin-bottom: 10px;
+}
+
+.review_name_header{
+	display: inline;
+}
+
+.review_name{
+	display:inline;
+	font-weight: bolder;
+}
+
+.review_upload_btn{
+	display:block;
+	width: 300px;
+	height: 70px;
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+	font-size: 15px;
+	margin: 0 auto;
+	margin-top:20px;
+}
