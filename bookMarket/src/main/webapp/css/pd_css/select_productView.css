@@ -89,3 +89,23 @@
 	background-color: gray;
 	color:black;
 }
+
+.review_box{
+	margin-top: 100px;
+}
+
+.review_header_box{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+}
+
+.review_header_font{
+	display:flex;
+	align-items:center;
+	font-size: 15px
+}
+
+.review_write{
+	margin-right: 20px;
+}

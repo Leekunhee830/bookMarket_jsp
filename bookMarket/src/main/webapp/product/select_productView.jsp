@@ -70,12 +70,16 @@
 		
 		<!-- 리뷰 박스 시작 -->
 		<div class="review_box">
-			<div>
-				리뷰
-				<c:if test="${sessionScope.currentId!=null}">
-					<a href="${pageContext.request.contextPath}/review/reviewWrite.rv?prodNum=${dto.pd_num}">리뷰 작성</a>				
-				</c:if>
-				<a href="#">전체 보기</a>
+			<div class="review_header_box">
+				<div>
+					<h2>리뷰</h2>
+				</div>
+				<div class="review_header_font">
+					<c:if test="${sessionScope.currentId!=null}">
+						<a href="${pageContext.request.contextPath}/review/reviewWriteView.rv?prodNum=${dto.pd_num}" class="review_write">리뷰 작성</a>				
+					</c:if>
+					<a href="#">전체 보기</a>
+				</div>
 			</div>
 			<div>
 				<!-- 리뷰 목록 -->

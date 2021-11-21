@@ -1,6 +1,7 @@
 package com.bookmarket.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bookmarket.review.AddReview;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -29,13 +31,22 @@ public class ReviewController extends HttpServlet {
 		ActionForward actionForward=null;
 		
 		try {
-			
-			if(requestPage.equals("reviewWrite.rv")) {
+			//리뷰작성페이지 이동
+			if(requestPage.equals("reviewWriteView.rv")) {
 				int productNum=Integer.parseInt(request.getParameter("prodNum"));
 				request.setAttribute("prod_num", productNum);
 				actionForward=new ActionForward();
 				actionForward.setNextPath("/review/reviewWrite.jsp");
 				actionForward.setRedirect(false);
+			}
+			//리뷰등록
+			else if(requestPage.equals("reviewWrite.rv")) {
+				int result=0;
+				AddReview addReview=new AddReview();
+				result=addReview.add(request, response);
+				PrintWriter out=response.getWriter();
+				out.print(result);
+				out.flush();
 			}
 			
 			

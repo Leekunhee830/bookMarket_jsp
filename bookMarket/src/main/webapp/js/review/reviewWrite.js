@@ -16,9 +16,25 @@ $(document).ready(function() {
 function upload(user_num,prod_num){
 	var data={
 		user_num:user_num,
-		prod_num:prod_num,
-		review_contents:$('#review_contents').val()
+		product_num:prod_num,
+		contents:$('#review_contents').val()
 	}
 	
-	console.log(data);
+	
+	$.ajax({
+		type:"POST",
+		url:"/bookMarket/review/reviewWrite.rv",
+		data:JSON.stringify(data),
+		contentType:"application/json; charset=utf-8",
+		dataType:"text"
+	}).done(function(result){
+		if(result==1){
+			alert('리뷰가 등록되었습니다.');
+			location.href = document.referrer;
+		}else{
+			alert('리뷰 등록 중 오류가 발생하였습니다.');
+			location.href = document.referrer;
+		}
+	})
+	
 }
