@@ -85,16 +85,16 @@
 				</div>
 			</div>
 			
-			<div class="review_item">
-				<c:if test="${requestScope.reviewList!=null}">
-					<c:forEach var="review" items="${requestScope.reviewList}">
+			<c:if test="${requestScope.reviewList!=null}">
+				<c:forEach var="review" items="${requestScope.reviewList}">
+					<div class="review_item">
 						<div class="review_item_reviewNo"><%=reviewNo %></div>
 						<div class="review_item_contents">${review.contents}</div>
 						<div class="review_item_id">${review.user_id}</div>
 						<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
-					</c:forEach>
-				</c:if>
-			</div>
+					</div>
+				</c:forEach>
+			</c:if>
 			
 		</div>
 		<!-- 리뷰 박스 끝 -->

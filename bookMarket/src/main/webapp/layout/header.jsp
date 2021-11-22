@@ -29,7 +29,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/addressDaum.js"></script>
 
 <!-- summernote css/js -->
-<script src="${pageContext.request.contextPath}/js/summernote/summernote-lite.js"></script>
+<script src="${pageContext.request.contextPath}/js/summernote/summernote-lite.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/summernote/summernote-lite.css">
 
