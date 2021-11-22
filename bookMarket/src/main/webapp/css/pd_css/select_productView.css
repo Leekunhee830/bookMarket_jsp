@@ -109,3 +109,28 @@
 .review_write{
 	margin-right: 20px;
 }
+
+.review_item{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+}
+.review_item_reviewNo{
+	margin-right: 10px;
+	margin-left:10px;
+	font-weight: bolder;
+}
+
+.review_item_contents{
+	flex:1 1 0;
+}
+
+.review_item_id{
+	margin-right: 10px;
+}
+
+.review_item_regdate{
+	
+}
+

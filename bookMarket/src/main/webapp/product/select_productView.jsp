@@ -2,35 +2,38 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+	int reviewNo=1;
+%>
 <jsp:include page="/layout/header.jsp"/>
 
 	<link href="${pageContext.request.contextPath}/css/pd_css/select_productView.css"  rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/product.js"></script>
 	
-	<c:set var="dto" value="${requestScope.dto}" scope="page"/>
+	<c:set var="pddto" value="${requestScope.pddto}" scope="page"/>
 
 	<div class="select_wrap">
 		<div class="select_cont row">
 
 			<div class="cont_left">
 				<div class="product_img">
-					<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName}"/>
+					<img src="${pageContext.request.contextPath}/upLoadImg/${pddto.pd_imgName}"/>
 				</div>			
 			</div>
 			<div class="cont_right">
 				<div class="product_font">
-					제목: ${dto.pd_name}
+					제목: ${pddto.pd_name}
 				</div>
 				<div class="product_font">
-					출판사: ${dto.pd_manufacturer}
+					출판사: ${pddto.pd_manufacturer}
 				</div>
 				<div class="product_font">
-					가격: <fmt:formatNumber value="${dto.pd_price}" type="number"/>원
+					가격: <fmt:formatNumber value="${pddto.pd_price}" type="number"/>원
 				</div>
 			</div>
 			<div class="btn_wrap">
-				<input type="button" value="주문하기" onclick="order_view('${sessionScope.currentNum}','${dto.pd_num}')"/>
-				<input type="button" value="장바구니" onclick="addCart('${dto.pd_num}')"/>
+				<input type="button" value="주문하기" onclick="order_view('${sessionScope.currentNum}','${pddto.pd_num}')"/>
+				<input type="button" value="장바구니" onclick="addCart('${pddto.pd_num}')"/>
 			</div>
 		</div>
 	</div>
@@ -53,17 +56,17 @@
 			<h2>상품상세정보</h2>
 		</div>
 		<div>
-			${dto.pd_contents}
+			${pddto.pd_contents}
 		</div>
 		<div>
-			<c:if test="${not empty dto.pd_imgName2}">
-				<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName2}"/>
+			<c:if test="${not empty pddto.pd_imgName2}">
+				<img src="${pageContext.request.contextPath}/upLoadImg/${pddto.pd_imgName2}"/>
 			</c:if>
-			<c:if test="${not empty dto.pd_imgName3}">
-				<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName3}"/>
+			<c:if test="${not empty pddto.pd_imgName3}">
+				<img src="${pageContext.request.contextPath}/upLoadImg/${pddto.pd_imgName3}"/>
 			</c:if>
-			<c:if test="${not empty dto.pd_imgName4}">
-				<img src="${pageContext.request.contextPath}/upLoadImg/${dto.pd_imgName4}"/>
+			<c:if test="${not empty pddto.pd_imgName4}">
+				<img src="${pageContext.request.contextPath}/upLoadImg/${pddto.pd_imgName4}"/>
 			</c:if>
 		</div>
 		<!-- 상품 상세정보 끝 -->
@@ -76,14 +79,23 @@
 				</div>
 				<div class="review_header_font">
 					<c:if test="${sessionScope.currentId!=null}">
-						<a href="${pageContext.request.contextPath}/review/reviewWriteView.rv?prodNum=${dto.pd_num}" class="review_write">리뷰 작성</a>				
+						<a href="${pageContext.request.contextPath}/review/reviewWriteView.rv?prodNum=${pddto.pd_num}" class="review_write">리뷰 작성</a>				
 					</c:if>
 					<a href="#">전체 보기</a>
 				</div>
 			</div>
-			<div>
-				<!-- 리뷰 목록 -->
+			
+			<div class="review_item">
+				<c:if test="${requestScope.reviewList!=null}">
+					<c:forEach var="review" items="${requestScope.reviewList}">
+						<div class="review_item_reviewNo"><%=reviewNo %></div>
+						<div class="review_item_contents">${review.contents}</div>
+						<div class="review_item_id">${review.user_id}</div>
+						<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
+					</c:forEach>
+				</c:if>
 			</div>
+			
 		</div>
 		<!-- 리뷰 박스 끝 -->
 	</div>
