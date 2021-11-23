@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
 import com.bookmarket.dto.review.ReviewAddDto;
 import com.bookmarket.dto.review.ReviewListDto;
 
@@ -88,7 +86,8 @@ public class ReviewDao {
 		ReviewListDto dto=null;
 		sql="SELECT r.review_num,r.contents,r.regdate,m.user_id from review r "
 				+ "INNER JOIN member m ON r.user_num=m.user_num "
-				+ "WHERE r.product_num=?";
+				+ "WHERE r.product_num=? AND ROWNUM<=5 "
+				+ "ORDER BY r.review_num DESC";
 		
 		try {
 			con=ds.getConnection();
@@ -99,7 +98,9 @@ public class ReviewDao {
 				dto=new ReviewListDto();
 				dto.setReview_num(rs.getInt("review_num"));
 				dto.setUser_id(rs.getString("user_id"));
-				dto.setContents(rs.getString("contents"));
+				//<p>,<br>태그제거
+				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "").replaceAll("<br>", "");
+				dto.setContents(contents);
 				dto.setRegdate(rs.getTimestamp("regdate"));
 				list.add(dto);
 			}
@@ -109,5 +110,33 @@ public class ReviewDao {
 			close(con, ps, rs);
 		}
 		return list.isEmpty()?null:list;
+	}
+	
+	//리뷰 상세 보기
+	public ReviewListDto detailReview(int review_num) {
+		ReviewListDto dto=null;
+		sql="SELECT r.review_num,r.contents,r.regdate,m.user_id from review r "
+				+ "INNER JOIN member m ON r.user_num=m.user_num "
+				+ "WHERE r.review_num=?";
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, review_num);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				dto=new ReviewListDto();
+				dto.setReview_num(rs.getInt("review_num"));
+				dto.setUser_id(rs.getString("user_id"));
+				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "");
+				dto.setContents(contents);
+				dto.setRegdate(rs.getTimestamp("regdate"));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return dto;
 	}
 }

@@ -31,3 +31,36 @@
 	margin: 0 auto;
 	margin-top:20px;
 }
+
+.review_detail_wrap{
+	width:1200px;
+	min-height: 600px;
+	margin: 0 auto;
+	margin-bottom:200px;
+	margin-top:50px;
+	border: 1px solid #D7D7D7;
+}
+
+.review_detail_info{
+	padding: 10px 0 10px 0;
+	border-bottom: 1px solid #D7D7D7; 
+}
+
+.review_detail_info_writer{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.review_detail_info_writer>span{
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+.review_detail_info_regdate>span{
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+.review_detail_contents{
+	margin:10px 10px 10px 10px;
+}

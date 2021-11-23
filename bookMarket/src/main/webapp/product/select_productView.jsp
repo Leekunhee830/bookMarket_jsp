@@ -89,10 +89,11 @@
 				<c:forEach var="review" items="${requestScope.reviewList}">
 					<div class="review_item">
 						<div class="review_item_reviewNo"><%=reviewNo %></div>
-						<div class="review_item_contents">${review.contents}</div>
+						<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${review.review_num}">${review.contents}</a></div>
 						<div class="review_item_id">${review.user_id}</div>
 						<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
 					</div>
+					<%reviewNo+=1; %>
 				</c:forEach>
 			</c:if>
 			
