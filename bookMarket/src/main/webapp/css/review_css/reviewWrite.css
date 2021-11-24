@@ -64,3 +64,8 @@
 .review_detail_contents{
 	margin:10px 10px 10px 10px;
 }
+
+.review_detail_contents>span{
+	word-break:break-all;
+}
+

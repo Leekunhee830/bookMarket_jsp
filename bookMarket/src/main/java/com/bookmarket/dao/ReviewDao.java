@@ -81,13 +81,23 @@ public class ReviewDao {
 	}
 	
 	//리뷰목록
-	public ArrayList<ReviewListDto> reviewList(int product_num){
+	public ArrayList<ReviewListDto> reviewList(int product_num,int check){
 		ArrayList<ReviewListDto> list=new ArrayList<ReviewListDto>();
 		ReviewListDto dto=null;
-		sql="SELECT r.review_num,r.contents,r.regdate,m.user_id from review r "
-				+ "INNER JOIN member m ON r.user_num=m.user_num "
-				+ "WHERE r.product_num=? AND ROWNUM<=5 "
-				+ "ORDER BY r.review_num DESC";
+		//리뷰 최신5개만 가져오기
+		if(check==0) {
+			sql="SELECT r.review_num,r.contents,r.regdate,m.user_id from review r "
+					+ "INNER JOIN member m ON r.user_num=m.user_num "
+					+ "WHERE r.product_num=? AND ROWNUM<=5 "
+					+ "ORDER BY r.review_num DESC";
+		}
+		//전체 리뷰목록 가져오기
+		else {
+			sql="SELECT r.review_num,r.contents,r.regdate,m.user_id from review r "
+					+ "INNER JOIN member m ON r.user_num=m.user_num "
+					+ "WHERE r.product_num=? "
+					+ "ORDER BY r.review_num DESC";
+		}
 		
 		try {
 			con=ds.getConnection();
@@ -128,7 +138,7 @@ public class ReviewDao {
 				dto=new ReviewListDto();
 				dto.setReview_num(rs.getInt("review_num"));
 				dto.setUser_id(rs.getString("user_id"));
-				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "");
+				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "<br>");
 				dto.setContents(contents);
 				dto.setRegdate(rs.getTimestamp("regdate"));
 			}
@@ -138,5 +148,27 @@ public class ReviewDao {
 			close(con, ps, rs);
 		}
 		return dto;
+	}
+	
+	//리뷰개수
+	public int reviewCount(int product_num) {
+		int count=0;
+		sql="SELECT count(*) FROM review WHERE product_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, product_num);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt("count(*)");
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return count;
 	}
 }

@@ -75,28 +75,28 @@
 		<div class="review_box">
 			<div class="review_header_box">
 				<div>
-					<h2>리뷰</h2>
+					<h2>리뷰 (${requestScope.reviewCount})</h2>
 				</div>
 				<div class="review_header_font">
 					<c:if test="${sessionScope.currentId!=null}">
 						<a href="${pageContext.request.contextPath}/review/reviewWriteView.rv?prodNum=${pddto.pd_num}" class="review_write">리뷰 작성</a>				
 					</c:if>
-					<a href="#">전체 보기</a>
+					<a href="${pageContext.request.contextPath}/review/reviewAllList.rv?prodNum=${pddto.pd_num}">전체 보기</a>
 				</div>
 			</div>
-			
-			<c:if test="${requestScope.reviewList!=null}">
-				<c:forEach var="review" items="${requestScope.reviewList}">
-					<div class="review_item">
-						<div class="review_item_reviewNo"><%=reviewNo %></div>
-						<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${review.review_num}">${review.contents}</a></div>
-						<div class="review_item_id">${review.user_id}</div>
-						<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
-					</div>
-					<%reviewNo+=1; %>
-				</c:forEach>
-			</c:if>
-			
+			<div class="review_item_box">
+				<c:if test="${requestScope.reviewList!=null}">
+					<c:forEach var="review" items="${requestScope.reviewList}">
+						<div class="review_item">
+							<div class="review_item_reviewNo"><%=reviewNo %></div>
+							<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${review.review_num}">${review.contents}</a></div>
+							<div class="review_item_id">${review.user_id}</div>
+							<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
+						</div>
+						<%reviewNo+=1; %>
+					</c:forEach>
+				</c:if>
+			</div>
 		</div>
 		<!-- 리뷰 박스 끝 -->
 	</div>

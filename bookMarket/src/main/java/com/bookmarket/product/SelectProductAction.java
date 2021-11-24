@@ -26,10 +26,16 @@ public class SelectProductAction implements Action{
 		request.setAttribute("pddto", pddto);
 		//상품정보 가져오기 끝
 		
-		//리뷰 목록 가져오기
+		
+		//리뷰개수 가져오기
 		ReviewDao rvdao=ReviewDao.getInstance();
+		int reviewCount=rvdao.reviewCount(pd_num);
+		request.setAttribute("reviewCount", reviewCount);
+		//리뷰개수 가져오기 끝
+		
+		//리뷰 목록 가져오기
 		ArrayList<ReviewListDto> reviewList=new ArrayList<ReviewListDto>();
-		reviewList=rvdao.reviewList(pd_num);
+		reviewList=rvdao.reviewList(pd_num,0);
 		request.setAttribute("reviewList", reviewList);
 		//리뷰 목록 가져오기 끝
 		

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.review.AddReview;
+import com.bookmarket.review.ReviewAllListAction;
 import com.bookmarket.review.ReviewDetailAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -54,7 +55,11 @@ public class ReviewController extends HttpServlet {
 				action=new ReviewDetailAction();
 				actionForward=action.execute(request, response);
 			}
-			
+			//전체 리뷰 목록
+			else if(requestPage.equals("reviewAllList.rv")) {
+				action=new ReviewAllListAction();
+				actionForward=action.execute(request, response);
+			}
 			
 			if(actionForward!=null) {
 				if(actionForward.isRedirect()) {

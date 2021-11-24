@@ -92,6 +92,7 @@
 
 .review_box{
 	margin-top: 100px;
+	border-bottom: 1px solid black;
 }
 
 .review_header_box{
@@ -108,6 +109,11 @@
 
 .review_write{
 	margin-right: 20px;
+}
+
+.review_item_box{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .review_item{
