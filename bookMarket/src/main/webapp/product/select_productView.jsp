@@ -11,32 +11,23 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/product.js"></script>
 	
 	<c:set var="pddto" value="${requestScope.pddto}" scope="page"/>
-
-	<div class="select_wrap">
-		<div class="select_cont row">
-
-			<div class="cont_left">
-				<div class="product_img">
-					<img src="${pageContext.request.contextPath}/upLoadImg/${pddto.pd_imgName}"/>
-				</div>			
-			</div>
-			<div class="cont_right">
-				<div class="product_font">
-					제목: ${pddto.pd_name}
+	
+	<!-- 상품 정보 시작 -->
+	<div class="prod_info_box">
+		<div class="prod_info_box_img"><img src="${pageContext.request.contextPath}/upLoadImg/${pddto.pd_imgName}"/></div>
+		<div class="prod_info_box_cont">
+			<div>
+				<div class="prod_info_box_cont_name">${pddto.pd_name}</div>
+				<div class="prod_info_box_cont_publisher">${pddto.pd_manufacturer}</div>
+				<div class="prod_info_box_cont_price"><fmt:formatNumber value="${pddto.pd_price}" type="number"/>원</div>
+				<div class="prod_info_box_cont_button">
+					<button type="button" onclick="order_view('${sessionScope.currentNum}','${pddto.pd_num}')">주문하기</button>
+					<button type="button" onclick="addCart('${pddto.pd_num}')">장바구니</button>
 				</div>
-				<div class="product_font">
-					출판사: ${pddto.pd_manufacturer}
-				</div>
-				<div class="product_font">
-					가격: <fmt:formatNumber value="${pddto.pd_price}" type="number"/>원
-				</div>
-			</div>
-			<div class="btn_wrap">
-				<input type="button" value="주문하기" onclick="order_view('${sessionScope.currentNum}','${pddto.pd_num}')"/>
-				<input type="button" value="장바구니" onclick="addCart('${pddto.pd_num}')"/>
 			</div>
 		</div>
 	</div>
+	<!-- 상품 정보 끝 -->
 	
 	<!-- 하단 박스 시작 -->
 	<div class="wrap_detail_info">

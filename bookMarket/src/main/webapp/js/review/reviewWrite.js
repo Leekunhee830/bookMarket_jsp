@@ -38,3 +38,18 @@ function upload(user_num,prod_num){
 	})
 	
 }
+
+function review_delete(review_num){
+	$.ajax({
+		type:"GET",
+		url:"/bookMarket/review/reviewDelete.rv?review_num="+review_num
+	}).done(function(result){
+		if(result==1){
+			alert('해당 리뷰가 삭제되었습니다.');
+			location.href = document.referrer;
+		}else{
+			alert('리뷰 삭제 중 오류가 발생하였습니다.');
+			location.href = document.referrer;
+		}
+	})
+}

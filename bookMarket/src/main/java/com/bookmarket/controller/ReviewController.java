@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.review.AddReview;
 import com.bookmarket.review.ReviewAllListAction;
+import com.bookmarket.review.ReviewDelete;
 import com.bookmarket.review.ReviewDetailAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -59,6 +60,14 @@ public class ReviewController extends HttpServlet {
 			else if(requestPage.equals("reviewAllList.rv")) {
 				action=new ReviewAllListAction();
 				actionForward=action.execute(request, response);
+			}
+			//∏Æ∫‰ ªË¡¶
+			else if(requestPage.equals("reviewDelete.rv")) {
+				ReviewDelete reviewDelete=new ReviewDelete();
+				int result=reviewDelete.delete(request,response);
+				PrintWriter out=response.getWriter();
+				out.print(result);
+				out.flush();
 			}
 			
 			if(actionForward!=null) {

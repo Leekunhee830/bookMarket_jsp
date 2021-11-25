@@ -171,4 +171,23 @@ public class ReviewDao {
 		
 		return count;
 	}
+	
+	//∏Æ∫‰ ªË¡¶
+	public boolean deleteReview(int review_num) {
+		boolean result=false;
+		sql="DELETE FROM review WHERE review_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, review_num);
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		
+		return result;
+	}
 }
