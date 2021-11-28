@@ -30,6 +30,11 @@
   	<servlet-class>com.bookmarket.controller.ReviewController</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>qna</servlet-name>
+  	<servlet-class>com.bookmarket.controller.QnaController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>member</servlet-name>
   	<url-pattern>*.do</url-pattern>
@@ -48,5 +53,10 @@
   <servlet-mapping>
   	<servlet-name>review</servlet-name>
   	<url-pattern>*.rv</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>qna</servlet-name>
+  	<url-pattern>*.qna</url-pattern>
   </servlet-mapping>
 </web-app>

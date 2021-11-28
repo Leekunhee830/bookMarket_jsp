@@ -58,7 +58,7 @@ public class ReviewDao {
 	}
 	
 	//¸®ºäµî·Ï
-	public boolean AddReview(ReviewAddDto dto) {
+	public boolean addReview(ReviewAddDto dto) {
 		boolean result=false;
 		sql="INSERT INTO review VALUES(review_seq.NEXTVAL,?,?,?,SYSDATE)";
 		

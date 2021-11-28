@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	int reviewNo=1;
+	int qnaNo=1;
 %>
 <jsp:include page="/layout/header.jsp"/>
 
@@ -90,6 +91,37 @@
 			</div>
 		</div>
 		<!-- 리뷰 박스 끝 -->
+		
+		<div class="review_box">
+			<div class="review_header_box">
+				<div>
+					<h2>Q & A (${requestScope.reviewCount})</h2>
+				</div>
+				<div class="review_header_font">
+					<c:if test="${sessionScope.currentId!=null}">
+						<a href="${pageContext.request.contextPath}/qna/qnaWriteView.qna?prodNum=${pddto.pd_num}" class="review_write">문의하기</a>				
+					</c:if>
+					<a href="${pageContext.request.contextPath}/qna/qnaAllList.qna?prodNum=${pddto.pd_num}">전체 보기</a>
+				</div>
+			</div>
+			<div class="review_item_box">
+				<c:if test="${requestScope.reviewList!=null}">
+					<c:forEach var="review" items="${requestScope.reviewList}">
+						<div class="review_item">
+							<div class="review_item_reviewNo"><%=reviewNo %></div>
+							<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${review.review_num}">${review.contents}</a></div>
+							<div class="review_item_id">${review.user_id}</div>
+							<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
+						</div>
+						<%qnaNo+=1; %>
+					</c:forEach>
+				</c:if>
+			</div>
+		</div>
+		<!-- Q&A 박스 시작 -->
+		
+		
+		<!-- Q&A 박스 끝 -->
 	</div>
 	<!-- 하단 박스 끝 -->
 <jsp:include page="/layout/footer.jsp"/>
