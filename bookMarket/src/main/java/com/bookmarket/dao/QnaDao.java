@@ -3,12 +3,14 @@ package com.bookmarket.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.bookmarket.dto.qna.QnaAddDto;
+import com.bookmarket.dto.qna.QnaListDto;
 
 public class QnaDao {
 	private static QnaDao dao;
@@ -80,5 +82,44 @@ public class QnaDao {
 		}
 		
 		return result;
+	}
+	
+	//qna 목록 가져오기
+	public ArrayList<QnaListDto> qnalist(int product_num,int check){
+		ArrayList<QnaListDto> list=new ArrayList<QnaListDto>();
+		QnaListDto dto=null;
+		//최근 Q&A 글 5개 가져오기
+		if(check==0) {
+			sql="SELECT q.qna_num,q.contents,q.regdate,q.qna_password,m.user_id from qna q "
+					+ "INNER JOIN member m ON q.user_num=m.user_num "
+					+ "WHERE q.product_num=? AND ROWNUM<=5 "
+					+ "ORDER BY q.qna_num DESC";	
+		}
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, product_num);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				dto=new QnaListDto();
+				dto.setQna_num(rs.getInt("qna_num"));
+				dto.setUser_id(rs.getString("user_id"));
+				//<p>,<br>태그제거
+				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "").replaceAll("<br>", "");
+				dto.setContents(contents);
+				dto.setQna_password(rs.getString("qna_password"));
+				dto.setRegdate(rs.getTimestamp("regdate"));
+				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()?null:list;
 	}
 }

@@ -92,10 +92,11 @@
 		</div>
 		<!-- 리뷰 박스 끝 -->
 		
+		<!-- Q&A 박스 시작 -->
 		<div class="review_box">
 			<div class="review_header_box">
 				<div>
-					<h2>Q & A (${requestScope.reviewCount})</h2>
+					<h2>Q&A (${requestScope.reviewCount})</h2>
 				</div>
 				<div class="review_header_font">
 					<c:if test="${sessionScope.currentId!=null}">
@@ -105,23 +106,28 @@
 				</div>
 			</div>
 			<div class="review_item_box">
-				<c:if test="${requestScope.reviewList!=null}">
-					<c:forEach var="review" items="${requestScope.reviewList}">
+				<c:if test="${requestScope.qnaList!=null}">
+					<c:forEach var="qna" items="${requestScope.qnaList}">
 						<div class="review_item">
-							<div class="review_item_reviewNo"><%=reviewNo %></div>
-							<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${review.review_num}">${review.contents}</a></div>
-							<div class="review_item_id">${review.user_id}</div>
-							<div class="review_item_regdate"><fmt:formatDate value="${review.regdate}" type="date"/></div>
+							<div class="review_item_reviewNo"><%=qnaNo %></div>
+							<c:choose>
+								<c:when test="${empty qna.qna_password}">
+									<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${qna.qna_num}">${qna.contents}</a></div>
+								</c:when>
+								<c:otherwise>
+									<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${qna.qna_num}">비밀글입니다.</a></div>
+								</c:otherwise>
+							</c:choose>
+							<div class="review_item_id">${qna.user_id}</div>
+							<div class="review_item_regdate"><fmt:formatDate value="${qna.regdate}" type="date"/></div>
 						</div>
 						<%qnaNo+=1; %>
 					</c:forEach>
 				</c:if>
 			</div>
 		</div>
-		<!-- Q&A 박스 시작 -->
-		
-		
 		<!-- Q&A 박스 끝 -->
+		
 	</div>
 	<!-- 하단 박스 끝 -->
 <jsp:include page="/layout/footer.jsp"/>

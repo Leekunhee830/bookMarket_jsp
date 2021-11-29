@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.bookmarket.dao.ProductDao;
+import com.bookmarket.dao.QnaDao;
 import com.bookmarket.dao.ReviewDao;
 import com.bookmarket.dto.product.ProductDto;
+import com.bookmarket.dto.qna.QnaListDto;
 import com.bookmarket.dto.review.ReviewListDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -39,6 +41,13 @@ public class SelectProductAction implements Action{
 		request.setAttribute("reviewList", reviewList);
 		//리뷰 목록 가져오기 끝
 		
+		
+		//Q&A 목록 가져오기
+		ArrayList<QnaListDto> qnaList=new ArrayList<QnaListDto>();
+		QnaDao qnadao=QnaDao.getInstance(); 
+		qnaList=qnadao.qnalist(pd_num,0);
+		request.setAttribute("qnaList", qnaList);
+		//
 		
 		ActionForward actionForward=new ActionForward();
 		actionForward.setNextPath("/product/select_productView.jsp");
