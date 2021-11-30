@@ -23,7 +23,7 @@
 				<div class="prod_info_box_cont_price"><fmt:formatNumber value="${pddto.pd_price}" type="number"/>원</div>
 				<div class="prod_info_box_cont_button">
 					<button type="button" onclick="order_view('${sessionScope.currentNum}','${pddto.pd_num}')">주문하기</button>
-					<button type="button" onclick="addCart('${pddto.pd_num}')">장바구니</button>
+					<button type="button" onclick="addCart('${sessionScope.currentNum }','${pddto.pd_num}')">장바구니</button>
 				</div>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 		<div class="review_box">
 			<div class="review_header_box">
 				<div>
-					<h2>Q&A (${requestScope.reviewCount})</h2>
+					<h2>Q&A (${requestScope.qnaCount})</h2>
 				</div>
 				<div class="review_header_font">
 					<c:if test="${sessionScope.currentId!=null}">
@@ -112,10 +112,10 @@
 							<div class="review_item_reviewNo"><%=qnaNo %></div>
 							<c:choose>
 								<c:when test="${empty qna.qna_password}">
-									<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${qna.qna_num}">${qna.contents}</a></div>
+									<div class="review_item_contents"><a href="${pageContext.request.contextPath}/qna/qnaDetail.qna?qnaNum=${qna.qna_num}">${qna.contents}</a></div>
 								</c:when>
 								<c:otherwise>
-									<div class="review_item_contents"><a href="${pageContext.request.contextPath}/review/reviewDetail.rv?reviewNum=${qna.qna_num}">비밀글입니다.</a></div>
+									<div class="review_item_contents"><a href="${pageContext.request.contextPath}/qna/qnaDetail.qna?qnaNum=${qna.qna_num}">비밀글입니다.</a></div>
 								</c:otherwise>
 							</c:choose>
 							<div class="review_item_id">${qna.user_id}</div>

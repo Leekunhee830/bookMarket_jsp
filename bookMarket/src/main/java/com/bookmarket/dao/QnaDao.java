@@ -122,4 +122,58 @@ public class QnaDao {
 		
 		return list.isEmpty()?null:list;
 	}
+	
+	//Q&A 개수
+	public int qnaCount(int product_num) {
+		int count=0;
+		sql="SELECT count(*) FROM qna WHERE product_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, product_num);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				count=rs.getInt("count(*)");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return count;
+	}
+	
+	//Q&A 상세 보기
+	public QnaListDto detailQna(int qna_num) {
+		QnaListDto dto=null;
+		sql="SELECT q.qna_num,q.contents,q.qna_password,q.regdate,m.user_id from qna q "
+				+  "INNER JOIN member m ON q.user_num=m.user_num "
+				+  "WHERE q.qna_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, qna_num);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				dto=new QnaListDto();
+				dto.setQna_num(rs.getInt("qna_num"));
+				dto.setUser_id(rs.getString("user_id"));
+				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "<br>");
+				dto.setContents(contents);
+				dto.setQna_password(rs.getString("qna_password"));
+				dto.setRegdate(rs.getTimestamp("regdate"));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {			
+			close(con, ps, rs);
+		}
+		return dto;
+	}
 }

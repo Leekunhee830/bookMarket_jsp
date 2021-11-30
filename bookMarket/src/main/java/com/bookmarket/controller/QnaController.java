@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.qna.AddQna;
+import com.bookmarket.qna.QnaDetailAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -46,6 +47,11 @@ public class QnaController extends HttpServlet implements Servlet {
 				PrintWriter out=response.getWriter();
 				out.print(result);
 				out.flush();
+			}
+			//Q&A ±Û º¸±â
+			else if(requestPage.equals("qnaDetail.qna")) {
+				action=new QnaDetailAction();
+				actionForward=action.execute(request, response);
 			}
 			
 			if(actionForward!=null) {

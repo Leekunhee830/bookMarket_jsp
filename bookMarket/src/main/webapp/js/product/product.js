@@ -90,22 +90,28 @@ function order_view(user_num,product_num){
 }
 
 //장바구니
-function addCart(pd_num){
-	$.ajax({
-		url:'${pageContext.request.contextPath}/product/AddCart.ct',
-		type:'post',
-		data:{pd_num:pd_num},
-		success:function(result){
-			if(result==1){
-				alert('장바구니에 등록 되었습니다.');
-				location.reload();
-			}else{
-				alert('장바구니에 이미 등록 되어있습니다.')
-			}
-		},error:function(){
-			alert("에러");
-		}					
-	});
+function addCart(user_num,product_num){
+	if(user_num==""){
+		alert('로그인을 해주세요.');
+		return false;
+	}else{
+		$.ajax({
+			url:'${pageContext.request.contextPath}/product/AddCart.ct',
+			type:'post',
+			data:{pd_num:product_num},
+			success:function(result){
+				if(result==1){
+					alert('장바구니에 등록 되었습니다.');
+					location.reload();
+				}else{
+					alert('장바구니에 이미 등록 되어있습니다.')
+				}
+			},error:function(){
+				alert("에러");
+			}					
+		});
+	}
+	
 }
 
 

@@ -19,7 +19,7 @@
 			</div>
 			<div>
 				<c:if test="${dto.user_id==currentId}">
-					<button type="button" onclick="review_delete('${dto.review_num}')" class="review_delete">삭제</button>				
+					<button type="button" onclick="review_delete('${dto.qna_num}')" class="review_delete">삭제</button>				
 				</c:if>
 			</div>
 			

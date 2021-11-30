@@ -41,10 +41,14 @@ public class SelectProductAction implements Action{
 		request.setAttribute("reviewList", reviewList);
 		//리뷰 목록 가져오기 끝
 		
+		//Q&A개수 가져오기
+		QnaDao qnadao=QnaDao.getInstance(); 
+		int qnaCount=qnadao.qnaCount(pd_num);
+		request.setAttribute("qnaCount", qnaCount);
+		//Q&A개수 가져오기 끝
 		
 		//Q&A 목록 가져오기
 		ArrayList<QnaListDto> qnaList=new ArrayList<QnaListDto>();
-		QnaDao qnadao=QnaDao.getInstance(); 
 		qnaList=qnadao.qnalist(pd_num,0);
 		request.setAttribute("qnaList", qnaList);
 		//
