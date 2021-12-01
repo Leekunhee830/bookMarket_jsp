@@ -5,6 +5,7 @@
 	margin: 0 auto;
 	border: 1px solid black; 
 	display: flex;
+	margin-top:50px;
 }
 
 .prod_info_box_img{

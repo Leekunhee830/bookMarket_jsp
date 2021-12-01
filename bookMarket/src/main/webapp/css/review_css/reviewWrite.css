@@ -53,12 +53,21 @@
 	margin-left: 10px;
 }
 
+.review_detail_info_regdate{
+	margin-right: 10px;
+}
+
 .review_detail_info_writer>span{
 	font-weight: bolder;
 	font-size: 18px;
 }
 
 .review_detail_info_regdate>span{
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+.qna_detail_info_option>span{
 	font-weight: bolder;
 	font-size: 18px;
 }

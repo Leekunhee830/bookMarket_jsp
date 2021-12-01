@@ -1,34 +1,37 @@
 package com.bookmarket.qna;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.bookmarket.dao.QnaDao;
 import com.bookmarket.dto.qna.QnaDetailDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
-public class QnaDetailAction implements Action{
+public class QnaPasswordCheckAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		int qna_num=Integer.parseInt(request.getParameter("qnaNum"));
+		request.setCharacterEncoding("UTF-8");
+		int qna_num=Integer.parseInt(request.getParameter("qna_num"));
+		String qna_password=request.getParameter("qna_password");
+		boolean result=false;
+		
 		QnaDao dao=QnaDao.getInstance();
-		QnaDetailDto dto=new QnaDetailDto();
-		dto=dao.detailQna(qna_num);
+		result=dao.passwordCheck(qna_num,qna_password);
 		
 		ActionForward actionForward=new ActionForward();
-		
-		
-		if(dto.getQna_password()!=null) {
-			request.setAttribute("qna_num",dto.getQna_num());
-			actionForward.setNextPath("/qna/qnaPasswordCheck.jsp");
-			actionForward.setRedirect(false);
-		}else {
+		if(result) {
+			QnaDetailDto dto=new QnaDetailDto();
+			dto=dao.detailQna(qna_num);
 			request.setAttribute("dto", dto);
 			actionForward.setNextPath("/qna/qnaDetail.jsp");
 			actionForward.setRedirect(false);
+		}else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out=response.getWriter();
+			out.println("<script>alert('비밀번호를 다시 확인해주세요.'); location.href=document.referrer;</script>");
+			out.flush();
 		}
 		
 		return actionForward;

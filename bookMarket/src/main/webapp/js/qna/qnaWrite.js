@@ -41,3 +41,18 @@ function upload(user_num,prod_num){
 	
 }
 
+function qna_delete(qna_num){
+	$.ajax({
+		type:"GET",
+		url:"/bookMarket/qna/qnaDelete.qna?qna_num="+qna_num
+	}).done(function(result){
+		if(result==1){
+			alert('해당 문의가 삭제되었습니다.');
+			location.href = '/bookMarket/index.jsp';
+		}else{
+			alert('해당 문의 삭제 중 오류가 발생하였습니다.');
+			location.href = document.referrer;
+		}
+	});
+}
+

@@ -10,6 +10,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.bookmarket.dto.qna.QnaAddDto;
+import com.bookmarket.dto.qna.QnaDetailDto;
 import com.bookmarket.dto.qna.QnaListDto;
 
 public class QnaDao {
@@ -148,9 +149,9 @@ public class QnaDao {
 	}
 	
 	//Q&A 상세 보기
-	public QnaListDto detailQna(int qna_num) {
-		QnaListDto dto=null;
-		sql="SELECT q.qna_num,q.contents,q.qna_password,q.regdate,m.user_id from qna q "
+	public QnaDetailDto detailQna(int qna_num) {
+		QnaDetailDto dto=null;
+		sql="SELECT q.qna_num,q.option_num,q.contents,q.qna_password,q.regdate,m.user_id from qna q "
 				+  "INNER JOIN member m ON q.user_num=m.user_num "
 				+  "WHERE q.qna_num=?";
 		
@@ -161,8 +162,9 @@ public class QnaDao {
 			rs=ps.executeQuery();
 			
 			if(rs.next()) {
-				dto=new QnaListDto();
+				dto=new QnaDetailDto();
 				dto.setQna_num(rs.getInt("qna_num"));
+				dto.setOption_num(rs.getInt("option_num"));
 				dto.setUser_id(rs.getString("user_id"));
 				String contents=rs.getString("contents").replaceAll("<p>", "").replaceAll("</p>", "<br>");
 				dto.setContents(contents);
@@ -175,5 +177,44 @@ public class QnaDao {
 			close(con, ps, rs);
 		}
 		return dto;
+	}
+	
+	//Q&A 패스워드 확인
+	public boolean passwordCheck(int qna_num,String password) {
+		boolean result=false;
+		sql="SELECT * FROM qna WHERE qna_num=? AND qna_password=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, qna_num);
+			ps.setString(2, password);
+			result=ps.executeUpdate()==1;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);			
+		}
+		return result;
+	}
+	
+	//Q&A 글 삭제
+	public boolean deleteQna(int qna_num) {
+		boolean result=false;
+		sql="DELETE FROM qna WHERE qna_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, qna_num);
+			result=ps.executeUpdate()==1;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps);
+		}
+		return result;
 	}
 }

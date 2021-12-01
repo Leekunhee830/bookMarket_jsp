@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.qna.AddQna;
+import com.bookmarket.qna.DeleteQna;
 import com.bookmarket.qna.QnaDetailAction;
+import com.bookmarket.qna.QnaPasswordCheckAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -52,6 +54,19 @@ public class QnaController extends HttpServlet implements Servlet {
 			else if(requestPage.equals("qnaDetail.qna")) {
 				action=new QnaDetailAction();
 				actionForward=action.execute(request, response);
+			}
+			//Q&A 비밀번호 체크
+			else if(requestPage.equals("passwordCheck.qna")) {
+				action=new QnaPasswordCheckAction();
+				actionForward=action.execute(request, response);
+			}
+			//Q&A 글 삭제
+			else if(requestPage.equals("qnaDelete.qna")) {
+				DeleteQna deleteQna=new DeleteQna();
+				int result=deleteQna.delete(request,response);
+				PrintWriter out=response.getWriter();
+				out.print(result);
+				out.flush();
 			}
 			
 			if(actionForward!=null) {
