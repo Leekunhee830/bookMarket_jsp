@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.qna.AddQna;
 import com.bookmarket.qna.DeleteQna;
+import com.bookmarket.qna.QnaAllListAction;
 import com.bookmarket.qna.QnaDetailAction;
 import com.bookmarket.qna.QnaPasswordCheckAction;
 import com.bookmarket.util.Action;
@@ -67,6 +68,11 @@ public class QnaController extends HttpServlet implements Servlet {
 				PrintWriter out=response.getWriter();
 				out.print(result);
 				out.flush();
+			}
+			//Q&A 전체 목록
+			else if(requestPage.equals("qnaAllList.qna")) {
+				action=new QnaAllListAction();
+				actionForward=action.execute(request, response);
 			}
 			
 			if(actionForward!=null) {

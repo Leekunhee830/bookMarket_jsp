@@ -95,6 +95,11 @@ public class QnaDao {
 					+ "INNER JOIN member m ON q.user_num=m.user_num "
 					+ "WHERE q.product_num=? AND ROWNUM<=5 "
 					+ "ORDER BY q.qna_num DESC";	
+		}else {
+			sql="SELECT q.qna_num,q.contents,q.regdate,q.qna_password,m.user_id from qna q "
+					+ "INNER JOIN member m ON q.user_num=m.user_num "
+					+ "WHERE q.product_num=?"
+					+ "ORDER BY q.qna_num DESC";	
 		}
 		
 		try {
