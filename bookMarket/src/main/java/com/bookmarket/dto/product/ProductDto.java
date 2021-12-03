@@ -7,7 +7,7 @@ public class ProductDto {
 	private String pd_contents;
 	private int pd_price;
 	private int pd_amount;
-	private String pd_category;
+	private int pd_category;
 	private String pd_manufacturer;
 	private int pd_views;
 	private String pd_regdate;
@@ -77,10 +77,10 @@ public class ProductDto {
 	public void setPd_amount(int pd_amount) {
 		this.pd_amount = pd_amount;
 	}
-	public String getPd_category() {
+	public int getPd_category() {
 		return pd_category;
 	}
-	public void setPd_category(String pd_category) {
+	public void setPd_category(int pd_category) {
 		this.pd_category = pd_category;
 	}
 	public String getPd_manufacturer() {

@@ -18,6 +18,7 @@ import com.bookmarket.product.OrderDetailAction;
 import com.bookmarket.product.OrderManagerAction;
 import com.bookmarket.product.OrderProductAction;
 import com.bookmarket.product.OrderProductViewAction;
+import com.bookmarket.product.ProductCategoryAction;
 import com.bookmarket.product.ProductDelete;
 import com.bookmarket.product.ProductManagerAction;
 import com.bookmarket.product.SelectProductAction;
@@ -90,6 +91,11 @@ public class ProductController extends HttpServlet {
 			else if(requestPage.equals("ModifyProduct.pd")) {
 				ModifyProduct ModifyPd=new ModifyProduct();
 				ModifyPd.modify(request,response);
+			}
+			//IT도서 목록
+			else if(requestPage.equals("ITProductView.pd")) {
+				action=new ProductCategoryAction();
+				actionForward=action.execute(request, response);
 			}
 			
 			

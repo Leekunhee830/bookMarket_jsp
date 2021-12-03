@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.prod_category_box{
+	width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 200px;
+}
+
+.prod_detail_category_box{
+	font-size:13px;
+	color: #888888;
+}
+
+.prod_detail_category_items{
+	display: flex;
+}
+
+.prod_detail_category_items li{
+	margin-right: 5px;
+}

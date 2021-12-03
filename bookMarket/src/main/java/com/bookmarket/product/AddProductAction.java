@@ -39,7 +39,7 @@ public class AddProductAction implements Action{
 		pd_contents=pd_contents.replace("\r\n", "<br>");
 		int pd_price=Integer.parseInt(multipartRequest.getParameter("pd_price"));
 		int pd_amount=Integer.parseInt(multipartRequest.getParameter("pd_amount"));
-		String pd_category=multipartRequest.getParameter("pd_category");
+		int pd_category=Integer.parseInt(multipartRequest.getParameter("pd_category"));
 		String pd_manufacturer=multipartRequest.getParameter("pd_manufacturer");
 		
 		dto.setPd_imgName(pd_imgName);

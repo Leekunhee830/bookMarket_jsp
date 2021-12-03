@@ -40,7 +40,7 @@ public class ModifyProduct{
 		String pd_contents=multipartRequest.getParameter("pd_contents");
 		int pd_price=Integer.parseInt(multipartRequest.getParameter("pd_price"));
 		int pd_amount=Integer.parseInt(multipartRequest.getParameter("pd_amount"));
-		String pd_category=multipartRequest.getParameter("pd_category");
+		int pd_category=Integer.parseInt(multipartRequest.getParameter("pd_category"));
 		String pd_manufacturer=multipartRequest.getParameter("pd_manufacturer");
 		
 		if(multipartRequest.getFilesystemName("pd_img")==null) {
