@@ -244,7 +244,7 @@ public class ProductDao {
 		return result;
 	}
 	
-	//IT상품 목록
+	//카테고리별 상품 목록
 	public ArrayList<ProductListDto> getItProdList(int category){
 		ArrayList<ProductListDto> list=new ArrayList<ProductListDto>();
 		ProductListDto dto=null;

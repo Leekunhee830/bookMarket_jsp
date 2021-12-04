@@ -22,7 +22,7 @@ public class ProductCategoryAction implements Action{
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("/prodcut/categoryProdView.jsp");
+		actionForward.setNextPath("/product/categoryProdView.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;
