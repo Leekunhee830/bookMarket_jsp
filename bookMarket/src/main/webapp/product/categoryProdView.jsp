@@ -8,6 +8,11 @@
 <link href="${pageContext.request.contextPath}/css/pd_css/categoryProdView.css"  rel="stylesheet" type="text/css"/>
 	
 	<div class="prod_category_box">
+		
+		<div>
+			<h1>${requestScope.strCategory}</h1>
+		</div>
+		
 		<!-- 상품 상세 카테고리 시작 -->
 		<div class="prod_detail_category_box">
 			<ul class="prod_detail_category_items">
@@ -18,6 +23,8 @@
 			</ul>
 		</div>
 		<!-- 상품 상세 카테로기 끝 -->
+		
+		<!-- 상품 목록 시작 -->
 		<c:choose>
 			<c:when test="${requestScope.list ==null}">
 				<h1>상품 정보가 없습니다.</h1>
@@ -43,6 +50,7 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
+		<!-- 상품 목록 끝 -->
 		
 	</div>
 	

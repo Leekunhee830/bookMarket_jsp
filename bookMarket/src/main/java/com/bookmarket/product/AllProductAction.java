@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.dao.ProductDao;
 import com.bookmarket.dto.product.ProductDto;
+import com.bookmarket.dto.product.ProductListDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -15,7 +16,7 @@ public class AllProductAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ArrayList<ProductDto> list=new ArrayList<ProductDto>();
+		ArrayList<ProductListDto> list=new ArrayList<ProductListDto>();
 		ProductDao dao=ProductDao.getInstance();
 		
 		list=dao.allProduct();

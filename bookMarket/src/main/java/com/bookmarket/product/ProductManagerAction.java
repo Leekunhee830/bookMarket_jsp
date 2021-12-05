@@ -16,7 +16,7 @@ public class ProductManagerAction implements Action {
 		
 		ArrayList<ProductDto> list=new ArrayList<ProductDto>();
 		ProductDao dao=ProductDao.getInstance();
-		list=dao.allProduct();
+		list=dao.managerAllProd();
 		
 		request.setAttribute("list", list);
 		
