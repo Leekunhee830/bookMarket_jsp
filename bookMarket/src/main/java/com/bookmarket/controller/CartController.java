@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.cart.AddCart;
 import com.bookmarket.cart.AllCartAction;
+import com.bookmarket.cart.CartAllBuy;
 import com.bookmarket.cart.DeleteCart;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -49,6 +50,11 @@ public class CartController extends HttpServlet {
 				PrintWriter out=response.getWriter();
 				out.print(result);
 				out.flush();
+			}
+			//카트목록 구입
+			else if(requestPage.equals("cartAllBuy.ct")) {
+				action=new CartAllBuy();
+				actionForward=action.execute(request, response);
 			}
 			
 			

@@ -153,4 +153,27 @@ public class CartDao {
 		return result;
 	}
 	
+	//유저 장바구니 상품 번호 가져오기
+	public ArrayList<Integer> getProdNum(int user_num){
+		ArrayList<Integer> list=new ArrayList<Integer>();
+		int prodNum=0;
+		sql="SELECT product_num FROM cart WHERE user_num=?";
+		
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, user_num);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				prodNum=rs.getInt("product_num");
+				list.add(prodNum);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return list.isEmpty()?null:list;
+	}
 }

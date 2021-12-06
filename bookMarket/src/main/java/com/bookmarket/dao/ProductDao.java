@@ -9,6 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.bookmarket.dto.product.ProductBuyDto;
 import com.bookmarket.dto.product.ProductDto;
 import com.bookmarket.dto.product.ProductListDto;
 
@@ -289,6 +290,39 @@ public class ProductDao {
 				dto.setPd_views(rs.getInt("pd_views"));
 				dto.setPd_imgName(rs.getString("pd_img"));
 				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()?null:list;
+	}
+	
+	//유저 장바구니 상품 정보 가져오기
+	public ArrayList<ProductBuyDto> getProdInfo(ArrayList<Integer> prodNumList){
+		ArrayList<ProductBuyDto> list=new ArrayList<ProductBuyDto>();
+		ProductBuyDto dto=null;
+		
+		try {
+			
+			for(int prodNum:prodNumList) {
+				sql="SELECT pd_num,pd_name,pd_price,pd_manufacturer,pd_imgName FROM products WHERE pd_num=?";
+				con=ds.getConnection();
+				ps=con.prepareStatement(sql);
+				ps.setInt(1, prodNum);
+				rs=ps.executeQuery();
+				if(rs.next()) {
+					dto=new ProductBuyDto();
+					dto.setPd_num(rs.getInt("pd_num"));
+					dto.setPd_name(rs.getString("pd_name"));
+					dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+					dto.setPd_price(rs.getInt("pd_price"));
+					dto.setPd_imgName(rs.getString("pd_imgName"));
+					list.add(dto);
+				}
 			}
 			
 		}catch (Exception e) {

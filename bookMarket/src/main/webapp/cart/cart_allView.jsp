@@ -82,7 +82,7 @@
 	
 	<!-- 장바구니 구매 시작 -->
 		<div class="cart_buy_btn_box">
-			<button class="cart_buy_btn">구매하기 ${cartProdCount}</button>
+			<button class="cart_buy_btn" onclick="location.href='${pageContext.request.contextPath}/cart/cartAllBuy.ct?userNum='+${sessionScope.currentNum};">구매하기 ${cartProdCount}</button>
 		</div>
 	<!-- 장바구니 구매 끝 -->
 	</div>
