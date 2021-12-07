@@ -309,7 +309,7 @@ public class ProductDao {
 		try {
 			
 			for(int prodNum:prodNumList) {
-				sql="SELECT pd_num,pd_name,pd_price,pd_manufacturer,pd_imgName FROM products WHERE pd_num=?";
+				sql="SELECT pd_num,pd_name,pd_price,pd_manufacturer,pd_img FROM products WHERE pd_num=?";
 				con=ds.getConnection();
 				ps=con.prepareStatement(sql);
 				ps.setInt(1, prodNum);
@@ -320,7 +320,7 @@ public class ProductDao {
 					dto.setPd_name(rs.getString("pd_name"));
 					dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
 					dto.setPd_price(rs.getInt("pd_price"));
-					dto.setPd_imgName(rs.getString("pd_imgName"));
+					dto.setPd_imgName(rs.getString("pd_img"));
 					list.add(dto);
 				}
 			}

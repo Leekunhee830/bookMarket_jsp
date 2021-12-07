@@ -29,9 +29,9 @@ public class CartAllBuy implements Action{
 		request.setAttribute("prodList",ProdList);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("/product/productBuy.jsp");
+		actionForward.setNextPath("/product/prodListBuy.jsp");
 		actionForward.setRedirect(false);
 		
-		return null;
+		return actionForward;
 	}
 }
