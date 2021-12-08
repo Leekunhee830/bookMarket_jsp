@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.dao.CartDao;
+import com.bookmarket.dao.MemberDao;
 import com.bookmarket.dao.ProductDao;
+import com.bookmarket.dto.member.MemberBuyDto;
 import com.bookmarket.dto.product.ProductBuyDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -17,6 +19,12 @@ public class CartAllBuy implements Action{
 		
 		int user_num=Integer.parseInt(request.getParameter("userNum"));
 		ArrayList<Integer> prodNumList=new ArrayList<Integer>();
+		
+		//유저 정보 가져오기
+		MemberBuyDto mDto=new MemberBuyDto();
+		MemberDao mDao=MemberDao.getInstance();
+		mDto=mDao.getMemberInfo(user_num);
+		request.setAttribute("userDto", mDto);
 		
 		//장바구니 상품 번호 가져오기
 		CartDao ctDao=CartDao.getInstance();

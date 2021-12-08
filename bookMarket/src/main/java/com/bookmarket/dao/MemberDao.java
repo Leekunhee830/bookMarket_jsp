@@ -10,6 +10,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.bookmarket.dto.KakaoMemberDto;
+import com.bookmarket.dto.member.MemberBuyDto;
 import com.bookmarket.dto.member.MemberDto;
 import com.bookmarket.dto.member.MemberJoinDto;
 
@@ -322,6 +323,33 @@ public class MemberDao {
 			close(con, ps);
 		}
 		return result;
+	}
+	
+	//구매 회원 정보 가져오기
+	public MemberBuyDto getMemberInfo(int user_num) {
+		MemberBuyDto dto=null;
+		sql="SELECT user_num,user_id,user_name,user_email,user_phone FROM member WHERE user_num=?";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, user_num);
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				dto=new MemberBuyDto();
+				dto.setUser_num(rs.getInt("user_num"));
+				dto.setUser_id(rs.getString("user_id"));
+				dto.setUser_name(rs.getString("user_name"));
+				dto.setUser_email(rs.getString("user_email"));
+				dto.setUser_phone(rs.getString("user_phone"));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		return dto;
 	}
 	
 	//카카오 로그인
