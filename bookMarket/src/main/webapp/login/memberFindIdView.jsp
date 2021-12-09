@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
-<link href="${pageContext.request.contextPath}/css/memberFindId.css"  rel="stylesheet" type="text/css"/>
+
+<link href="${pageContext.request.contextPath}/css/member_css/memberFindId.css"  rel="stylesheet" type="text/css"/>
 	<div class="find_cont">
 		<form action="MemberFindId.do" method="post">
 			<div class="find_form row">

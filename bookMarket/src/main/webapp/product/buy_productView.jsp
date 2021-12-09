@@ -5,8 +5,8 @@
 
 <jsp:include page="/layout/header.jsp"/>
 
-<link href="${pageContext.request.contextPath}/css/pd_css/prodListBuy.css"  rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/order_product.js"></script>
+<link href="${pageContext.request.contextPath}/css/pd_css/prodBuy.css"  rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/product/prodBuy.js"></script>
 
 <c:set var="AllPrice" value="0"/>
 <c:set var="user" value="${requestScope.userDto}"/>
@@ -46,19 +46,37 @@
 		<!-- 주문 상품 목록 시작 -->
 		<div class="order_left_box_prod_info">
 			<h3>배송상품</h3>
-			<c:forEach var="prodDto" items="${requestScope.prodList}">
-				<div class="order_prod_items">
-					<div class="order_prod_img">
-						<img src="${pageContext.request.contextPath}/upLoadImg/${prodDto.pd_imgName}"/>
+			<c:choose>
+				<c:when test="${requestScope.prodList ne null }">
+					<c:forEach var="prodDto" items="${requestScope.prodList}">
+						<div class="order_prod_items">
+							<div class="order_prod_img">
+								<img src="${pageContext.request.contextPath}/upLoadImg/${prodDto.pd_imgName}"/>
+							</div>
+							<div class="order_prod_info">
+								<div class="order_prod_publisher">${prodDto.pd_manufacturer}</div>
+								<div class="order_prod_name">${prodDto.pd_name}</div>
+								<div class="order_prod_price"><fmt:formatNumber value="${prodDto.pd_price}" type="number"/></div>	
+							</div>
+						</div>
+						<c:set var="AllPrice" value="${AllPrice+prodDto.pd_price}"/>
+					</c:forEach>
+				</c:when>
+				<c:when test="${requestScope.pdDto ne null}">
+					<c:set var="prodDto" value="${requestScope.pdDto}"/>
+					<div class="order_prod_items">
+						<div class="order_prod_img">
+							<img src="${pageContext.request.contextPath}/upLoadImg/${prodDto.pd_imgName}"/>
+						</div>
+						<div class="order_prod_info">
+							<div class="order_prod_publisher">${prodDto.pd_manufacturer}</div>
+							<div class="order_prod_name">${prodDto.pd_name}</div>
+							<div class="order_prod_price"><fmt:formatNumber value="${prodDto.pd_price}" type="number"/></div>	
+						</div>
 					</div>
-					<div class="order_prod_info">
-						<div class="order_prod_publisher">${prodDto.pd_manufacturer}</div>
-						<div class="order_prod_name">${prodDto.pd_name}</div>
-						<div class="order_prod_price"><fmt:formatNumber value="${prodDto.pd_price}" type="number"/></div>	
-					</div>
-				</div>
-				<c:set var="AllPrice" value="${AllPrice+prodDto.pd_price}"/>	
-			</c:forEach>
+					<c:set var="AllPrice" value="${AllPrice+prodDto.pd_price}"/>	
+				</c:when>
+			</c:choose>
 			<div class="order_prod_allPrice_box row">
 				<div class="order_prod_allPrice">합계:<fmt:formatNumber value="${AllPrice}" type="number"/>원</div>			
 			</div>
@@ -85,7 +103,7 @@
 				<div><fmt:formatNumber value="${AllPrice+0}"/>원</div>
 			</div>	
 		</div>
-		<button class="allPrice_buy_btn">구매하기</button>
+		<button class="allPrice_buy_btn" onclick="order_check('${user.user_id}','${user.user_name}','${user.user_email}','${user.user_phone}','${AllPrice}')">구매하기</button>
 	</div>
 	<!-- 오른쪽 박스 끝 -->
 </div>

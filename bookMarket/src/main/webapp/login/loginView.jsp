@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
-<link href="${pageContext.request.contextPath}/css/login.css"  rel="stylesheet" type="text/css"/>
 
+<link href="${pageContext.request.contextPath}/css/member_css/login.css"  rel="stylesheet" type="text/css"/>
 
 	<div class="login_wrap">
 		<div class="login_cont">

@@ -22,7 +22,7 @@
 				<div class="prod_info_box_cont_publisher">${pddto.pd_manufacturer}</div>
 				<div class="prod_info_box_cont_price"><fmt:formatNumber value="${pddto.pd_price}" type="number"/>원</div>
 				<div class="prod_info_box_cont_button">
-					<button type="button" onclick="order_view('${sessionScope.currentNum}','${pddto.pd_num}')">주문하기</button>
+					<button type="button" onclick="location.href='${pageContext.request.contextPath}/product/directBuy.pd?prodNum=${pddto.pd_num}&userNum=${sessionScope.currentNum}'">주문하기</button>
 					<button type="button" onclick="addCart('${sessionScope.currentNum }','${pddto.pd_num}')">장바구니</button>
 				</div>
 			</div>

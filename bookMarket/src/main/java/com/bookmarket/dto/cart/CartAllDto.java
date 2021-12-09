@@ -1,4 +1,4 @@
-package com.bookmarket.dto;
+package com.bookmarket.dto.cart;
 
 public class CartAllDto {
 	private int user_num;

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bookmarket.dao.CartDao;
-import com.bookmarket.dto.CartAllDto;
+import com.bookmarket.dto.cart.CartAllDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 

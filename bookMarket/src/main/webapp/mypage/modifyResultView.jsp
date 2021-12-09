@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layout/header.jsp"/>
 
-<link href="${pageContext.request.contextPath}/css/modifyResultView.css"  rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/member_css/modifyResultView.css"  rel="stylesheet" type="text/css"/>
 	
 	<div class="modify_result_wrap">
 		<div class="modify_result_cont">

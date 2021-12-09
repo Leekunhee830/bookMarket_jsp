@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
-<link href="${pageContext.request.contextPath}/css/join.css"  rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/check.js"></script>
+
+<link href="${pageContext.request.contextPath}/css/member_css/join.css"  rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/member/check.js"></script>
 
 
 	<div class="join_wrap">

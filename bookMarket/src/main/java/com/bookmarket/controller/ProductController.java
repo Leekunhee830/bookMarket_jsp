@@ -16,10 +16,9 @@ import com.bookmarket.product.ModifiyProductViewAction;
 import com.bookmarket.product.ModifyProduct;
 import com.bookmarket.product.OrderDetailAction;
 import com.bookmarket.product.OrderManagerAction;
-import com.bookmarket.product.OrderProductAction;
-import com.bookmarket.product.OrderProductViewAction;
 import com.bookmarket.product.ProductCategoryAction;
 import com.bookmarket.product.ProductDelete;
+import com.bookmarket.product.ProductDirectBuyAction;
 import com.bookmarket.product.ProductManagerAction;
 import com.bookmarket.product.SelectProductAction;
 import com.bookmarket.util.Action;
@@ -59,14 +58,6 @@ public class ProductController extends HttpServlet {
 				action=new SelectProductAction();
 				actionForward=action.execute(request, response);
 			}
-			else if(requestPage.equals("OrderProductView.pd")) {
-				action=new OrderProductViewAction();
-				actionForward=action.execute(request, response);
-			}
-			else if(requestPage.equals("OrderProduct.pd")) {
-				action=new OrderProductAction();
-				actionForward=action.execute(request, response);
-			}
 			else if(requestPage.equals("OrderManager.pd")) {
 				action=new OrderManagerAction();
 				actionForward=action.execute(request, response);
@@ -92,12 +83,16 @@ public class ProductController extends HttpServlet {
 				ModifyProduct ModifyPd=new ModifyProduct();
 				ModifyPd.modify(request,response);
 			}
-			//IT도서 목록
-			else if(requestPage.equals("ITProductView.pd")) {
+			//카테고리 도서 목록
+			else if(requestPage.equals("ProductCategoryView.pd")) {
 				action=new ProductCategoryAction();
 				actionForward=action.execute(request, response);
 			}
-			
+			//상품구매
+			else if(requestPage.equals("directBuy.pd")) {
+				action=new ProductDirectBuyAction();
+				actionForward=action.execute(request, response);
+			}
 			
 			
 			if(actionForward!=null) {

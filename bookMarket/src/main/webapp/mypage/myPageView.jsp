@@ -2,9 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layout/header.jsp"/>
-<link href="${pageContext.request.contextPath}/css/myPageView.css"  rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/modifyPw.js"></script>
+<link href="${pageContext.request.contextPath}/css/member_css/myPageView.css"  rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/member/modifyPw.js"></script>
 
 <c:set var="dto" value="${requestScope.memberDto}" scope="page"/>
 <c:remove var="memberDto" scope="request"/>

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layout/header.jsp"/>
-<link href="${pageContext.request.contextPath}/css/memberFindIdResult.css"  rel="stylesheet" type="text/css"/>
+
+<link href="${pageContext.request.contextPath}/css/member_css/memberFindIdResult.css"  rel="stylesheet" type="text/css"/>
 	
 	<div class="find_cont">
 		<div class="find_form">
