@@ -7,10 +7,6 @@ body{
   	flex-direction: column;
 }
 
-.content_wrap{
-	flex:1;
-}
-
 body,ul,li{
 	list-style:none;
 	margin:0;
@@ -33,6 +29,7 @@ a{
   display:block;
   clear:both;
 }
+
 
 .content_wrap{
 	position: relative;

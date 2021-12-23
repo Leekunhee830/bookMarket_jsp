@@ -1,9 +1,13 @@
 @charset "UTF-8";
-.footer{
-	width: 100%;
-	height: 100px;
-	text-align: center;
-	color:white;
+.footer_box{
+	margin-top: 100px;
+	height:100px;
 	background-color: black;
-	margin-top:100px;
+	color:white;
+	text-align: center;
+}
+
+
+.footer_content{
+	width: 100%;
 }

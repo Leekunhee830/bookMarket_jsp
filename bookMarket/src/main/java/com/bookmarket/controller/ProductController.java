@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookmarket.kakao.KakaoIdCheck;
 import com.bookmarket.product.AddProductAction;
 import com.bookmarket.product.AllProductAction;
 import com.bookmarket.product.MainProductAction;

@@ -79,14 +79,9 @@ function product_Check(check){
 
 }
 
-//상품 주문페이지이동
-function order_view(user_num,product_num){
-	if(user_num==""){
-			alert('로그인을 해주세요.');
-			return false;
-	}else{		
-			window.location.href ='/bookMarket/product/OrderProductView.pd?pd_num='+product_num+'&user_num='+user_num;
-	}
+//로그인 경고창
+function needLogin(){
+	alert('로그인을 해주세요.');
 }
 
 //장바구니

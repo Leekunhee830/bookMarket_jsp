@@ -11,9 +11,12 @@
 			<div class="join_form">
 				<div><h2>카카오 계정연동/회원가입</h2></div>
 				<form action="KakaoJoin.do" method="post" id="join_submit_k">
-					<input type="hidden" name="user_id" value="${sessionScope.kakao_id}">
-					<input type="hidden" name="user_name" value="${sessionScope.kakao_name}">
+					<input type="hidden" name="user_id" value="${requestScope.kakaoId}">
 					
+					<div class="join_font">이름</div>
+					<div>
+						<input type="text" value="${requestScope.kakaoName}" readonly>
+					</div>
 					<div class="join_font">전화번호</div>
 					<div>
 						<select name="user_phone1" id="user_phone1">

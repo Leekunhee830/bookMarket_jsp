@@ -8,6 +8,7 @@ public class MemberDto {
 	private String name;
 	private String phone;
 	private String regdate;
+	private String kakaoId;
 	
 	
 	public int getNum() {
@@ -52,5 +53,12 @@ public class MemberDto {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	public String getKakaoId() {
+		return kakaoId;
+	}
+	public void setKakaoId(String kakaoId) {
+		this.kakaoId = kakaoId;
+	}
+	
 	
 }

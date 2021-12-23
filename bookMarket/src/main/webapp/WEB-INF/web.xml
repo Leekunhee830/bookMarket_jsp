@@ -35,6 +35,11 @@
   	<servlet-class>com.bookmarket.controller.QnaController</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>kakao</servlet-name>
+  	<servlet-class>com.bookmarket.controller.KakaoController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>member</servlet-name>
   	<url-pattern>*.do</url-pattern>
@@ -58,5 +63,10 @@
   <servlet-mapping>
   	<servlet-name>qna</servlet-name>
   	<url-pattern>*.qna</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>kakao</servlet-name>
+  	<url-pattern>*.ka</url-pattern>
   </servlet-mapping>
 </web-app>
