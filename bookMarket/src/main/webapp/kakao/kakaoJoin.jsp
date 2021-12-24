@@ -1,22 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/layout/header.jsp"/>
-<link href="${pageContext.request.contextPath}/css/join.css"  rel="stylesheet" type="text/css"/>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/kakao_join.js"></script>
+<link href="${pageContext.request.contextPath}/css/member_css/join.css"  rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/member/kakao_join.js"></script>
 
 
 	<div class="join_wrap">
 		<div class="join_cont">
 			<div class="join_form">
 				<div><h2>카카오 계정연동/회원가입</h2></div>
-				<form action="KakaoJoin.do" method="post" id="join_submit_k">
-					<input type="hidden" name="user_id" value="${requestScope.kakaoId}">
+				<form action="kakaoJoin.ka" method="post" id="join_submit_k">
+					<input type="hidden" name="kakao_id" value="${requestScope.kakaoId}">
 					
 					<div class="join_font">이름</div>
 					<div>
-						<input type="text" value="${requestScope.kakaoName}" readonly>
+						<input type="text" name="kakao_name" value="${requestScope.kakaoName}" readonly>
 					</div>
+					
+					<div class="join_font">비밀번호</div>
+					<div>
+						<input type="password" id="user_password1" name="user_password" placeholder="PW를 입력하세요." required>	
+					</div>
+					<div class="repassword">
+						<input type="password" id="user_password2" name="user_password" placeholder="PW를 다시 입력하세요." required>
+					</div>
+					<div id="password_check" class="check_font"></div>
+					
 					<div class="join_font">전화번호</div>
 					<div>
 						<select name="user_phone1" id="user_phone1">

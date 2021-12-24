@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.kakao.KakaoFindIdAction;
+import com.bookmarket.kakao.KakaoJoinAction;
 import com.bookmarket.kakao.KakaoProfileAction;
 import com.bookmarket.kakao.KakaoTokenAction;
 import com.bookmarket.util.Action;
@@ -38,6 +39,9 @@ public class KakaoController extends HttpServlet {
 				actionForward=action.execute(request, response);
 			}else if(requestPage.equals("kakaoFindId.ka")) {
 				action=new KakaoFindIdAction();
+				actionForward=action.execute(request, response);
+			}else if(requestPage.equals("kakaoJoin.ka")) {
+				action=new KakaoJoinAction();
 				actionForward=action.execute(request, response);
 			}
 			

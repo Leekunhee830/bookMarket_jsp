@@ -9,7 +9,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.bookmarket.dto.KakaoMemberDto;
 import com.bookmarket.dto.member.MemberBuyDto;
 import com.bookmarket.dto.member.MemberDto;
 import com.bookmarket.dto.member.MemberJoinDto;
@@ -351,29 +350,7 @@ public class MemberDao {
 		}
 		return dto;
 	}
-	
-	//카카오 로그인
-	public boolean kakaoJoin(KakaoMemberDto dto) {
-		boolean result=false;
-		sql="INSERT INTO kakao_member VALUES(kakaoMember_seq.NEXTVAL,?,?,?,?,SYSDATE)";
-		
-		try {
-			con=ds.getConnection();
-			ps=con.prepareStatement(sql);
-			ps.setString(1, dto.getId());
-			ps.setString(2, dto.getName());
-			ps.setString(3, dto.getEmail());
-			ps.setString(4, dto.getPhone());
-			result=ps.executeUpdate()==1;
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			close(con, ps);
-		}
-		return result;
-	}
-	
+
 	//카카오 아이디 가입확인
 	public boolean kakaoIdck(String user_id) {
 		boolean result=false;
@@ -395,27 +372,4 @@ public class MemberDao {
 		return result;
 	}
 	
-	//카카오 정보 가져오기
-	public KakaoMemberDto kakaoInfo(String user_id) {
-		sql="SELECT * FROM kakao_member WHERE id=?";
-		KakaoMemberDto dto=null;
-		try {
-			con=ds.getConnection();
-			ps=con.prepareStatement(sql);
-			ps.setString(1, user_id);
-			rs=ps.executeQuery();
-			
-			if(rs.next()) {
-				dto=new KakaoMemberDto();
-				dto.setId(rs.getString("id"));
-				dto.setName(rs.getString("name"));
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			close(con, ps, rs);
-		}
-		return dto;
-	}
 }

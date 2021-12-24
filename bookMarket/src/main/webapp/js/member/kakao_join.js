@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
 	var email_check=0;
+	var pw_check=0;
 	var email_check_num;
 
 	//$(document).on('click','#send_email_btn',function(){
@@ -42,7 +43,36 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('#user_password1 , #user_password2').blur(function(){
+		var password1=$("#user_password1").val();
+		var password2=$("#user_password2").val();
+		var password_rule = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
+		
+		if(password1!="" && password2!=""){
+			
+			if(password1!=password2){
+				$('#password_check').text('두 비밀번호가 일치하지 않습니다.');
+				$("#password_check").css("color", "red");
+				pw_check=0;
+			}
+			else if(!password_rule.test(password1)){
+				$('#password_check').text('숫자와 문자,특수 문자포함 8자리 이상으로 입력해주세요.');
+				$("#password_check").css("color", "red");
+				pw_check=0;
+			}
+		    else if(password1==password2){
+				$('#password_check').text('사용 가능합니다.');
+				$("#password_check").css("color", "green");
+				pw_check=1;
+			}
+
+		}else{
+			$('#password_check').text('비밀번호를 입력해주세요.');
+			$("#password_check").css("color", "red");
+			pw_check=0;
+		}
+	});
 	
 	$("#join_button_k").click(function(){
 		var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -78,7 +108,7 @@ $(document).ready(function() {
 			alert('이메일 인증을 해주세요.');
 		}
 		
-		if(email_check==1){
+		if(email_check==1 && pw_check==1){
 			$('#join_submit_k').submit();
 		}
 		

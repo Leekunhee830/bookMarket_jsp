@@ -8,6 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.bookmarket.dto.kakao.KakaoJoinUser;
 import com.bookmarket.dto.member.MemberDto;
 
 public class KakaoDao {
@@ -76,5 +77,24 @@ public class KakaoDao {
 		}
 		
 		return dto;
+	}
+	
+	public boolean kakaoJoin(KakaoJoinUser kakaoJoinuser) {
+		boolean result=false;
+		sql="INSERT INTO member(user_password,user_name,user_email,user_phone,kakaoId,regdate) VALUES(?,?,?,?,?,SYSDATE)";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, kakaoJoinuser.getUser_password());
+			ps.setString(2, kakaoJoinuser.getKakao_name());
+			ps.setString(3, kakaoJoinuser.getUser_email());
+			ps.setString(4, kakaoJoinuser.getUser_phone());
+			ps.setInt(5, kakaoJoinuser.getKakao_id());
+			result=ps.executeUpdate()==1;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
