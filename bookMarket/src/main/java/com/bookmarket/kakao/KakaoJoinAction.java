@@ -15,11 +15,12 @@ public class KakaoJoinAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		request.setCharacterEncoding("UTF-8");
 		KakaoDao dao=KakaoDao.getInstance();
 		boolean result=false;
 		int kakao_id=Integer.parseInt(request.getParameter("kakao_id"));
 		String kakao_name=request.getParameter("kakao_name");
-		String user_password=request.getParameter("user_password1");
+		String user_password=request.getParameter("user_password");
 		String user_phone=request.getParameter("user_phone1")+""+request.getParameter("user_phone2")+""+request.getParameter("user_phone3");
 		String user_email=request.getParameter("user_email1")+""+request.getParameter("user_email2");
 		String user_shaPassword=SHA256.encodeSHA256(user_password);

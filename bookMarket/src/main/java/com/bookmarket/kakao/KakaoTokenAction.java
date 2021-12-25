@@ -22,7 +22,7 @@ public class KakaoTokenAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String authorize_code=request.getParameter("code");
-		String client_id="¾ÆÀÌµð";
+		String client_id="e6438c922f7b9530b1f4308a8f0c0154";
 		String redirect_uri="http://localhost:8002/bookMarket/kakaoLogin.ka";
 		String code=authorize_code;
 		
@@ -52,7 +52,6 @@ public class KakaoTokenAction implements Action{
 		Gson gson=new Gson();
 		OAuthToken oauthToken=gson.fromJson(sb.toString(), OAuthToken.class);
 		request.setAttribute("OAuthToken", oauthToken);
-		
 		
 		ActionForward actionForward=new ActionForward();
 		actionForward.setNextPath("/kakao/kakaoProfile.ka");

@@ -28,7 +28,7 @@
 						<a href="memberFindIdView.jsp"><h5>나의 계정찾기<h5></a>
 					</div>
 				</form>
-					<a href="https://kauth.kakao.com/oauth/authorize?client_id=아이디&redirect_uri=http://localhost:8002/bookMarket/kakaoLogin.ka&response_type=code">
+					<a href="https://kauth.kakao.com/oauth/authorize?client_id=e6438c922f7b9530b1f4308a8f0c0154&redirect_uri=http://localhost:8002/bookMarket/kakaoLogin.ka&response_type=code">
 					<img class="width_100 kakao_img" src="/bookMarket/img/kakao_login_large_wide.png">
 					</a>
 			</div>

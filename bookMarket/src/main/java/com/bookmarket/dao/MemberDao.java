@@ -63,7 +63,7 @@ public class MemberDao {
 	//회원가입
 	public boolean insert(MemberJoinDto dto) {
 		boolean result=false;
-		sql="INSERT INTO member VALUES(member_seq.NEXTVAL,?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO member(user_num,user_id,user_password,user_name,user_email,user_phone,regdate) VALUES(member_seq.NEXTVAL,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();
@@ -351,25 +351,5 @@ public class MemberDao {
 		return dto;
 	}
 
-	//카카오 아이디 가입확인
-	public boolean kakaoIdck(String user_id) {
-		boolean result=false;
-		sql="SELECT * FROM kakao_member WHERE id=?";
-		
-		try {
-			con=ds.getConnection();
-			ps=con.prepareStatement(sql);
-			ps.setString(1, user_id);
-			
-			result=ps.executeUpdate()==1;
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			close(con, ps);
-		}
-		
-		return result;
-	}
 	
 }

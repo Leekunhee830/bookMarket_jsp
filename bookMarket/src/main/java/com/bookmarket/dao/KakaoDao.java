@@ -81,7 +81,7 @@ public class KakaoDao {
 	
 	public boolean kakaoJoin(KakaoJoinUser kakaoJoinuser) {
 		boolean result=false;
-		sql="INSERT INTO member(user_password,user_name,user_email,user_phone,kakaoId,regdate) VALUES(?,?,?,?,?,SYSDATE)";
+		sql="INSERT INTO member(user_num,user_password,user_name,user_email,user_phone,kakaoId,regdate) VALUES(member_seq.NEXTVAL,?,?,?,?,?,SYSDATE)";
 		
 		try {
 			con=ds.getConnection();

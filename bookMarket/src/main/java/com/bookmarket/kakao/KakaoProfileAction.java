@@ -7,6 +7,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bookmarket.dto.kakao.KakaoUser;
 import com.bookmarket.dto.kakao.OAuthToken;
@@ -22,6 +23,8 @@ import com.google.gson.JsonParser;
 public class KakaoProfileAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session=request.getSession();
+		
 		OAuthToken oauthToken= (OAuthToken)request.getAttribute("OAuthToken");
 		URL url=new URL("https://kapi.kakao.com/v2/user/me");
 		
@@ -48,6 +51,7 @@ public class KakaoProfileAction implements Action{
 		kakaoUser.setId(id);
 		
 		request.setAttribute("kakaoUser", kakaoUser);
+		session.setAttribute("kakaoAccess_token", oauthToken.getAccess_token());
 		
 		ActionForward actionForward=new ActionForward();
 		actionForward.setNextPath("/kakao/kakaoFindId.ka");
