@@ -68,10 +68,14 @@
 					<div class="logo">
 						<a href="/bookMarket/index.jsp">Book Market</a>
 					</div>
-					<p class="search">
-						<input type="text" name="" class="search_tag">
-						<input type="image" src="${pageContext.request.contextPath}/img/search.png" class="search_img">
-					</p>
+					<!-- 상품검색 시작 -->
+					<form action="prodSearch.pd" method="POST">
+						<p class="search">
+							<input type="text" name="prodName" class="search_tag">
+							<input type="image" src="${pageContext.request.contextPath}/img/search.png" class="search_img">
+						</p>
+					</form>
+					<!-- 상품검색 끝 -->
 				</div>
 			</div>
 			

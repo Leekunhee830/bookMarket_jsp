@@ -19,6 +19,7 @@ import com.bookmarket.product.ProductCategoryAction;
 import com.bookmarket.product.ProductDelete;
 import com.bookmarket.product.ProductDirectBuyAction;
 import com.bookmarket.product.ProductManagerAction;
+import com.bookmarket.product.ProductSearchAction;
 import com.bookmarket.product.SelectProductAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -90,6 +91,11 @@ public class ProductController extends HttpServlet {
 			//상품구매
 			else if(requestPage.equals("directBuy.pd")) {
 				action=new ProductDirectBuyAction();
+				actionForward=action.execute(request, response);
+			}
+			//상품검색
+			else if(requestPage.equals("prodSearch.pd")) {
+				action=new ProductSearchAction();
 				actionForward=action.execute(request, response);
 			}
 			

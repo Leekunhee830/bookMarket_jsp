@@ -360,4 +360,35 @@ public class ProductDao {
 		
 		return list.isEmpty()?null:list;
 	}
+	
+	//상품 검색
+	public ArrayList<ProductListDto> getSearchProd(String prodName){
+		ArrayList<ProductListDto> list=new ArrayList<ProductListDto>();
+		ProductListDto dto=null;
+		sql="SELECT pd_num,pd_name,pd_price,pd_views,pd_manufacturer,pd_img from products WHERE pd_name LIKE '%"+prodName+"%'";
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				dto=new ProductListDto();
+				dto.setPd_num(rs.getInt("pd_num"));
+				dto.setPd_name(rs.getString("pd_name"));
+				dto.setPd_price(rs.getInt("pd_price"));
+				dto.setPd_views(rs.getInt("pd_views"));
+				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+				dto.setPd_imgName(rs.getString("pd_img"));
+				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()?null:list;
+	}
 }

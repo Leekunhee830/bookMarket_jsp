@@ -235,14 +235,14 @@ public class MemberDao {
 	}
 	
 	//È¸¿øÅ»Åð
-	public boolean signout(String user_id,String user_password) {
+	public boolean signout(int user_num,String user_password) {
 		boolean result=false;
-		sql="DELETE FROM member WHERE user_id=? AND user_password=?";
+		sql="DELETE FROM member WHERE user_num=? AND user_password=?";
 		
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
-			ps.setString(1, user_id);
+			ps.setInt(1, user_num);
 			ps.setString(2, user_password);
 			result=ps.executeUpdate()==1;
 		}catch (Exception e) {

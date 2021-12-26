@@ -14,13 +14,13 @@ public class MemberSignoutAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		request.setCharacterEncoding("UTF-8");
-		String user_id=request.getParameter("user_id");
+		int user_num=Integer.parseInt(request.getParameter("user_num"));
 		String rawPassword=request.getParameter("user_password");
 		String password=SHA256.encodeSHA256(rawPassword);
 		boolean result=false;
 		MemberDao dao=MemberDao.getInstance();
 		
-		result=dao.signout(user_id, password);
+		result=dao.signout(user_num, password);
 		
 		if(result) {
 			HttpSession session=request.getSession();
