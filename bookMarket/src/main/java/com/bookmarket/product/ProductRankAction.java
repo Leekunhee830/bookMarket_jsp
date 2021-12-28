@@ -10,26 +10,27 @@ import com.bookmarket.dto.product.ProductListDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
-public class ProductCategoryAction implements Action{
+public class ProductRankAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		int category=Integer.parseInt(request.getParameter("category"));
+		int list_num=Integer.parseInt(request.getParameter("list"));
+		int category_num=Integer.parseInt(request.getParameter("category"));
 		ArrayList<ProductListDto> list=new ArrayList<ProductListDto>();
+		
 		ProductDao dao=ProductDao.getInstance();
-		String strCategory="";
+		list=dao.getRankProd(list_num,category_num);
 		
-		if(category==2) {
-			strCategory="컴퓨터/모바일";
-		}
-		
-		list=dao.getItProdList(category);
 		request.setAttribute("list", list);
-		request.setAttribute("strCategory", strCategory);
-		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("/product/categoryProdView.jsp");
-		actionForward.setRedirect(false);
+		
+		if(category_num==0) {
+			actionForward.setNextPath("/product/all_productView.jsp");
+			actionForward.setRedirect(false);
+		}else {
+			actionForward.setNextPath("/product/categoryProdView.jsp");
+			actionForward.setRedirect(false);
+		}
 		
 		return actionForward;
 	}

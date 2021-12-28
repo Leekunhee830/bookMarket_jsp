@@ -19,6 +19,7 @@ import com.bookmarket.product.ProductCategoryAction;
 import com.bookmarket.product.ProductDelete;
 import com.bookmarket.product.ProductDirectBuyAction;
 import com.bookmarket.product.ProductManagerAction;
+import com.bookmarket.product.ProductRankAction;
 import com.bookmarket.product.ProductSearchAction;
 import com.bookmarket.product.SelectProductAction;
 import com.bookmarket.util.Action;
@@ -98,7 +99,11 @@ public class ProductController extends HttpServlet {
 				action=new ProductSearchAction();
 				actionForward=action.execute(request, response);
 			}
-			
+			//ªÛ«∞∑©≈∑
+			else if(requestPage.equals("prod_rank.pd")) {
+				action=new ProductRankAction();
+				actionForward=action.execute(request, response);
+			}
 			
 			if(actionForward!=null) {
 				if(actionForward.isRedirect()) {

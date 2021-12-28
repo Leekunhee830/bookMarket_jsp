@@ -33,6 +33,7 @@ function request_to_check(user_id,allPrice,email,name,phone,address){
 		buyer_addr:address
 	},function(rsp){
 		if(rsp.success){
+			
 			alert("결제 완료되었습니다.");
 			window.location.href ='/bookMarket/index.jsp';
 		}else{

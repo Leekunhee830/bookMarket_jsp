@@ -313,7 +313,6 @@ public class ProductDao {
 			
 			if(rs.next()) {
 				dto=new ProductBuyDto();
-				dto=new ProductBuyDto();
 				dto.setPd_num(rs.getInt("pd_num"));
 				dto.setPd_name(rs.getString("pd_name"));
 				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
@@ -379,6 +378,65 @@ public class ProductDao {
 				dto.setPd_price(rs.getInt("pd_price"));
 				dto.setPd_views(rs.getInt("pd_views"));
 				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+				dto.setPd_imgName(rs.getString("pd_img"));
+				list.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, ps, rs);
+		}
+		
+		return list.isEmpty()?null:list;
+	}
+	
+	//상품 랭킹별 목록
+	public ArrayList<ProductListDto> getRankProd(int list_num,int category_num){
+		ArrayList<ProductListDto> list=new ArrayList<ProductListDto>();
+		ProductListDto dto=null;
+		
+		//전체보기
+		if(category_num==0) {
+			//최신순
+			if(list_num==0) {
+				sql="SELECT * FROM products ORDER BY pd_regdate desc";
+			}
+			//누적 판매순
+			else if(list_num==1) {
+				sql="SELECT * FROM products ORDER BY pd_views desc";
+			}
+			//낮은 가격순
+			else if(list_num==2) {
+				sql="SELECT * FROM products ORDER BY pd_price asc";
+			}
+			//리뷰순
+			else if(list_num==3) {
+				
+			}
+		}
+		//컴퓨터it
+		else if(category_num==2) {
+			//최신순
+			if(list_num==0) {
+				
+			}
+		}
+		
+		try {
+			con=ds.getConnection();
+			ps=con.prepareStatement(sql);
+			if(category_num>0) {
+				ps.setInt(1, category_num);
+			}
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				dto=new ProductListDto();
+				dto.setPd_num(rs.getInt("pd_num"));
+				dto.setPd_name(rs.getString("pd_name"));
+				dto.setPd_price(rs.getInt("pd_price"));
+				dto.setPd_manufacturer(rs.getString("pd_manufacturer"));
+				dto.setPd_views(rs.getInt("pd_views"));
 				dto.setPd_imgName(rs.getString("pd_img"));
 				list.add(dto);
 			}
