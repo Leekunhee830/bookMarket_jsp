@@ -47,8 +47,8 @@ public class ProductListDto {
 	
 	@Override
 	public String toString() {
-		return "ProdcutListDto [pd_num=" + pd_num + ", pd_name=" + pd_name + ", pd_price=" + pd_price + ", pd_views="
+		return "ProductListDto [pd_num=" + pd_num + ", pd_name=" + pd_name + ", pd_price=" + pd_price + ", pd_views="
 				+ pd_views + ", pd_manufacturer=" + pd_manufacturer + ", pd_imgName=" + pd_imgName + "]";
 	}
-	
+		
 }

@@ -21,11 +21,16 @@ public class ProductCategoryAction implements Action{
 		
 		if(category==2) {
 			strCategory="컴퓨터/모바일";
+		}else if(category==3) {
+			strCategory="자격증";
+		}else if(category==4) {
+			strCategory="외국어";
 		}
 		
 		list=dao.getItProdList(category);
 		request.setAttribute("list", list);
 		request.setAttribute("strCategory", strCategory);
+		request.setAttribute("categoryNum", category);
 		
 		ActionForward actionForward=new ActionForward();
 		actionForward.setNextPath("/product/categoryProdView.jsp");

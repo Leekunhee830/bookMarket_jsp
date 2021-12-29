@@ -23,11 +23,21 @@ public class ProductRankAction implements Action{
 		
 		request.setAttribute("list", list);
 		ActionForward actionForward=new ActionForward();
-		
 		if(category_num==0) {
 			actionForward.setNextPath("/product/all_productView.jsp");
 			actionForward.setRedirect(false);
 		}else {
+			String strCategory="";
+			if(category_num==2) {
+				strCategory="컴퓨터/모바일";
+			}else if(category_num==3) {
+				strCategory="자격증";
+			}else if(category_num==4) {
+				strCategory="외국어";
+			}
+			
+			request.setAttribute("strCategory",strCategory);
+			request.setAttribute("categoryNum", category_num);
 			actionForward.setNextPath("/product/categoryProdView.jsp");
 			actionForward.setRedirect(false);
 		}

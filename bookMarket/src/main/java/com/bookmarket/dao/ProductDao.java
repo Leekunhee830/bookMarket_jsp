@@ -412,23 +412,35 @@ public class ProductDao {
 			}
 			//리뷰순
 			else if(list_num==3) {
-				
+				sql="SELECT prod.pd_num,prod.pd_name,prod.pd_price,prod.pd_manufacturer,prod.pd_views,prod.pd_img,NVL(rv.count,0) rvcount"
+						+ " FROM products prod LEFT OUTER JOIN (SELECT product_num,COUNT(*) as count FROM review GROUP BY product_num) rv"
+						+ " ON prod.pd_num=rv.product_num ORDER BY rvcount DESC";
 			}
 		}
-		//컴퓨터it
-		else if(category_num==2) {
-			//최신순
+		//카테고리별
+		else {
 			if(list_num==0) {
-				
+				sql="SELECT * FROM products WHERE pd_category="+category_num+" ORDER BY pd_regdate desc";
+			}
+			else if(list_num==1) {
+				sql="SELECT * FROM products WHERE pd_category="+category_num+" ORDER BY pd_views desc";
+			}
+			else if(list_num==2) {
+				sql="SELECT * FROM products WHERE pd_category="+category_num+" ORDER BY pd_price asc";
+			}
+			else if(list_num==3) {
+				sql="SELECT prod.pd_num,prod.pd_name,prod.pd_price,prod.pd_manufacturer,prod.pd_views,prod.pd_img,NVL(rv.count,0) rvcount"
+						+ " FROM products prod LEFT OUTER JOIN (SELECT product_num,COUNT(*) as count FROM review GROUP BY product_num) rv"
+						+ " ON prod.pd_num=rv.product_num"
+						+ " WHERE pd_category="+category_num
+						+ " ORDER BY rvcount DESC";
 			}
 		}
+		
 		
 		try {
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
-			if(category_num>0) {
-				ps.setInt(1, category_num);
-			}
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				dto=new ProductListDto();

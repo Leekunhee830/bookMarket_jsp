@@ -16,10 +16,10 @@
 		<!-- 상품 상세 카테고리 시작 -->
 		<div class="prod_detail_category_box">
 			<ul class="prod_detail_category_items">
-				<li><a href="#">최신등록순</a> |</li>
-				<li><a href="#">누적판매순</a> |</li>
-				<li><a href="#">낮은가격순</a> |</li>
-				<li><a href="#">리뷰많은순</a> |</li>
+				<li><a href="${pageContext.request.contextPath}/product/prod_rank.pd?list=0&category=${requestScope.categoryNum}">최신등록순</a> |</li>
+				<li><a href="${pageContext.request.contextPath}/product/prod_rank.pd?list=1&category=${requestScope.categoryNum}">누적판매순</a> |</li>
+				<li><a href="${pageContext.request.contextPath}/product/prod_rank.pd?list=2&category=${requestScope.categoryNum}">낮은가격순</a> |</li>
+				<li><a href="${pageContext.request.contextPath}/product/prod_rank.pd?list=3&category=${requestScope.categoryNum}">리뷰많은순</a> |</li>
 			</ul>
 		</div>
 		<!-- 상품 상세 카테로기 끝 -->

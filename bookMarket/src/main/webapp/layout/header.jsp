@@ -83,10 +83,10 @@
 				<div class="gnb_cont">				
 					<ul class="gnb_box row">
 						<li><a href="/bookMarket/product/AllProductView.pd">전체상품</a></li>
-						<li><a href="#">베스트셀러</a></li>
+						<li><a href="/bookMarket/product/ProductCategoryView.pd?category=1">베스트셀러</a></li>
 						<li><a href="/bookMarket/product/ProductCategoryView.pd?category=2">컴퓨터,모바일</a></li>
-						<li><a href="#">취업 수험서</a></li>
-						<li><a href="#">외국어</a></li>
+						<li><a href="/bookMarket/product/ProductCategoryView.pd?category=3">자격증</a></li>
+						<li><a href="/bookMarket/product/ProductCategoryView.pd?category=4">외국어</a></li>
 					</ul>
 				</div>
 			</div>

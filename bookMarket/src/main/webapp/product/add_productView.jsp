@@ -35,7 +35,8 @@
 					<select name="pd_category" id="pd_category">
 							<option value="">==선택==</option>
 							<option value="2">컴퓨터,모바일</option>
-							<option value="3">외국어</option>
+							<option value="3">자격증</option>
+							<option value="4">외국어</option>							
 					</select>
 				</div>
 				<div class="add_font">상품 제조사</div>		
