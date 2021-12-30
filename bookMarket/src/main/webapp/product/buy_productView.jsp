@@ -17,6 +17,7 @@
 	<div class="order_left_box">
 		<!-- 주문정보 입력 박스 시작 -->
 		<div class="order_left_box_user_info">
+			<input type="hidden" id="user_num" value="${user.user_num}">
 			<div class="order_font">받으실분</div>
 			<div>
 				${user.user_name}
@@ -38,7 +39,7 @@
 			</div>
 			<div class="order_font">배송 메시지</div>
 			<div>
-				<input type="text" placeholder="택배 기사님께 전달할 메시지를 남겨주세요." size="50">
+				<input type="text" id="order_message" placeholder="택배 기사님께 전달할 메시지를 남겨주세요." size="50">
 			</div>
 		</div>
 		<!-- 주문정보 입력 박스 끝 -->
@@ -49,6 +50,7 @@
 			<c:choose>
 				<c:when test="${requestScope.prodList ne null }">
 					<c:forEach var="prodDto" items="${requestScope.prodList}">
+						<input type="hidden" class="prod_id_list" value="${prodDto.pd_num}">
 						<div class="order_prod_items">
 							<div class="order_prod_img">
 								<img src="${pageContext.request.contextPath}/upLoadImg/${prodDto.pd_imgName}"/>
@@ -64,6 +66,7 @@
 				</c:when>
 				<c:when test="${requestScope.pdDto ne null}">
 					<c:set var="prodDto" value="${requestScope.pdDto}"/>
+					<input type="hidden" class="prod_id_list" value="${prodDto.pd_num}">
 					<div class="order_prod_items">
 						<div class="order_prod_img">
 							<img src="${pageContext.request.contextPath}/upLoadImg/${prodDto.pd_imgName}"/>

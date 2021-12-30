@@ -40,6 +40,11 @@
   	<servlet-class>com.bookmarket.controller.KakaoController</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>order</servlet-name>
+  	<servlet-class>com.bookmarket.controller.OrderController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>member</servlet-name>
   	<url-pattern>*.do</url-pattern>
@@ -68,5 +73,10 @@
   <servlet-mapping>
   	<servlet-name>kakao</servlet-name>
   	<url-pattern>*.ka</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>order</servlet-name>
+  	<url-pattern>*.od</url-pattern>
   </servlet-mapping>
 </web-app>
