@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 import com.bookmarket.dto.OrderDetailDto;
 import com.bookmarket.dto.order.OrderAddDto;
+import com.bookmarket.dto.order.OrderListDto;
 
 public class OrderDao {
 	private static OrderDao dao;
@@ -91,7 +92,6 @@ public class OrderDao {
 		sql="SELECT order_detail_seq.NEXTVAL seq_num FROM DUAL";
 		int seq=0;
 		try {
-			
 			con=ds.getConnection();
 			ps=con.prepareStatement(sql);
 			rs=ps.executeQuery();
@@ -108,10 +108,12 @@ public class OrderDao {
 	}
 	
 	//전체구매내역 가져오기
-	public ArrayList<OrderDetailDto> getOrder_all(int user_num){
-		sql="SELECT * FROM order_detail WHERE user_num=?";
-		ArrayList<OrderDetailDto> list=new ArrayList<OrderDetailDto>();
-		OrderDetailDto dto=null;
+	public ArrayList<OrderListDto> getOrderList(int user_num){
+		ArrayList<OrderListDto> list=new ArrayList<OrderListDto>();
+		OrderListDto dto=null;
+		sql="SELECT od.order_num,pd.pd_num,pd.pd_name,pd.pd_img,od.regdate,pd.pd_price,od.order_result"
+				+ " FROM order_detail od INNER JOIN products pd"
+				+ " ON(pd.pd_num=od.prod_num) WHERE user_num=?";
 		
 		try {
 			con=ds.getConnection();
@@ -120,20 +122,14 @@ public class OrderDao {
 			rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				dto=new OrderDetailDto();
+				dto=new OrderListDto();
 				dto.setOrder_num(rs.getString("order_num"));
-				dto.setProduct_num(rs.getInt("product_num"));
-				dto.setUser_num(rs.getInt("user_num"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_img(rs.getString("product_img"));
-				dto.setOrder_phone(rs.getString("order_phone"));
-				dto.setOrder_home_phone(rs.getString("order_home_phone"));
-				dto.setOrder_address(rs.getString("order_address"));
-				dto.setOrder_message(rs.getString("order_message"));
-				dto.setOrder_amount(rs.getInt("order_amount"));
-				dto.setOrder_price(rs.getInt("order_price"));
+				dto.setProd_num(rs.getInt("pd_num"));
+				dto.setProd_name(rs.getString("pd_name"));
+				dto.setOrder_price(rs.getInt("pd_price"));
+				dto.setRegdate(rs.getTimestamp("regdate"));
 				dto.setOrder_result(rs.getInt("order_result"));
-				dto.setRegdate(rs.getString("regdate"));
+				dto.setProd_img(rs.getString("pd_img"));
 				list.add(dto);
 			}
 			

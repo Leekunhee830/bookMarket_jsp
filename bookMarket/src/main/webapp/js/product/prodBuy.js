@@ -58,12 +58,10 @@ function request_to_check(user_id,allPrice,email,name,phone,address){
 					data:JSON.stringify(data),
 					contentType:"application/json; charset=utf-8",
 					dataType:"text"
-				}).done(function(result){
-					alert("결제 완료되었습니다.");
-					alert("주문번호:"+result);
-					window.location.href ='/bookMarket/index.jsp';
 				})
 			});
+			alert("결제 완료되었습니다.");
+			window.location.href ='/bookMarket/index.jsp';
 		}else{
 			alert("결제 실패하였습니다.");
 			window.location.href ='/bookMarket/index.jsp';

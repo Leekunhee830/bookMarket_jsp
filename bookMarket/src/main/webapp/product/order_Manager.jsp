@@ -21,25 +21,29 @@
 						<th width="20%">주문 번호</th>
 						<th width="20%">상품 이름</th>
 						<th width="20%">구매일</th>
-						<th width="10%">수량</th>
 						<th width="10%">총 결제</th>
 						<th width="10%">처리 상태</th>
 					</tr>
 					<c:forEach var="dto" items="${requestScope.list}">
 						<tr>
-							<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.product_num}"><img class="order_img" src="${pageContext.request.contextPath}/upLoadImg/${dto.product_img}"/></a></th>
+							<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.prod_num}"><img class="order_img" src="${pageContext.request.contextPath}/upLoadImg/${dto.prod_img}"/></a></th>
 								<th><a href="/bookMarket/product/OrderDetail.pd?orderNum=${dto.order_num}" class="order_num">${dto.order_num}</a></th>
-								<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.product_num}">${dto.product_name }</a></th>
-								<th>${dto.regdate }</th>
-								<th>${dto.order_amount }</th>
+								<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.prod_num}">${dto.prod_name }</a></th>
+								<th><fmt:formatDate value="${dto.regdate}"/></th>
 								<th><fmt:formatNumber value="${dto.order_price}" type="number"/>원</th>
 								<c:choose>
-									<c:when test="${dto.order_result}==0">
-										<th>배송완료</th>
+									<c:when test="${dto.order_result eq 0}">
+										<th>결제중</th>
 									</c:when>
-									<c:otherwise>
+									<c:when test="${dto.order_result eq 1}">
+										<th>결재완료</th>
+									</c:when>
+									<c:when test="${dto.order_result eq 2}">
 										<th>배송중</th>
-									</c:otherwise>
+									</c:when>
+									<c:when test="${dto.order_result eq 3}">
+										<th>배송 완료</th>
+									</c:when>
 								</c:choose>
 						</tr>
 					</c:forEach>

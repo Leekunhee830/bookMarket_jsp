@@ -1,4 +1,4 @@
-package com.bookmarket.product;
+package com.bookmarket.order;
 
 import java.util.ArrayList;
 
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bookmarket.dao.OrderDao;
 import com.bookmarket.dto.OrderDetailDto;
+import com.bookmarket.dto.order.OrderListDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -17,10 +18,9 @@ public class OrderManagerAction implements Action{
 		HttpSession session=request.getSession();
 		int user_num=(Integer)session.getAttribute("currentNum");
 		OrderDao dao=OrderDao.getInstance();
-		ArrayList<OrderDetailDto> list=new ArrayList<OrderDetailDto>();
+		ArrayList<OrderListDto> list=new ArrayList<OrderListDto>();
 		
-		list=dao.getOrder_all(user_num);
-		
+		list=dao.getOrderList(user_num);
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();

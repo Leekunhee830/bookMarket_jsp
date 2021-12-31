@@ -40,7 +40,7 @@
 						<input type="button" value="회원 탈퇴" onclick="location.href='/bookMarket/mypage/signoutView.jsp'"/>
 					</div>
 					<div class="mypage_btn">
-						<input type="button" value="결재 내역" onclick="location.href='/bookMarket/product/OrderManager.pd'">
+						<input type="button" value="결재 내역" onclick="location.href='/bookMarket/product/OrderManager.od'">
 					</div>
 					<c:if test="${sessionScope.currentId=='admin'}">
 						<div class="mypage_btn">
