@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bookmarket.order.OrderDetailAction;
 import com.bookmarket.product.AddProductAction;
 import com.bookmarket.product.AllProductAction;
 import com.bookmarket.product.MainProductAction;
 import com.bookmarket.product.ModifiyProductViewAction;
 import com.bookmarket.product.ModifyProduct;
-import com.bookmarket.product.OrderDetailAction;
 import com.bookmarket.product.ProductCategoryAction;
 import com.bookmarket.product.ProductDelete;
 import com.bookmarket.product.ProductDirectBuyAction;
@@ -56,10 +56,6 @@ public class ProductController extends HttpServlet {
 			}
 			else if(requestPage.equals("SelectProductView.pd")) {
 				action=new SelectProductAction();
-				actionForward=action.execute(request, response);
-			}
-			else if(requestPage.equals("OrderDetail.pd")) {
-				action=new OrderDetailAction();
 				actionForward=action.execute(request, response);
 			}
 			else if(requestPage.equals("ProductManager.pd")) {

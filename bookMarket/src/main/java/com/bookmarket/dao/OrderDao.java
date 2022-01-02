@@ -9,8 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.bookmarket.dto.OrderDetailDto;
 import com.bookmarket.dto.order.OrderAddDto;
+import com.bookmarket.dto.order.OrderDetailDto;
 import com.bookmarket.dto.order.OrderListDto;
 
 public class OrderDao {
@@ -143,7 +143,10 @@ public class OrderDao {
 	
 	//주문 상세 내역 가져오기
 		public OrderDetailDto  getOrder_detail(String order_num){
-			sql="SELECT * FROM order_detail WHERE order_num=?";
+			sql="SELECT od.order_num,od.user_num,pd.pd_num,pd.pd_name,pd.pd_img,od.order_name,od.order_phone,od.order_address"
+					+ ",od.order_message,od.regdate,pd.pd_price,od.order_result"
+					+ " FROM order_detail od INNER JOIN products pd"
+					+ " ON(pd.pd_num=od.prod_num) WHERE order_num=?";
 			OrderDetailDto dto=null;
 			
 			try {
@@ -155,19 +158,17 @@ public class OrderDao {
 				if(rs.next()) {
 					dto=new OrderDetailDto();
 					dto.setOrder_num(rs.getString("order_num"));
-					dto.setProduct_num(rs.getInt("product_num"));
 					dto.setUser_num(rs.getInt("user_num"));
-					dto.setProduct_name(rs.getString("product_name"));
-					dto.setProduct_img(rs.getString("product_img"));
+					dto.setProd_num(rs.getInt("pd_num"));
+					dto.setProduct_name(rs.getString("pd_name"));
+					dto.setProduct_img(rs.getString("pd_img"));
 					dto.setOrder_name(rs.getString("order_name"));
 					dto.setOrder_phone(rs.getString("order_phone"));
-					dto.setOrder_home_phone(rs.getString("order_home_phone"));
 					dto.setOrder_address(rs.getString("order_address"));
 					dto.setOrder_message(rs.getString("order_message"));
-					dto.setOrder_amount(rs.getInt("order_amount"));
-					dto.setOrder_price(rs.getInt("order_price"));
+					dto.setOrder_price(rs.getInt("pd_price"));
 					dto.setOrder_result(rs.getInt("order_result"));
-					dto.setRegdate(rs.getString("regdate"));
+					dto.setRegdate(rs.getTimestamp("regdate"));
 				}
 				
 			}catch (Exception e) {

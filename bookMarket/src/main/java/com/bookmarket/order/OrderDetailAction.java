@@ -1,10 +1,10 @@
-package com.bookmarket.product;
+package com.bookmarket.order;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.dao.OrderDao;
-import com.bookmarket.dto.OrderDetailDto;
+import com.bookmarket.dto.order.OrderDetailDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
 
@@ -21,7 +21,7 @@ public class OrderDetailAction implements Action{
 		 request.setAttribute("dto", dto);
 		 
 		 ActionForward actionForward=new ActionForward();
-		 actionForward.setNextPath("/product/order_detailView.jsp");
+		 actionForward.setNextPath("/mypage/order_detailView.jsp");
 		 actionForward.setRedirect(false);
 		
 		 

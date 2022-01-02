@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bookmarket.dao.OrderDao;
-import com.bookmarket.dto.OrderDetailDto;
+import com.bookmarket.dto.order.OrderDetailDto;
 import com.bookmarket.dto.order.OrderListDto;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -24,7 +24,7 @@ public class OrderManagerAction implements Action{
 		request.setAttribute("list", list);
 		
 		ActionForward actionForward=new ActionForward();
-		actionForward.setNextPath("/product/order_Manager.jsp");
+		actionForward.setNextPath("/mypage/order_Manager.jsp");
 		actionForward.setRedirect(false);
 		
 		return actionForward;

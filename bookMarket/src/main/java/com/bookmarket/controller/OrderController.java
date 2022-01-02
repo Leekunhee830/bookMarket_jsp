@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bookmarket.order.OrderAdd;
+import com.bookmarket.order.OrderDetailAction;
 import com.bookmarket.order.OrderManagerAction;
 import com.bookmarket.util.Action;
 import com.bookmarket.util.ActionForward;
@@ -41,6 +42,11 @@ public class OrderController extends HttpServlet {
 			//주문리스트
 			else if(requestPage.equals("OrderManager.od")) {
 				action=new OrderManagerAction();
+				actionForward=action.execute(request, response);
+			}
+			//주문상세보기
+			else if(requestPage.equals("OrderDetail.od")) {
+				action=new OrderDetailAction();
 				actionForward=action.execute(request, response);
 			}
 			

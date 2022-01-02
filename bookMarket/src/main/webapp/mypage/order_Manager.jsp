@@ -5,7 +5,7 @@
 
 <jsp:include page="/layout/header.jsp"/>
 
-<link href="${pageContext.request.contextPath}/css/pd_css/order_Manager.css"  rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/member_css/order.css"  rel="stylesheet" type="text/css"/>
 
 	<div class="order_wrap">	
 		<c:choose>
@@ -27,8 +27,8 @@
 					<c:forEach var="dto" items="${requestScope.list}">
 						<tr>
 							<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.prod_num}"><img class="order_img" src="${pageContext.request.contextPath}/upLoadImg/${dto.prod_img}"/></a></th>
-								<th><a href="/bookMarket/product/OrderDetail.pd?orderNum=${dto.order_num}" class="order_num">${dto.order_num}</a></th>
-								<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.prod_num}">${dto.prod_name }</a></th>
+								<th><a href="/bookMarket/product/OrderDetail.od?orderNum=${dto.order_num}" class="order_num">${dto.order_num}</a></th>
+								<th><a href="/bookMarket/product/SelectProductView.pd?productNum=${dto.prod_num}">${dto.prod_name}</a></th>
 								<th><fmt:formatDate value="${dto.regdate}"/></th>
 								<th><fmt:formatNumber value="${dto.order_price}" type="number"/>원</th>
 								<c:choose>
