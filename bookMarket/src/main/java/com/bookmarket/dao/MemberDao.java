@@ -257,9 +257,6 @@ public class MemberDao {
 	public ArrayList<MemberDto> allSelect(){
 		ArrayList<MemberDto> list=new ArrayList<MemberDto>();
 		MemberDto dto=null;
-		String tmpPassword;
-		int passwordIndex=0;
-		
 		
 		sql="SELECT * FROM member";
 		

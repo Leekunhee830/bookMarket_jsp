@@ -9,7 +9,7 @@
 	<div class="qna_wrap">
 	
 		<div>
-			<h2>리뷰작성</h2>
+			<h2>Q&A작성</h2>
 		</div>
 		
 		<div class="qna_title">

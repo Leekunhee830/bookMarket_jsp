@@ -42,16 +42,16 @@
 		<!-- 상품정보/리뷰/Q&A/주문정보 시작 -->
 		<div class="tab_detail_info row">
 			<ul class="tab">
-				<li><a href="#">상품상세정보</a></li>
-				<li><a href="#">리 뷰</a></li>
-				<li><a href="#">Q & A</a></li>
-				<li><a href="#">반품/교환</a></li>
+				<li><a href="#prod_detail_info_box" id="tab_detail_a">상품상세정보</a></li>
+				<li><a href="#prod_review_box" id="tab_review_a">리 뷰</a></li>
+				<li><a href="#prod_qna_box" id="tab_qna_a">Q & A</a></li>
+				<li><a href="#" id="tab_exchange_a">반품/교환</a></li>
 			</ul>
 		</div>
 		<!-- 상품정보/리뷰/Q&A 끝 -->
 	
 		<!-- 상품 상세정보 시작 -->
-		<div>
+		<div id="prod_detail_info_box">
 			<h2>상품상세정보</h2>
 		</div>
 		<div>
@@ -71,7 +71,7 @@
 		<!-- 상품 상세정보 끝 -->
 		
 		<!-- 리뷰 박스 시작 -->
-		<div class="review_box">
+		<div class="review_box" id="prod_review_box">
 			<div class="review_header_box">
 				<div>
 					<h2>리뷰 (${requestScope.reviewCount})</h2>
@@ -100,7 +100,7 @@
 		<!-- 리뷰 박스 끝 -->
 		
 		<!-- Q&A 박스 시작 -->
-		<div class="review_box">
+		<div class="review_box" id="prod_qna_box">
 			<div class="review_header_box">
 				<div>
 					<h2>Q&A (${requestScope.qnaCount})</h2>

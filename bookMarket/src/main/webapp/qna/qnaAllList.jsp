@@ -25,7 +25,7 @@
 	
 	<!-- Q&A 목록 시작 -->
 	<div class="review_all_item_box">
-		<h2 class="review_font">리뷰</h2>
+		<h2 class="review_font">Q & A</h2>
 		<c:choose>
 			<c:when test="${requestScope.qnaList!=null}">
 				<c:forEach var="qna" items="${requestScope.qnaList}">
@@ -47,7 +47,7 @@
 			</c:when>
 			<c:otherwise>
 				<div class="non-review">
-					<h1>해당 상품 리뷰가 없습니다.</h1>
+					<h1>해당 상품 Q&A가 없습니다.</h1>
 				</div>
 			</c:otherwise>
 		</c:choose>
