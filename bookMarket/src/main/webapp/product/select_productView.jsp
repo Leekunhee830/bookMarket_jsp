@@ -42,10 +42,10 @@
 		<!-- 상품정보/리뷰/Q&A/주문정보 시작 -->
 		<div class="tab_detail_info row">
 			<ul class="tab">
-				<li><a href="#prod_detail_info_box" id="tab_detail_a">상품상세정보</a></li>
-				<li><a href="#prod_review_box" id="tab_review_a">리 뷰</a></li>
-				<li><a href="#prod_qna_box" id="tab_qna_a">Q & A</a></li>
-				<li><a href="#" id="tab_exchange_a">반품/교환</a></li>
+				<li><a href="#prod_detail_info_box">상품상세정보</a></li>
+				<li><a href="#prod_review_box">리 뷰</a></li>
+				<li><a href="#prod_qna_box">Q & A</a></li>
+				<li><a href="#prod_exchange_box">반품/교환</a></li>
 			</ul>
 		</div>
 		<!-- 상품정보/리뷰/Q&A 끝 -->
@@ -134,7 +134,35 @@
 			</div>
 		</div>
 		<!-- Q&A 박스 끝 -->
-		
+		<!-- 반품/교환 시작 -->
+		<div class="exchange_box">
+			<div id="prod_exchange_box"><h2 class="exchange_font">반품 및 교환안내</h2></div>
+			<p>반품 / 교환 안내</p>
+			<p>&nbsp;</p>
+			<p>1. 구매자 단순 변심은 상품 수령 후 7일 이내 교환 / 반품 가능합니다.</p>
+			<p>1-1 반품 배송비는 구매자에게 부담됩니다.</p>
+			<p>&nbsp;</p>
+			<p>2. 표시/광고와 상이, 상품 하자의 경우 상품 후령 후 3개월 이내 혹은 표시/광고와 다른 사실을 안 날로부터 30일 이내 교환 / 반품 가능합니다.</p>
+			<p>2-1 둘 중 하나 경과 시 반품/교화 불가</p>
+			<p>2-2 반품 배송비는 판매자에게 부담됩니다.</p>
+			<p>&nbsp;</p>
+			<p>반품 / 교환 불가능 사유</p>
+			<p>&nbsp;</p>
+			<p>1. 반품요청 기간이 지난 경우</p>
+			<p>2. 구매자의 책임이 있는 사유로 상품이 훼손 된 경우</p>
+			<p>3. 보장을 개봉하였거나 포장이 훼손 되어 상품 가치가 현저히 상실 된 경우</p>
+			<p>4. 구매자의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우</p>
+			<p>5. 시간의 경과에 의하여 재판매가 곤란할 정도로 상품 등의 가치가 현저히 감소한 경우</p>
+			<p>6. 복제가 가능한 상품 등의 포장을 훼손한 경우 </p>
+			<p>&nbsp;&nbsp;</p>
+			<p>환불안내</p>
+			<p>- 상품 청약철회 가능기간은 상품 수령일로 부터 7일 이내 입니다.</p>
+			<p>&nbsp;&nbsp;</p>
+			<p>AS안내</p>
+			<p>- 소비자분쟁해결 기준(공정거래위원회 고시)에 따라 피해를 보상받을 수 있습니다.</p>
+			<p>- A/S는 판매자에게 문의하시기 바랍니다.</p>
+		</div>
+		<!-- 반품/교환 끝 -->
 	</div>
 	<!-- 하단 박스 끝 -->
 <jsp:include page="/layout/footer.jsp"/>

@@ -13,3 +13,4 @@ function delete_cart(user_num,pd_num){
 		}
 	});
 }
+

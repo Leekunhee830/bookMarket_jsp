@@ -107,20 +107,6 @@ function addCart(user_num,product_num){
 		});
 	}
 	
-var tab1=$("#prod_detail_info_box").offset().top-100;
-var tab2=$("#prod_review_box").offset().top-100;
-var tab3=$("#prod_qna_box").offset().top-100;
-
-
-$("#tab_detail_a").click(function(event){
-	event.preventDefault();
-	$('html,body').animate({scrollTop:tab1+10},1000);	
-});
-
-$("#tab_review_a").click(function(event){
-	event.preventDefault();
-	$('html,body').animate({scrollTop:tab2+10},1000);	
-});
 
 }
 

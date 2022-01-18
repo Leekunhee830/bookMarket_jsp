@@ -70,10 +70,10 @@
 					</div>
 					<!-- 상품검색 시작 -->
 					<form action="prodSearch.pd" method="POST">
-						<p class="search">
+						<div class="search">
 							<input type="text" name="prodName" class="search_tag">
-							<input type="image" src="${pageContext.request.contextPath}/img/search.png" class="search_img">
-						</p>
+							<button class="search_btn">검색</button>
+						</div>
 					</form>
 					<!-- 상품검색 끝 -->
 				</div>

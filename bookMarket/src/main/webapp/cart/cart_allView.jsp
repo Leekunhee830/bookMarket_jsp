@@ -37,7 +37,7 @@
 							<th>${dto.pd_manufacturer}</th>
 							<th>
 								<span><fmt:formatNumber value="${dto.pd_price}" type="number" />원</span>
-								<div><input type="button" value="주문하기" onclick="order_view('${sessionScope.currentNum}','${dto.pd_num}')"></div>
+								<div><input type="button" value="주문하기" onclick="location.href='${pageContext.request.contextPath}/product/directBuy.pd?prodNum=${dto.pd_num}&userNum=${sessionScope.currentNum}'"></div>
 							</th>
 							<th><button type="button" class="cart_table_delete" onclick="delete_cart('${sessionScope.currentNum}','${dto.pd_num}')"></button></th>
 						</tr>
